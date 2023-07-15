@@ -1,42 +1,31 @@
 // /* ------------------------------- Logo Image ------------------------------- */
 import logo from "../assets/img/tesla-9.svg";
-import dropdownImgFirst from "../assets/img/feature_wall_connector.avif";
-import dropdownImgSecond from "../assets/img/1938526-00-A_flyout.avif";
-import dropdownImgThird from "../assets/img/1975353-00-A_Pride_tee_flyout.avif";
-import dropdownImgFourth from "../assets/img//1859926-00-A_flyout.avif";
+
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
+/* -------------------------------- Dropdown -------------------------------- */
+import DropdownCharging from "./dropdown/DropdownCharging";
+import DropdowVehicleAccessories from "./dropdown/DropdowVehicleAccessories";
+import DropdownApparel from "./dropdown/DropdownApparel";
+import DropdownLifestyle from "./dropdown/DropdownLifestyle";
+
 /* ---------------------------------- Icon ---------------------------------- */
 import {
   AiOutlineShoppingCart,
   AiOutlineSearch,
   AiOutlineClose,
   AiOutlineRight,
+  AiOutlineLeft,
 } from "react-icons/ai";
 import { MdOutlineLanguage } from "react-icons/md";
-
-import { useState } from "react";
 
 const Header = () => {
   //   /* ------------------------------- Local State ------------------------------ */
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [inpIsOpen, setInpIsOpen] = useState(false);
-  const [dropdownMenuState, setDropdownMenuState] = useState({
-    activeDropdown: null,
-  });
-  /* ----------------------------- Opened Dropmenu ---------------------------- */
-  const handleDropdownEnter = (dropdownName) => {
-    setDropdownMenuState({
-      ...dropdownMenuState,
-      activeDropdown: dropdownName,
-    });
-  };
-  /* ----------------------------- Closed Dropmenu ---------------------------- */
-  const handleDropdownLeave = () => {
-    setDropdownMenuState({
-      ...dropdownMenuState,
-      activeDropdown: null,
-    });
-  };
+  const [languageBox, setLanguageBox] = useState(false);
+  const [dropdownMenuState, setDropdownMenuState] = useState(null);
 
   return (
     <header className="header">
@@ -53,344 +42,37 @@ const Header = () => {
             <ul className="nav-list">
               <li
                 className="nav-items"
-                onMouseEnter={() => handleDropdownEnter("charging")}
-                onMouseLeave={handleDropdownLeave}
+                onMouseEnter={() => setDropdownMenuState("charging")}
+                onMouseLeave={() => setDropdownMenuState(null)}
               >
                 <Link>Charging</Link>
-                <div
-                  className={`dropdown-menu ${
-                    dropdownMenuState.activeDropdown === "charging"
-                      ? "isShown"
-                      : ""
-                  }`}
-                >
-                  <div className="dropdown-container">
-                    <div className="row">
-                      <div className="left-side">
-                        <div className="drop-list">
-                          <Link className="drop-title">At Home</Link>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">On The Road</Link>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">Parts</Link>
-                        </div>
-                      </div>
-                      <div className="right-side">
-                        <div className="top">
-                          <img src={dropdownImgFirst} alt="charging" />
-                        </div>
-                        <h3 className="title">Wall Conector</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <DropdownCharging dropdownMenuState={dropdownMenuState} />
               </li>
               <li
                 className="nav-items"
-                onMouseEnter={() => handleDropdownEnter("vehicleAccessories")}
-                onMouseLeave={handleDropdownLeave}
+                onMouseEnter={() => setDropdownMenuState("vehicleAccessories")}
+                onMouseLeave={() => setDropdownMenuState(null)}
               >
                 <Link>Vehicle Accessories</Link>
-                <div
-                  className={`dropdown-menu ${
-                    dropdownMenuState.activeDropdown === "vehicleAccessories"
-                      ? "isShown"
-                      : ""
-                  }`}
-                >
-                  <div className="dropdown-container">
-                    <div className="row">
-                      <div className="left-side">
-                        <div className="drop-list">
-                          <Link className="drop-title">Model S</Link>
-                          <ul className="dropmenu-list">
-                            <li className="drop-item">
-                              <Link>Best Sellers</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Interior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Exterior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Wheels and Tires</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Floor Mats</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Parts</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Keys</Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">Model 3</Link>
-                          <ul className="dropmenu-list">
-                            <li className="drop-item">
-                              <Link>Best Sellers</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Interior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Exterior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Wheels and Tires</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Floor Mats</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Parts</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Keys</Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">Model X</Link>
-                          <ul className="dropmenu-list">
-                            <li className="drop-item">
-                              <Link>Best Sellers</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Interior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Exterior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Wheels and Tires</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Floor Mats</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Parts</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Keys</Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">Model Y</Link>
-                          <ul className="dropmenu-list">
-                            <li className="drop-item">
-                              <Link>Best Sellers</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Interior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Exterior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Wheels and Tires</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Floor Mats</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Parts</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Keys</Link>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="right-side">
-                        <div className="top">
-                          <img src={dropdownImgSecond} alt="cars" />
-                        </div>
-                        <h3 className="title">Wall Conector</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <DropdowVehicleAccessories
+                  dropdownMenuState={dropdownMenuState}
+                />
               </li>
               <li
                 className="nav-items"
-                onMouseEnter={() => handleDropdownEnter("apparel")}
-                onMouseLeave={handleDropdownLeave}
+                onMouseEnter={() => setDropdownMenuState("apparel")}
+                onMouseLeave={() => setDropdownMenuState(null)}
               >
                 <Link>Apparel</Link>
-                <div
-                  className={`dropdown-menu ${
-                    dropdownMenuState.activeDropdown === "apparel"
-                      ? "isShown"
-                      : ""
-                  }`}
-                >
-                  <div className="dropdown-container">
-                    <div className="row">
-                      <div className="left-side">
-                        <div className="drop-list">
-                          <Link className="drop-title">At Home</Link>
-                          <ul className="dropmenu-list">
-                            <li className="drop-item">
-                              <Link>Best Sellers</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Interior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Exterior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Wheels and Tires</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Floor Mats</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Parts</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Keys</Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">At Home</Link>
-                          <ul className="dropmenu-list">
-                            <li className="drop-item">
-                              <Link>Best Sellers</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Interior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Exterior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Wheels and Tires</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Floor Mats</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Parts</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Keys</Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">At Home</Link>
-                          <ul className="dropmenu-list">
-                            <li className="drop-item">
-                              <Link>Best Sellers</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Interior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Exterior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Wheels and Tires</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Floor Mats</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Parts</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Keys</Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">At Home</Link>
-                          <ul className="dropmenu-list">
-                            <li className="drop-item">
-                              <Link>Best Sellers</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Interior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Exterior</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Wheels and Tires</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Floor Mats</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Parts</Link>
-                            </li>
-                            <li className="drop-item">
-                              <Link>Keys</Link>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="right-side">
-                        <img src={dropdownImgThird} alt="tshirt" />
-                        <h3 className="title">Wall Conector</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <DropdownApparel dropdownMenuState={dropdownMenuState} />
               </li>
               <li
                 className="nav-items"
-                onMouseEnter={() => handleDropdownEnter("lifestyle")}
-                onMouseLeave={handleDropdownLeave}
+                onMouseEnter={() => setDropdownMenuState("lifestyle")}
+                onMouseLeave={() => setDropdownMenuState(null)}
               >
                 <Link>Lifestyle</Link>
-                <div
-                  className={`dropdown-menu ${
-                    dropdownMenuState.activeDropdown === "lifestyle"
-                      ? "isShown"
-                      : ""
-                  }`}
-                >
-                  <div className="dropdown-container">
-                    <div className="row">
-                      <div className="left-side">
-                        <div className="drop-list">
-                          <Link className="drop-title">Best Sellers</Link>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">Bags</Link>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">DrinkWare</Link>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">Mini Tesla</Link>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">Outdoor & Tech</Link>
-                        </div>
-                        <div className="drop-list">
-                          <Link className="drop-title">Gift Card</Link>
-                        </div>
-                      </div>
-                      <div className="right-side">
-                        <div className="top">
-                          <img src={dropdownImgFourth} alt="bags" />
-                        </div>
-                        <h3 className="title">Mega Pack</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <DropdownLifestyle dropdownMenuState={dropdownMenuState} />
               </li>
             </ul>
           </nav>
@@ -416,12 +98,12 @@ const Header = () => {
         </div>
       </div>
       <div className={menuIsOpen ? "menu-box isOpenMenu " : "menu-box"}>
-        <div className="cartHead">
+        <div className="cart-head">
           <div className="icon">
             <AiOutlineClose onClick={() => setMenuIsOpen(false)} />
           </div>
         </div>
-        <div className="cartBody">
+        <div className="cart-body">
           <form className="seacrh-form-mobile"></form>
           <ul className="nav-list-mobile">
             <li className="nav-items">
@@ -456,8 +138,8 @@ const Header = () => {
             <li className="menu-items">
               <Link>Sign In</Link>
             </li>
-            <li className="languageSelect menu-items">
-              <Link>
+            <li className="language-select menu-items">
+              <div className="info" onClick={()=>setLanguageBox(true)}>
                 <div className="left-side">
                   <MdOutlineLanguage />
                 </div>
@@ -465,7 +147,48 @@ const Header = () => {
                   <h5 className="country">United States</h5>
                   <p className="language">English</p>
                 </div>
-              </Link>
+              </div>
+              <div
+                className={
+                  languageBox
+                    ? "language-list menu-box isOpenMenu"
+                    : "language-list menu-box"
+                }
+              >
+                <div className="cart-head">
+                  <span className="navigate" onClick={()=>setLanguageBox(false)}>
+                    <div className="back-icon">
+                      <AiOutlineLeft />
+                    </div>
+                    Back
+                  </span>
+                  <div className="icon">
+                    <AiOutlineClose onClick={() => setMenuIsOpen(false)} />
+                  </div>
+                </div>
+                <div className="cart-body">
+                  <ul className="menu-general-info-list">
+                    <h4 className="continent">North America</h4>
+                    <li className="select-language menu-items">
+                      <h5 className="country">United States</h5>
+                      <p className="language">English</p>
+                    </li>
+                    <li className="select-language menu-items">
+                      <h5 className="country">United States</h5>
+                      <p className="language">English</p>
+                    </li>
+                    <li className="select-language menu-items">
+                      <h5 className="country">United States</h5>
+                      <p className="language">English</p>
+                    </li>
+                    <h4 className="continent">North America</h4>
+                    <li className="select-language menu-items">
+                      <h5 className="country">United States</h5>
+                      <p className="language">English</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -483,4 +206,3 @@ const Header = () => {
 };
 
 export default Header;
-/* ------------------------------- Logo Image ------------------------------- */
