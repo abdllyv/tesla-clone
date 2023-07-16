@@ -24,8 +24,8 @@ const Header = () => {
   //   /* ------------------------------- Local State ------------------------------ */
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [inpIsOpen, setInpIsOpen] = useState(false);
-  const [languageBox, setLanguageBox] = useState(false);
   const [dropdownMenuState, setDropdownMenuState] = useState(null);
+  const [languageBox, setLanguageBox] = useState(false);
 
   return (
     <header className="header">
@@ -139,7 +139,7 @@ const Header = () => {
               <Link>Sign In</Link>
             </li>
             <li className="language-select menu-items">
-              <div className="info" onClick={()=>setLanguageBox(true)}>
+              <div className="info" onClick={() => setLanguageBox(true)}>
                 <div className="left-side">
                   <MdOutlineLanguage />
                 </div>
@@ -148,54 +148,62 @@ const Header = () => {
                   <p className="language">English</p>
                 </div>
               </div>
-              <div
-                className={
-                  languageBox
-                    ? "language-list menu-box isOpenMenu"
-                    : "language-list menu-box"
-                }
-              >
-                <div className="cart-head">
-                  <span className="navigate" onClick={()=>setLanguageBox(false)}>
-                    <div className="back-icon">
-                      <AiOutlineLeft />
-                    </div>
-                    Back
-                  </span>
-                  <div className="icon">
-                    <AiOutlineClose onClick={() => setMenuIsOpen(false)} />
-                  </div>
-                </div>
-                <div className="cart-body">
-                  <ul className="menu-general-info-list">
-                    <h4 className="continent">North America</h4>
-                    <li className="select-language menu-items">
-                      <h5 className="country">United States</h5>
-                      <p className="language">English</p>
-                    </li>
-                    <li className="select-language menu-items">
-                      <h5 className="country">United States</h5>
-                      <p className="language">English</p>
-                    </li>
-                    <li className="select-language menu-items">
-                      <h5 className="country">United States</h5>
-                      <p className="language">English</p>
-                    </li>
-                    <h4 className="continent">North America</h4>
-                    <li className="select-language menu-items">
-                      <h5 className="country">United States</h5>
-                      <p className="language">English</p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        className={
+          languageBox
+            ? "language-list menu-box isOpenMenu"
+            : "language-list menu-box"
+        }
+      >
+        <div className="cart-head">
+          <span className="navigate" onClick={() => setLanguageBox(false)}>
+            <div className="back-icon">
+              <AiOutlineLeft />
+            </div>
+            Back
+          </span>
+          <div className="icon">
+            <AiOutlineClose
+              onClick={() => {
+                setMenuIsOpen(false);
+                setLanguageBox(false);
+              }}
+            />
+          </div>
+        </div>
+        <div className="cart-body">
+          <ul className="menu-general-info-list">
+            <h4 className="continent">North America</h4>
+            <li className="select-language menu-items">
+              <h5 className="country">United States</h5>
+              <p className="language">English</p>
+            </li>
+            <li className="select-language menu-items">
+              <h5 className="country">United States</h5>
+              <p className="language">English</p>
+            </li>
+            <li className="select-language menu-items">
+              <h5 className="country">United States</h5>
+              <p className="language">English</p>
+            </li>
+            <h4 className="continent">North America</h4>
+            <li className="select-language menu-items">
+              <h5 className="country">United States</h5>
+              <p className="language">English</p>
             </li>
           </ul>
         </div>
       </div>
       <div
         className={`overlay  ${menuIsOpen && "isOpen"} `}
-        onClick={() => setMenuIsOpen(false)}
+        onClick={() => {
+          setMenuIsOpen(false);
+          setLanguageBox(false);
+        }}
       ></div>
       <div
         className={`overlay-inp  ${inpIsOpen && "isOpen"} `}
