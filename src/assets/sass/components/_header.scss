@@ -137,6 +137,38 @@
       }
     }
   }
+  /* --------------------------- Repeat design-------------------------- */
+  .icon {
+    font-size: 19px;
+    line-height: 2px;
+    padding: 3px;
+    border-radius: 4px;
+    transition: 0.3s ease;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  .cart-head-dropdown {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0 24px;
+    .navigate {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      .back-icon {
+        line-height: 2px;
+        font-size: 13px;
+      }
+    }
+  }
+
+  /* ----------------------------- Toggle  Menu ---------------------------- */
   .menu-box {
     background-color: #fff;
     padding: 0 32px;
@@ -162,16 +194,6 @@
       justify-content: flex-end;
       align-items: center;
       margin: 16px 0 24px;
-      .icon {
-        font-size: 19px;
-        line-height: 2px;
-        padding: 3px;
-        border-radius: 4px;
-        transition: 0.3s ease;
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.05);
-        }
-      }
     }
     .cart-body {
       .nav-list-mobile {
@@ -182,9 +204,12 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          a {
-            border-radius: 4px;
-            padding: 8px;
+          cursor: pointer;
+          .text {
+            display: inline-block;
+            font-size: 15px;
+            color: #3c3c3c;
+            font-weight: 600;
           }
         }
       }
@@ -250,22 +275,9 @@
       }
     }
   }
+
+  /* ----------------------------- Language Group ----------------------------- */
   .language-list {
-    .cart-head {
-      justify-content: space-between;
-      align-items: center;
-      .navigate {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        .back-icon {
-          line-height: 2px;
-          font-size: 13px;
-        }
-      }
-    }
     .cart-body {
       .menu-general-info-list {
         .continent {
@@ -281,6 +293,62 @@
           &:hover {
             background-color: rgba(0, 0, 0, 0.05);
           }
+        }
+      }
+    }
+  }
+
+  /* ------------------------------- Mobile Menu ------------------------------ */
+  .dropdown-details-mobile {
+    overflow-y: scroll;
+    margin-right: 4px;
+    padding: 0 28px 0 32px;
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: #757575;
+    }
+    &::-webkit-scrollbar-track-piece:end {
+      margin-bottom: 15px;
+    }
+
+    &::-webkit-scrollbar-track-piece:start {
+      margin-top: 15px;
+    }
+    .cart-body {
+      .current-page {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 28px;
+      }
+      .card {
+        text-align: center;
+        .top {
+          width: 100%;
+          height: 170px;
+          border-radius: 6px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          .car-img {
+            object-fit: contain;
+            background-color: #eee;
+          }
+        }
+        .title {
+          color: #171a20;
+          font-size: 20px;
+          font-weight: 600;
+          padding: 8px 0;
+          margin-bottom: 10px;
         }
       }
     }
