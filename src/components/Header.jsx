@@ -37,6 +37,7 @@ import {
   AiOutlineLeft,
 } from "react-icons/ai";
 import { MdOutlineLanguage } from "react-icons/md";
+import WhiteBlackBtn from "./WhiteBlackBtn";
 
 const Header = () => {
   //   /* ------------------------------- Local State ------------------------------ */
@@ -278,6 +279,7 @@ const Header = () => {
             </div>
             <h4 className="title">Parts</h4>
           </Link>
+          <WhiteBlackBtn text={"View All"}/>
         </div>
       </div>
       {/* vehicle-accessories */}
@@ -328,6 +330,7 @@ const Header = () => {
             </div>
             <h4 className="title">Model X</h4>
           </Link>
+          <WhiteBlackBtn text={"View All"}/>
         </div>
       </div>
       {/* apparel */}
@@ -372,6 +375,7 @@ const Header = () => {
             </div>
             <h4 className="title">Kids</h4>
           </Link>
+          <WhiteBlackBtn text={"View All"}/>
         </div>
       </div>
       {/* lifestyle */}
@@ -434,6 +438,7 @@ const Header = () => {
             </div>
             <h4 className="title">Gift Card</h4>
           </Link>
+          <WhiteBlackBtn text={"View All"}/>
         </div>
       </div>
       {/* ------------------------------ End Mobile Menu------------------------------  */}
