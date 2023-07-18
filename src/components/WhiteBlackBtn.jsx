@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const WhiteBlackBtn = ({text}) => {
   return (
-    <div className='white-black-btn'>
+    <div className='white-black-btn btn'>
         <Link>{text}</Link>
     </div>
   )

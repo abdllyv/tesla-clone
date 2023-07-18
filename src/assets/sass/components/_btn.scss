@@ -1,21 +1,34 @@
-.white-black-btn{
-    min-width: 283px;
-    margin-bottom: 32px;
-    a{
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        font-size: 15px;
-        font-weight: 600;
-        border: 3px solid #171a20;
-        border-radius: 4px;
-        color: #171a20;
-        padding: 4px  24px;
-        transition: .33s ease;
-        &:hover{
-            color: #fff;
-            background-color: #171a20;
-        }
+/* --------------------------- General Btn Design --------------------------- */
+.btn {
+  a {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+    color: #171a20;
+  }
+}
+
+.white-black-btn {
+  width: auto;
+  margin-bottom: 32px;
+  a {
+    border: 3px solid #171a20;
+    padding: 4px 24px;
+    transition: 0.33s ease;
+    &:hover {
+      color: #fff;
+      background-color: #171a20;
     }
+  }
+}
+.static-btn {
+  min-width: 283px;
+  a {
+    background-color: #fff;
+    padding: 10px 24px;
+  }
 }

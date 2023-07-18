@@ -1,8 +1,9 @@
 .header {
   width: 100%;
-  background-color: #fff;
+  background-color: transparent;
   position: fixed;
   top: 0;
+  z-index: 10;
   /* ------------------------------- Reset Code ------------------------------- */
   li a {
     display: inline-block;
@@ -107,19 +108,18 @@
         .cart {
           position: relative;
           .count {
-            position: absolute;
-            color: #fff;
+            font-size: 12px;
             background-color: #3e6ae1;
             border-radius: 50%;
-            font-size: 12px;
-            height: 15px;
+            color: #fff;
             line-height: 16px;
-            margin: 0 auto;
+            text-align: center;
             position: absolute;
             right: -3px;
-            text-align: center;
             top: -3px;
+            height: 15px;
             width: 15px;
+            margin: 0 auto;
           }
           svg {
             font-size: 23px;
@@ -410,6 +410,39 @@
           display: block;
         }
       }
+    }
+  }
+}
+@media (max-width: 320px) {
+  .header {
+    .container {
+      padding: 0 5px;
+      .row {
+        .logo {
+          .logo-img {
+            padding: 0 10px;
+            width: 90px;
+            img {
+              width: 90%;
+            }
+          }
+          .current-page {
+            padding: 4px;
+            margin-left: 0px;
+          }
+        }
+        .user-area {
+          .menu-text {
+            margin-left: 3px;
+            padding: 4px;
+          }
+        }
+      }
+    }
+
+    /* ----------------------------- Toggle  Menu ---------------------------- */
+    .menu-box {
+      width: 100%;
     }
   }
 }

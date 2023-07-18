@@ -1,6 +1,12 @@
-// Reset Code
+/* ------------------------------ Reset Code ----------------------------- */
 @import "./base"; 
-// Components
+
+/* ------------------------------  Components ----------------------------- */
 @import "./components/header";
 @import "./components/dropdown";
 @import "./components/btn";
+
+/* ---------------------------------- Pages --------------------------------- */
+@import "./pages/home-slider";
+@import "./pages/best-sellers-slider";
+
