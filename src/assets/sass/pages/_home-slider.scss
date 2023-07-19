@@ -1,3 +1,4 @@
+/* ------------------------------ Home Section ------------------------------ */
 .home {
   width: 100%;
   .home-slider {
@@ -52,7 +53,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .home {
     .home-slider {
       .swiper {

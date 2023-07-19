@@ -1,0 +1,95 @@
+/* ----------------------------- Models Section ----------------------------- */
+.models {
+  width: 100%;
+  .product-category {
+    width: 100%;
+    height: 95vh;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .mobile-img {
+      display: none;
+    }
+    .info {
+      font-weight: 600;
+      color: #fff;
+      position: absolute;
+      bottom: 80px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: center;
+      .title {
+        font-size: 34px;
+        margin-bottom: 12px;
+      }
+      .white-black-btn {
+        min-width: 283px;
+      }
+
+      .static-btn {
+        margin: 24px 24px 0;
+      }
+    }
+  }
+  .clothes-category {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .product-category {
+      width: 32%;
+      .info {
+        bottom: 30px;
+        .title {
+          color: #000;
+          font-size: 22px;
+        }
+        .white-black-btn {
+          min-width: auto;
+        }
+      }
+    }
+  }
+}
+
+/* ------------------------------- Responsive ------------------------------- */
+@media (max-width: 650px) {
+  .models {
+    .product-category {
+      .mobile-img {
+        display: block;
+      }
+      .deskop-img {
+        display: none;
+      }
+      .info {
+        padding: 0 5px;
+        .title {
+          font-size: 24px;
+          margin-bottom: 8px;
+        }
+        .static-btn,
+        .white-black-btn {
+          min-width: 90%;
+        }
+      }
+    }
+    .clothes-category {
+      flex-direction: column;
+      .product-category {
+        width: 100%;
+        .info {
+          .white-black-btn {
+            min-width: 90%;
+          }
+        }
+      }
+    }
+  }
+}
