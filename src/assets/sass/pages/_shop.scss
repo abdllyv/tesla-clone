@@ -1,0 +1,90 @@
+/* ------------------------------ Shop Section ------------------------------ */
+.shop {
+  padding-top: 80px;
+  .container {
+    padding: 0 48px;
+    .category-head {
+      .title {
+        font-size: 24px;
+      }
+    }
+    .category-container {
+      margin-top: 40px;
+      .category-title {
+        font-size: 22px;
+        font-weight: 500;
+      }
+      .products {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        column-gap: 2%;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+/* ------------------------------- Responsive ------------------------------- */
+@media (max-width: 1024px) {
+  .shop {
+    .container {
+      padding: 0 36px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .shop {
+    .container {
+      padding: 0 24px;
+      .category-head {
+        .title {
+          font-size: 24px;
+        }
+      }
+      .category-head {
+        .title {
+          font-size: 24px;
+        }
+      }
+      .category-container {
+        margin-top: 40px;
+
+        .products {
+          justify-content: space-between;
+          column-gap: 0;
+
+          flex-wrap: wrap;
+          .shop-card {
+            width: 49%;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  .shop {
+    .container {
+      padding: 0 10px;
+
+      .category-head {
+        .title {
+          font-size: 20px;
+        }
+      }
+      .category-container {
+        margin-top: 20px;
+        .category-title {
+          font-size: 17px;
+        }
+        .products {
+            margin-top: 10px;
+          .shop-card {
+            width: 100%;
+            margin: 15px 0;
+          }
+        }
+      }
+    }
+  }
+}

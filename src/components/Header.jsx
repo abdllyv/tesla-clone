@@ -64,7 +64,7 @@ const Header = () => {
                 onMouseEnter={() => setDropdownMenuState("charging")}
                 onMouseLeave={() => setDropdownMenuState(null)}
               >
-                <Link>Charging</Link>
+                <Link to="/shop">Charging</Link>
                 <DropdownCharging dropdownMenuState={dropdownMenuState} />
               </li>
               <li
