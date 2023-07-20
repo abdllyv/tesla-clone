@@ -15,14 +15,17 @@
 .white-black-btn {
   width: auto;
   margin-bottom: 32px;
+  z-index: 1;
+  &:hover {
+    a {
+      color: #fff;
+      background-color: #171a20;
+    }
+  }
   a {
     border: 3px solid #171a20;
     padding: 8px 24px;
     transition: 0.33s ease;
-    &:hover {
-      color: #fff;
-      background-color: #171a20;
-    }
   }
 }
 .static-btn {

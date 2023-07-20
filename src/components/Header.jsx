@@ -18,9 +18,9 @@ import outDoor from "../assets/img/lifestyle/FeaturedNav_w_charger.avif";
 import giftCart from "../assets/img/lifestyle/Tesla_giftcard.avif";
 
 /* --------------------------------- Router --------------------------------- */
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 /* ----------------------------------React Hook ---------------------------------- */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /* -------------------------------- Dropdown -------------------------------- */
 import DropdownCharging from "./dropdown/DropdownCharging";
@@ -43,11 +43,55 @@ const Header = () => {
   //   /* ------------------------------- Local State ------------------------------ */
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [inpIsOpen, setInpIsOpen] = useState(false);
+  /* --------------------------- DropDown open-close -------------------------- */
   const [dropdownMenuState, setDropdownMenuState] = useState(null);
+  /* --------------------------- Language open-close -------------------------- */
   const [languageBox, setLanguageBox] = useState(false);
 
+  /* ------------------------- Header background color ------------------------ */
+  const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMouseOver, setIsMouseOver] = useState(false);
+
+  /* --------------------- Header Change Background Color --------------------- */
+  useEffect(() => {
+    if (location.pathname === "/") {
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY >= 100);
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [location]);
+  /* ------------------------ Other Page Default Design ----------------------- */
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setIsScrolled(false);
+      setIsMouseOver(false);
+    } else {
+      setIsScrolled(true);
+    }
+  }, [location]);
   return (
-    <header className="header">
+    <header
+      className={`header ${
+        isScrolled || (isMouseOver && location.pathname === "/")
+          ? "bg-white"
+          : ""
+      }`}
+      onMouseEnter={() => {
+        if (location.pathname === "/") {
+          setIsMouseOver(true);
+        }
+      }}
+      onMouseLeave={() => {
+        if (location.pathname === "/") {
+          setIsMouseOver(false);
+        }
+      }}
+    >
       <div className="container">
         <div className="row">
           <div className="logo">
@@ -55,7 +99,9 @@ const Header = () => {
               <img src={logo} alt="logo" />
             </Link>
             <span className="stick">|</span>
-            <Link className="current-page"> Shop</Link>
+            <Link className="current-page" to="/">
+              Shop
+            </Link>
           </div>
           <nav className="nav-bar">
             <ul className="nav-list">
@@ -279,7 +325,7 @@ const Header = () => {
             </div>
             <h4 className="title">Parts</h4>
           </Link>
-          <WhiteBlackBtn text={"View All"}/>
+          <WhiteBlackBtn text={"View All"} />
         </div>
       </div>
       {/* vehicle-accessories */}
@@ -330,7 +376,7 @@ const Header = () => {
             </div>
             <h4 className="title">Model X</h4>
           </Link>
-          <WhiteBlackBtn text={"View All"}/>
+          <WhiteBlackBtn text={"View All"} />
         </div>
       </div>
       {/* apparel */}
@@ -375,7 +421,7 @@ const Header = () => {
             </div>
             <h4 className="title">Kids</h4>
           </Link>
-          <WhiteBlackBtn text={"View All"}/>
+          <WhiteBlackBtn text={"View All"} />
         </div>
       </div>
       {/* lifestyle */}
@@ -438,7 +484,7 @@ const Header = () => {
             </div>
             <h4 className="title">Gift Card</h4>
           </Link>
-          <WhiteBlackBtn text={"View All"}/>
+          <WhiteBlackBtn text={"View All"} />
         </div>
       </div>
       {/* ------------------------------ End Mobile Menu------------------------------  */}

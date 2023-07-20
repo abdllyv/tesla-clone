@@ -1,6 +1,6 @@
 /* --------------------------------- Section -------------------------------- */
 import BestSellers from "./section/BestSellers";
-import CarModels from "./section/CarModels";
+import Models from "./section/Models";
 import HomeSlider from "./section/HomeSlider";
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
     <main>
       <HomeSlider />
       <BestSellers/>
-      <CarModels/>
+      <Models/>
     </main>
   );
 };

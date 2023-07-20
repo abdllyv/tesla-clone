@@ -17,7 +17,7 @@ const Shop = () => {
             <h1 className="title">Model S</h1>
           </div>
           {uniqueCategories.map((item) => (
-            <div className="category-container" key={item}>
+            <div className="category-container" key={item} id={item}>
               <h2 className="category-title">{item}</h2>
               <div className="products">
                 {productDb.map(

@@ -22,7 +22,7 @@ const HomeSlider = () => {
       <div className="home-slider">
         <Swiper
           slidesPerView={1}
-          spaceBetween={0}
+          spaceBetween={-1}
           loop={true}
           autoplay={{
             delay: 5000,

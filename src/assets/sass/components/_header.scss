@@ -5,6 +5,49 @@
   position: fixed;
   top: 0;
   z-index: 10;
+  transition: 0.3s ease;
+
+  &.bg-white {
+    background-color: #fff;
+    .container {
+      .row {
+        .logo {
+          .stick {
+            color: #000;
+          }
+          .current-page {
+            color: #3c3c3c;
+          }
+        }
+        .nav-bar {
+          .nav-list {
+            .nav-items {
+              a {
+                color: #3c3c3c;
+              }
+            }
+          }
+        }
+        .user-area {
+          .seacrh-form {
+            .seacrh-icon {
+              color: #000;
+            }
+          }
+          .cart {
+            position: relative;
+
+            svg {
+              color: #000;
+            }
+          }
+          .menu-text {
+            color: #535353;
+          }
+        }
+      }
+    }
+  }
   /* ------------------------------- Reset Code ------------------------------- */
   li a {
     display: inline-block;
@@ -29,10 +72,10 @@
           display: inline-block;
           font-size: 15px;
           font-weight: 500;
-          color: #000;
+          color: #fff;
         }
         .current-page {
-          color: #3c3c3c;
+          color: #fff;
           font-size: 15px;
           padding: 4px 8px;
           margin-left: 10px;
@@ -57,6 +100,7 @@
 
             a {
               margin: 0 8px;
+              color: #fff;
             }
             &:hover {
               background-color: #f4f4f4;
@@ -104,6 +148,7 @@
             align-items: center;
             font-size: 23px;
             padding: 2px;
+            color: #fff;
           }
         }
         .cart {
@@ -124,6 +169,7 @@
           }
           svg {
             font-size: 23px;
+            color: #fff;
           }
         }
         .menu-text {
@@ -132,7 +178,7 @@
           font-weight: 600;
           margin: 0 8px;
           padding: 4px 8px;
-          color: #535353;
+          color: #fff;
           cursor: pointer;
         }
       }
