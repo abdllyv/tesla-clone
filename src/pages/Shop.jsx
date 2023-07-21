@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import Cart from "../components/Cart";
-import productDb from "../db/productDb";
+import generalDb from "../db/generalDb";
 
 const Shop = () => {
+  const [data, setData] = useState([]);
   const [uniqueCategories, setUniqueCategories] = useState([]);
+
   useEffect(() => {
-    const categories = [...new Set(productDb.map((item) => item.category))];
+    generalDb.map(
+      (item) => item.categoryTitle === "ModelS" && setData(item.products)
+    );
+    const categories = [...new Set(data.map((item) => item.category))];
     setUniqueCategories(categories);
-  }, []);
-  console.log(uniqueCategories);
+  }, [data]);
   return (
     <main>
       <section className="shop">
@@ -20,7 +24,7 @@ const Shop = () => {
             <div className="category-container" key={item} id={item}>
               <h2 className="category-title">{item}</h2>
               <div className="products">
-                {productDb.map(
+                {data.map(
                   (product) =>
                     product.category === item && (
                       <Cart key={product.id} product={product} />

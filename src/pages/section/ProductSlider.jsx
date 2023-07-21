@@ -6,16 +6,22 @@ import "swiper/css/navigation";
 // import required modules
 import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
-import bestSellersDb from "../../db/bestSellersDb";
-const BestSellers = () => {
+import { useEffect, useState } from "react";
+import generalDb from "../../db/generalDb";
+const ProductSlider = ({title}) => {
+ const [data,setData]=useState([])
+
+ useEffect(()=>{
+generalDb.map(item=>item.categoryTitle===title && setData(item.products))
+ },[])
   return (
-    <section className="best-sellers-slider">
+    <section className="product-slider">
       <div className="container">
-        <h3 className="title">Best Sellers</h3>
+        <h3 className="title">{title}</h3>
         <div className="selers-slider">
           <Swiper
             slidesPerView={1}
-            spaceBetween={1}
+            spaceBetween={0}
             navigation={true}
             loop={true}
             breakpoints={{
@@ -31,13 +37,16 @@ const BestSellers = () => {
             modules={[Navigation]}
             className="mySwiper"
           >
-            {bestSellersDb.map((item) => (
+            {data.map((item) => (
               <SwiperSlide key={item.id}>
-                <Link className="card">
+                <Link className="card" to="/product-detail">
+                  <div className="cart-container">
+
                   <div className="top">
                     <img src={item.productIMg} alt={item.title} />
                   </div>
                   <h4 className="card-title">{item.title}</h4>
+                  </div>
                 </Link>
               </SwiperSlide>
             ))}
@@ -48,4 +57,4 @@ const BestSellers = () => {
   );
 };
 
-export default BestSellers;
+export default ProductSlider;

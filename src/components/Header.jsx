@@ -283,7 +283,8 @@ const Header = () => {
       {/* ------------------------------End Language Group------------------------------  */}
 
       {/* ------------------------------ Start Mobile Menu------------------------------  */}
-      {/* Charging */}
+
+      {/* ------------------------------ Charging ------------------------------  */}
       <div
         className={`dropdown-details-mobile menu-box ${
           dropdownMenuState === "charging-mobile" && "isOpenMenu"
@@ -328,7 +329,7 @@ const Header = () => {
           <WhiteBlackBtn text={"View All"} />
         </div>
       </div>
-      {/* vehicle-accessories */}
+      {/* ------------------------------ Vehicle-accessories ------------------------------  */}
       <div
         className={`dropdown-details-mobile menu-box ${
           dropdownMenuState === "vehicle-accessories" && "isOpenMenu"
@@ -379,7 +380,7 @@ const Header = () => {
           <WhiteBlackBtn text={"View All"} />
         </div>
       </div>
-      {/* apparel */}
+      {/* ------------------------------ Apparel ------------------------------  */}
       <div
         className={`dropdown-details-mobile menu-box ${
           dropdownMenuState === "apparel-mobile" && "isOpenMenu"
@@ -424,7 +425,7 @@ const Header = () => {
           <WhiteBlackBtn text={"View All"} />
         </div>
       </div>
-      {/* lifestyle */}
+      {/* ------------------------------ Lifestyle------------------------------  */}
       <div
         className={`dropdown-details-mobile menu-box ${
           dropdownMenuState === "lifestyle-mobile" && "isOpenMenu"

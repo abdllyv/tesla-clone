@@ -1,13 +1,13 @@
 /* --------------------------------- Section -------------------------------- */
-import BestSellers from "./section/BestSellers";
 import Models from "./section/Models";
 import HomeSlider from "./section/HomeSlider";
+import ProductSlider from "./section/ProductSlider";
 
 const Home = () => {
   return (
     <main>
       <HomeSlider />
-      <BestSellers/>
+      <ProductSlider title={"Best Seller"}/>
       <Models/>
     </main>
   );

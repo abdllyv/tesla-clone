@@ -16,7 +16,6 @@ const CarModels = () => {
     setLastProduct(modelDb.filter((item) => item.id === 9));
   }, []);
 
-  // console.log(clothesProduct);
   return (
     <section className="models">
       {product.map((item) => (
