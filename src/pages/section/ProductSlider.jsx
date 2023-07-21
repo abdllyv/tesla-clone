@@ -8,12 +8,14 @@ import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import generalDb from "../../db/generalDb";
-const ProductSlider = ({title}) => {
- const [data,setData]=useState([])
+const ProductSlider = ({ title }) => {
+  const [data, setData] = useState([]);
 
- useEffect(()=>{
-generalDb.map(item=>item.categoryTitle===title && setData(item.products))
- },[])
+  useEffect(() => {
+    generalDb.map(
+      (item) => item.categoryTitle === title && setData(item.products)
+    );
+  }, [title]);
   return (
     <section className="product-slider">
       <div className="container">
@@ -41,11 +43,10 @@ generalDb.map(item=>item.categoryTitle===title && setData(item.products))
               <SwiperSlide key={item.id}>
                 <Link className="card" to="/product-detail">
                   <div className="cart-container">
-
-                  <div className="top">
-                    <img src={item.productIMg} alt={item.title} />
-                  </div>
-                  <h4 className="card-title">{item.title}</h4>
+                    <div className="top">
+                      <img src={item.productIMg} alt={item.title} />
+                    </div>
+                    <h4 className="card-title">{item.title}</h4>
                   </div>
                 </Link>
               </SwiperSlide>
