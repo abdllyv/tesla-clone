@@ -12,54 +12,54 @@ const DropdowVehicleAccessories = ({ dropdownMenuState }) => {
         <div className="row">
           <div className="left-side">
             <div className="drop-list">
-              <Link className="drop-title">Model S</Link>
+              <Link className="drop-title" to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}>Model S</Link>
               <ul className="dropmenu-list">
                 <li className="drop-item">
-                  <Link>Best Sellers</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}>Best Sellers</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Interior</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}>Interior</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Exterior</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}>Exterior</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Wheels and Tires</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}>Wheels and Tires</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Floor Mats</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}>Floor Mats</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Parts</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}>Parts</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Keys</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}>Keys</Link>
                 </li>
               </ul>
             </div>
             <div className="drop-list">
-              <Link className="drop-title">Model 3</Link>
+              <Link className="drop-title" to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}>Model 3</Link>
               <ul className="dropmenu-list">
                 <li className="drop-item">
-                  <Link>Best Sellers</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}>Best Sellers</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Interior</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}>Interior</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Exterior</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}>Exterior</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Wheels and Tires</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}>Wheels and Tires</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Floor Mats</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}>Floor Mats</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Parts</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}>Parts</Link>
                 </li>
                 <li className="drop-item">
-                  <Link>Keys</Link>
+                  <Link to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}>Keys</Link>
                 </li>
               </ul>
             </div>

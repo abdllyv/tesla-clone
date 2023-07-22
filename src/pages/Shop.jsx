@@ -1,36 +1,62 @@
 import { useEffect, useState } from "react";
 import Cart from "../components/Cart";
 import generalDb from "../db/generalDb";
+import { useParams } from "react-router-dom";
 
 const Shop = () => {
+  /* ------------------------------- Local State ------------------------------ */
   const [data, setData] = useState([]);
-  const [uniqueCategories, setUniqueCategories] = useState([]);
+  /* --------------------------------- Params --------------------------------- */
+  const { categoryName, categoryTitleName } = useParams();
 
   useEffect(() => {
-    generalDb.map(
-      (item) => item.categoryTitle === "ModelS" && setData(item.products)
-    );
-    const categories = [...new Set(data.map((item) => item.category))];
-    setUniqueCategories(categories);
-  }, [data]);
+    generalDb.map((products) => {
+      if (
+        products.category === categoryName &&
+        categoryTitleName === "products"
+      ) {
+        return setData(products.items);
+      } else if (
+        products.category === categoryName &&
+        categoryTitleName !== "products"
+      ) {
+        return products.items.map(
+          (item) => item.categoryTitle === categoryTitleName && setData([item])
+        );
+      } else {
+        return null;
+      }
+    });
+  }, [categoryName, categoryTitleName]);
+
   return (
     <main>
       <section className="shop">
         <div className="container">
-          <div className="category-head">
-            <h1 className="title">Model S</h1>
-          </div>
-          {uniqueCategories.map((item) => (
-            <div className="category-container" key={item} id={item}>
-              <h2 className="category-title">{item}</h2>
-              <div className="products">
-                {data.map(
-                  (product) =>
-                    product.category === item && (
-                      <Cart key={product.id} product={product} />
-                    )
-                )}
+          {data.map((item) => (
+            <div className="products" key={item.id}>
+              <div className="category-head">
+                <h1 className="title">{item.categoryTitle}</h1>
               </div>
+              {Array.from(
+                new Set(item.products.map((product) => product.categoryType))
+              ).map((categoryType) => (
+                <div
+                  className="category-container"
+                  key={categoryType}
+                  id={categoryType}
+                >
+                  <h2 className="category-title">{categoryType}</h2>
+                  <div className="products">
+                    {item.products.map(
+                      (product) =>
+                        product.categoryType === categoryType && (
+                          <Cart key={product.id} product={product} category={categoryName} categoryTitle={item.categoryTitle} />
+                        )
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
         </div>

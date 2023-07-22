@@ -110,7 +110,7 @@ const Header = () => {
                 onMouseEnter={() => setDropdownMenuState("charging")}
                 onMouseLeave={() => setDropdownMenuState(null)}
               >
-                <Link to="/shop">Charging</Link>
+                <Link>Charging</Link>
                 <DropdownCharging dropdownMenuState={dropdownMenuState} />
               </li>
               <li
@@ -118,7 +118,9 @@ const Header = () => {
                 onMouseEnter={() => setDropdownMenuState("vehicleAccessories")}
                 onMouseLeave={() => setDropdownMenuState(null)}
               >
-                <Link>Vehicle Accessories</Link>
+                <Link to={`/shop/${"Vehicle Accessories"}/${"products"}`}>
+                  Vehicle Accessories
+                </Link>
                 <DropdowVehicleAccessories
                   dropdownMenuState={dropdownMenuState}
                 />
@@ -353,13 +355,13 @@ const Header = () => {
         </div>
         <div className="cart-body">
           <h2 className="current-page">Vehicle Accessories</h2>
-          <Link className="card">
+          <Link className="card" to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}>
             <div className="top">
               <img src={modelS} alt="teslaCar" className="car-img" />
             </div>
             <h4 className="title">Model S</h4>
           </Link>
-          <Link className="card">
+          <Link className="card" to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}>
             <div className="top">
               <img src={model3} alt="teslaCar" className="car-img" />
             </div>

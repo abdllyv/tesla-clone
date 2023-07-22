@@ -4,8 +4,8 @@ import test3 from "../assets/img/best-sellers-slider/1448751-00-B_0_2000.avif";
 import test4 from "../assets/img/best-sellers-slider/1562262-00-A_10_2000.avif";
 import test5 from "../assets/img/best-sellers-slider/1616599-00-A_0_2000.avif";
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -17,9 +17,51 @@ import "swiper/css/thumbs";
 // import required modules
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 import ProductSlider from "./section/ProductSlider";
+import generalDb from "../db/generalDb";
 
 const ProductDetail = () => {
+  /* ------------------------------- Loacl State ------------------------------ */
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  /* --------------------------------- Params --------------------------------- */
+  const { categoryName, categoryTitleName, productId } = useParams();
+
+  useEffect(() => {
+    const foundCategory = generalDb.find(
+      (item) => item.category === categoryName
+    );
+    if (foundCategory) {
+      const foundItem = foundCategory.items.find(
+        (item) => item.categoryTitle === categoryTitleName
+      );
+      if (foundItem) {
+        const foundProduct = foundItem.products.find(
+          (product) => product.id === Number(productId)
+        );
+        if (foundProduct) {
+          setSelectedProduct(foundProduct);
+        } else {
+          setSelectedProduct(null);
+        }
+      } else {
+        setSelectedProduct(null);
+      }
+    } else {
+      setSelectedProduct(null);
+    }
+  }, [categoryName, categoryTitleName, productId]);
+  console.log(selectedProduct)
+
+  // optional chaining
+  // useEffect(() => {
+  //   const foundProduct = generalDb
+  //     .find((item) => item.category === categoryName)
+  //     ?.items.find((item) => item.categoryTitle === categoryTitleName)
+  //     ?.products.find((product) => product.id === Number(productId));
+
+  //   setSelectedProduct(foundProduct || null);
+  // }, [categoryName, categoryTitleName, productId]);
   return (
     <main>
       <section className="product-detail">
@@ -37,21 +79,14 @@ const ProductDetail = () => {
                 modules={[FreeMode, Navigation, Thumbs, Pagination]}
                 className="mySwiper2"
               >
-                <SwiperSlide>
-                  <img src={test1} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={test2} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={test3} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={test4} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={test5} alt="" />
-                </SwiperSlide>
+                {selectedProduct?.images.map((item) => (
+                  <SwiperSlide key={item.id}>
+                    <img
+                      src={item.productImg}
+                      alt={selectedProduct?.title}
+                    />
+                  </SwiperSlide>
+                ))}
               </Swiper>
               <Swiper
                 onSwiper={setThumbsSwiper}
@@ -62,29 +97,20 @@ const ProductDetail = () => {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper"
               >
-                <SwiperSlide>
-                  <img src={test1} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={test2} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={test3} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={test4} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={test5} alt="" />
-                </SwiperSlide>
+                {selectedProduct?.images.map((item) => (
+                  <SwiperSlide key={item.id}>
+                    <img
+                      src={item.productImg}
+                      alt={selectedProduct?.title}
+                    />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
             <div className="product-info">
-              <h2 className="product-title">
-                Model 3 All-Weather Interior Liners
-              </h2>
+              <h2 className="product-title">{selectedProduct?.title}</h2>
               <div className="primary-info">
-                <span className="price">$225</span>
+                <span className="price">$2{selectedProduct?.price}</span>
                 <p className="login-info">
                   See if this accessory is compatible with a car in your Tesla
                   Account <Link>Sign In</Link>
@@ -101,15 +127,7 @@ const ProductDetail = () => {
               </div>
               <div className="secondary-info">
                 <h4 className="title">Description</h4>
-                <p className="text">
-                  Model 3 All-Weather Interior Liners are made from
-                  thermoplastic elastomer material for ultimate protection and
-                  spatial coverage. Unlike traditional floor mats, liners are
-                  comprised of vertical walls that ensure maximum protection to
-                  the foot-well carpet and easy cleanup. Exclusive grid pattern
-                  crafted by Tesla's Design Studio. 100% recyclable and free of
-                  cadmium, lead, latex and PVC.
-                </p>
+                <p className="text">{selectedProduct?.detail}</p>
               </div>
             </div>
           </div>
