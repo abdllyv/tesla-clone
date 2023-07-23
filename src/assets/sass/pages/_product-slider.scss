@@ -60,7 +60,7 @@
   }
 }
 @media (max-width: 1024px) {
-  .best-sellers-slider {
+  .product-slider {
     padding: 50px 0;
     .container {
       padding: 0 36px;
@@ -92,7 +92,7 @@
   }
 }
 @media (max-width: 768px) {
-  .best-sellers-slider {
+  .product-slider {
     padding: 40px 0;
     .container {
       padding: 0 22px;
@@ -115,7 +115,7 @@
   }
 }
 @media (max-width: 320px) {
-  .best-sellers-slider {
+  .product-slider {
     padding: 30px 0;
     .container {
       padding: 0 18px;
@@ -128,9 +128,12 @@
           .swiper-wrapper {
             .swiper-slide {
               .card {
-                .card-title {
-                  font-size: 14px;
-                  padding-top: 20px;
+                .cart-container {
+                  padding: 0;
+                  .card-title {
+                    font-size: 14px;
+                    padding-top: 20px;
+                  }
                 }
               }
             }

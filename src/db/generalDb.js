@@ -25,6 +25,7 @@ import product8 from "../assets/img/best-sellers-slider/1713539-00-A_0_2000.avif
 
 const generalDb = [
   {
+    id: 1,
     category: "Vehicle Accessories",
     items: [
       {
@@ -54,7 +55,8 @@ const generalDb = [
             title: "Model S Plaid Track Package",
             categoryType: "Best Sellers",
             price: "15,000 ",
-            detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 103,
@@ -71,7 +73,8 @@ const generalDb = [
             title: `Model S Plaid 20" Zero-G Wheel and Tire Package`,
             categoryType: "Best Sellers",
             price: "6,000",
-            detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 105,
@@ -88,7 +91,8 @@ const generalDb = [
             title: "Model S/3/Y Pet Liner",
             categoryType: "Interior",
             price: "9,500",
-             detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 107,
@@ -105,7 +109,8 @@ const generalDb = [
             title: "Model S/X Steering Wheel Retrofit",
             categoryType: "Interior",
             price: "9,500",
-             detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 109,
@@ -122,7 +127,8 @@ const generalDb = [
             title: "Model S Glass Roof Sunshade",
             categoryType: "Interior",
             price: "9,500",
-             detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 111,
@@ -139,7 +145,8 @@ const generalDb = [
             title: "2012-2020 | Model S Illuminated Door Sills",
             categoryType: "Interior",
             price: "9,500",
-            detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 113,
@@ -180,7 +187,8 @@ const generalDb = [
             title: "Model S Plaid Track Package",
             categoryType: "Best Sellers",
             price: "15,000 ",
-            detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 103,
@@ -197,7 +205,8 @@ const generalDb = [
             title: `Model S Plaid 20" Zero-G Wheel and Tire Package`,
             categoryType: "Best Sellers",
             price: "6,000",
-            detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 105,
@@ -214,7 +223,8 @@ const generalDb = [
             title: "Model S/3/Y Pet Liner",
             categoryType: "Interior",
             price: "9,500",
-             detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 107,
@@ -231,7 +241,8 @@ const generalDb = [
             title: "Model S/X Steering Wheel Retrofit",
             categoryType: "Interior",
             price: "9,500",
-             detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 109,
@@ -248,7 +259,8 @@ const generalDb = [
             title: "Model S Glass Roof Sunshade",
             categoryType: "Interior",
             price: "9,500",
-             detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 111,
@@ -265,7 +277,8 @@ const generalDb = [
             title: "2012-2020 | Model S Illuminated Door Sills",
             categoryType: "Interior",
             price: "9,500",
-            detail:"Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detail:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
             images: [
               {
                 id: 113,
@@ -279,110 +292,115 @@ const generalDb = [
           },
         ],
       },
-     
     ],
   },
   {
-    categoryTitle: "Best Seller",
-    products: [
+    id: 2,
+    category: "MoreOver",
+    items: [
       {
-        id: 1,
-        title: "SAE J1772 Charging Adapter",
-        productIMg: product1,
-      },
-      {
-        id: 2,
-        title: "Model 3/Y Air Filter",
+        categoryTitle: "Best Seller",
+        products: [
+          {
+            id: 1,
+            title: "SAE J1772 Charging Adapter",
+            productIMg: product1,
+          },
+          {
+            id: 2,
+            title: "Model 3/Y Air Filter",
 
-        productIMg: product2,
-      },
-      {
-        id: 3,
-        title: "Model 3 All-Weather Interior Liners",
+            productIMg: product2,
+          },
+          {
+            id: 3,
+            title: "Model 3 All-Weather Interior Liners",
 
-        productIMg: product3,
-      },
-      {
-        id: 4,
-        title: "Model S/3/Y Pet Liner",
+            productIMg: product3,
+          },
+          {
+            id: 4,
+            title: "Model S/3/Y Pet Liner",
 
-        productIMg: product4,
-      },
-      {
-        id: 5,
-        title: "Model 3 All-Weather Interior Liners",
+            productIMg: product4,
+          },
+          {
+            id: 5,
+            title: "Model 3 All-Weather Interior Liners",
 
-        productIMg: product5,
-      },
-      {
-        id: 6,
-        title: "Model 3/Y Center Console Trays",
+            productIMg: product5,
+          },
+          {
+            id: 6,
+            title: "Model 3/Y Center Console Trays",
 
-        productIMg: product6,
-      },
-      {
-        id: 7,
-        title: "Model Y Mud Flaps",
+            productIMg: product6,
+          },
+          {
+            id: 7,
+            title: "Model Y Mud Flaps",
 
-        productIMg: product7,
-      },
-      {
-        id: 8,
-        title: "Model Y All-Weather Rear Cargo Liner Set",
+            productIMg: product7,
+          },
+          {
+            id: 8,
+            title: "Model Y All-Weather Rear Cargo Liner Set",
 
-        productIMg: product8,
-      },
-    ],
-  },
-  {
-    categoryTitle: "Recommended Products",
-    products: [
-      {
-        id: 1,
-        title: "SAE J1772 Charging Adapter",
-        productIMg: product1,
+            productIMg: product8,
+          },
+        ],
       },
       {
-        id: 2,
-        title: "Model 3/Y Air Filter",
+        categoryTitle: "Recommended Products",
+        products: [
+          {
+            id: 1,
+            title: "SAE J1772 Charging Adapter",
+            productIMg: product1,
+          },
+          {
+            id: 2,
+            title: "Model 3/Y Air Filter",
 
-        productIMg: product2,
-      },
-      {
-        id: 3,
-        title: "Model 3 All-Weather Interior Liners",
+            productIMg: product2,
+          },
+          {
+            id: 3,
+            title: "Model 3 All-Weather Interior Liners",
 
-        productIMg: product3,
-      },
-      {
-        id: 4,
-        title: "Model S/3/Y Pet Liner",
+            productIMg: product3,
+          },
+          {
+            id: 4,
+            title: "Model S/3/Y Pet Liner",
 
-        productIMg: product4,
-      },
-      {
-        id: 5,
-        title: "Model 3 All-Weather Interior Liners",
+            productIMg: product4,
+          },
+          {
+            id: 5,
+            title: "Model 3 All-Weather Interior Liners",
 
-        productIMg: product5,
-      },
-      {
-        id: 6,
-        title: "Model 3/Y Center Console Trays",
+            productIMg: product5,
+          },
+          {
+            id: 6,
+            title: "Model 3/Y Center Console Trays",
 
-        productIMg: product6,
-      },
-      {
-        id: 7,
-        title: "Model Y Mud Flaps",
+            productIMg: product6,
+          },
+          {
+            id: 7,
+            title: "Model Y Mud Flaps",
 
-        productIMg: product7,
-      },
-      {
-        id: 8,
-        title: "Model Y All-Weather Rear Cargo Liner Set",
+            productIMg: product7,
+          },
+          {
+            id: 8,
+            title: "Model Y All-Weather Rear Cargo Liner Set",
 
-        productIMg: product8,
+            productIMg: product8,
+          },
+        ],
       },
     ],
   },

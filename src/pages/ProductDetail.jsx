@@ -1,23 +1,23 @@
-import test1 from "../assets/img/best-sellers-slider/1067348-00-B_0_2000.avif";
-import test2 from "../assets/img/best-sellers-slider/1107681-00-A_0_2000.avif";
-import test3 from "../assets/img/best-sellers-slider/1448751-00-B_0_2000.avif";
-import test4 from "../assets/img/best-sellers-slider/1562262-00-A_10_2000.avif";
-import test5 from "../assets/img/best-sellers-slider/1616599-00-A_0_2000.avif";
-
 import { useEffect, useState } from "react";
+/* --------------------------------- Router --------------------------------- */
 import { Link, useParams } from "react-router-dom";
 
+/* --------------------------------- Slider --------------------------------- */
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
 // import required modules
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 import ProductSlider from "./section/ProductSlider";
+
+/* -------------------------------- DataBase -------------------------------- */
 import generalDb from "../db/generalDb";
+
+/* ------------------------------- Components ------------------------------- */
+import BlueWhiteBtn from "../components/BlueWhiteBtn";
 
 const ProductDetail = () => {
   /* ------------------------------- Loacl State ------------------------------ */
@@ -51,7 +51,6 @@ const ProductDetail = () => {
       setSelectedProduct(null);
     }
   }, [categoryName, categoryTitleName, productId]);
-  console.log(selectedProduct)
 
   // optional chaining
   // useEffect(() => {
@@ -123,7 +122,7 @@ const ProductDetail = () => {
                   </div>
                   <button className="btn">+</button>
                 </div>
-                <button className="add-to-cart-btn">Add To Cart</button>
+                <BlueWhiteBtn text={"Add To Cart"}/>
               </div>
               <div className="secondary-info">
                 <h4 className="title">Description</h4>

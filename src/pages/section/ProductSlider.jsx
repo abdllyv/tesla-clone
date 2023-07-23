@@ -9,13 +9,19 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import generalDb from "../../db/generalDb";
 const ProductSlider = ({ title }) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
+  const [selectCategory, setSelectCategory] = useState(null);
 
   useEffect(() => {
-    generalDb.map(
-      (item) => item.categoryTitle === title && setData(item.products)
+    generalDb.filter((item) => item.category === "MoreOver" && setData(item));
+  }, []);
+  useEffect(() => {
+    data?.items.map(
+      (product) =>
+        product.categoryTitle === title && setSelectCategory(product.products)
     );
-  }, [title]);
+  }, [data?.items, title]);
+
   return (
     <section className="product-slider">
       <div className="container">
@@ -39,7 +45,7 @@ const ProductSlider = ({ title }) => {
             modules={[Navigation]}
             className="mySwiper"
           >
-            {data.map((item) => (
+            {selectCategory?.map((item) => (
               <SwiperSlide key={item.id}>
                 <Link className="card" to="/product-detail">
                   <div className="cart-container">

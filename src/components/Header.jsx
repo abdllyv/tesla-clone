@@ -17,6 +17,8 @@ import miniteslas from "../assets/img/lifestyle/FeaturedNavMPOS_1524001-00-A.avi
 import outDoor from "../assets/img/lifestyle/FeaturedNav_w_charger.avif";
 import giftCart from "../assets/img/lifestyle/Tesla_giftcard.avif";
 
+import product1Pimary from "../assets/img/shop-products/1669541-00-A_0_2000.avif";
+
 /* --------------------------------- Router --------------------------------- */
 import { Link, useLocation } from "react-router-dom";
 /* ----------------------------------React Hook ---------------------------------- */
@@ -37,7 +39,10 @@ import {
   AiOutlineLeft,
 } from "react-icons/ai";
 import { MdOutlineLanguage } from "react-icons/md";
+
+/* ------------------------------- Components ------------------------------- */
 import WhiteBlackBtn from "./WhiteBlackBtn";
+import BlueWhiteBtn from "./BlueWhiteBtn";
 
 const Header = () => {
   //   /* ------------------------------- Local State ------------------------------ */
@@ -47,6 +52,8 @@ const Header = () => {
   const [dropdownMenuState, setDropdownMenuState] = useState(null);
   /* --------------------------- Language open-close -------------------------- */
   const [languageBox, setLanguageBox] = useState(false);
+  /* --------------------------- Cart open-close -------------------------- */
+  const [cartIsOpen, setCartIsOpen] = useState(false);
 
   /* ------------------------- Header background color ------------------------ */
   const location = useLocation();
@@ -94,6 +101,7 @@ const Header = () => {
     >
       <div className="container">
         <div className="row">
+          {/* ------------------------------Logo------------------------------  */}
           <div className="logo">
             <Link className="logo-img">
               <img src={logo} alt="logo" />
@@ -103,6 +111,7 @@ const Header = () => {
               Shop
             </Link>
           </div>
+          {/* ------------------------------NavBar------------------------------  */}
           <nav className="nav-bar">
             <ul className="nav-list">
               <li
@@ -143,6 +152,7 @@ const Header = () => {
               </li>
             </ul>
           </nav>
+          {/* ------------------------------UserArea------------------------------  */}
           <div className="user-area">
             <form className="seacrh-form">
               <div
@@ -154,7 +164,7 @@ const Header = () => {
                 <AiOutlineSearch />
               </div>
             </form>
-            <div className="cart">
+            <div className="cart" onClick={() => setCartIsOpen(true)}>
               <div className="count">0</div>
               <AiOutlineShoppingCart />
             </div>
@@ -284,6 +294,65 @@ const Header = () => {
       </div>
       {/* ------------------------------End Language Group------------------------------  */}
 
+      {/* ------------------------------Start Cart-Box ------------------------------  */}
+      <div
+        className={
+          cartIsOpen ? "cart-box menu-box isOpenMenu" : "cart-box menu-box"
+        }
+      >
+        <div className="cart-head-dropdown">
+          <span className="navigate" onClick={() => setLanguageBox(false)}>
+            <div className="back-icon">
+              <AiOutlineLeft />
+            </div>
+            Back
+          </span>
+          <div className="icon">
+            <AiOutlineClose
+              onClick={() => {
+                setMenuIsOpen(false);
+                setLanguageBox(false);
+              }}
+            />
+          </div>
+        </div>
+        <div className="cart-body">
+          <p className="text">Cart Is Empty</p>
+          {/*------------  Products ------------ */}
+          <ul className="product-list">
+            <p className="text">Products</p>
+            <li className="product-items">
+              <div className="product-image">
+                  <img src={product1Pimary} alt="" />
+              </div>
+              <div className="product-info">
+                <div className="general-info">
+                  <h2 className="title">Model S All-Weather Interior Liners</h2>
+                  <span className="price">250$</span>
+                </div>
+                <h3 className="categorTitle">Model S</h3>
+                <span className="quantify">Quantify: 1</span>
+              </div>
+            </li>
+          </ul>
+          {/*------------ Cart-footer ------------ */}
+          <div className="cart-footer">
+            <div className="footer-info">
+              <div className="left-side">
+                <h6 className="cart-footer-title">Subtotal</h6>
+                <span className="cart-footer-text">Excludes Sales tax</span>
+              </div>
+              <div className="right-side">
+                <span className="cart-footer-price">$250.00</span>
+              </div>
+            </div>
+            <WhiteBlackBtn text={"View Cart"} />
+            <BlueWhiteBtn text={"Checkout"} />
+          </div>
+        </div>
+      </div>
+      {/* ------------------------------End Cart-Box ------------------------------  */}
+
       {/* ------------------------------ Start Mobile Menu------------------------------  */}
 
       {/* ------------------------------ Charging ------------------------------  */}
@@ -355,13 +424,19 @@ const Header = () => {
         </div>
         <div className="cart-body">
           <h2 className="current-page">Vehicle Accessories</h2>
-          <Link className="card" to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}>
+          <Link
+            className="card"
+            to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}
+          >
             <div className="top">
               <img src={modelS} alt="teslaCar" className="car-img" />
             </div>
             <h4 className="title">Model S</h4>
           </Link>
-          <Link className="card" to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}>
+          <Link
+            className="card"
+            to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}
+          >
             <div className="top">
               <img src={model3} alt="teslaCar" className="car-img" />
             </div>
@@ -493,11 +568,12 @@ const Header = () => {
       {/* ------------------------------ End Mobile Menu------------------------------  */}
 
       <div
-        className={`overlay  ${menuIsOpen && "isOpen"} `}
+        className={`overlay  ${menuIsOpen || cartIsOpen ? "isOpen" : ""} `}
         onClick={() => {
           setMenuIsOpen(false);
           setLanguageBox(false);
           setDropdownMenuState(null);
+          setCartIsOpen(false);
         }}
       ></div>
       <div
