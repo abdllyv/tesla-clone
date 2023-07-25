@@ -1,21 +1,5 @@
 // /* ------------------------------- Image ------------------------------- */
 import logo from "../assets/img/tesla-9.svg";
-import charging from "../assets/img/charging/FeaturedNavMPOS_1457768-02-G.avif";
-import onTheRoad from "../assets/img/charging/FeaturedNavMPOS_1512830-00-A.avif";
-import parts from "../assets/img/charging/FeaturedNavMPOS_1551813-00-A.avif";
-import modelS from "../assets/img/vehicle-accessories/Model_S.avif";
-import model3 from "../assets/img/vehicle-accessories/Model_3.avif";
-import modelX from "../assets/img/vehicle-accessories/Model_x.avif";
-import modelY from "../assets/img/vehicle-accessories/Model_y.avif";
-import men from "../assets/img/apparel/mobile_nav_mens.avif";
-import women from "../assets/img/apparel/mobile_nav_womens_chill2.avif";
-import kids from "../assets/img/apparel/mobile_nav_kids_cyber.avif";
-import bestSellers from "../assets/img/lifestyle/1715672-00-A_featured.avif";
-import bags from "../assets/img/lifestyle/1859926-00-A_flyout_01.avif";
-import drinkWare from "../assets/img/lifestyle/sipping-glass-flyout.avif";
-import miniteslas from "../assets/img/lifestyle/FeaturedNavMPOS_1524001-00-A.avif";
-import outDoor from "../assets/img/lifestyle/FeaturedNav_w_charger.avif";
-import giftCart from "../assets/img/lifestyle/Tesla_giftcard.avif";
 
 import product1Pimary from "../assets/img/shop-products/1669541-00-A_0_2000.avif";
 
@@ -43,6 +27,11 @@ import { MdOutlineLanguage } from "react-icons/md";
 /* ------------------------------- Components ------------------------------- */
 import WhiteBlackBtn from "./WhiteBlackBtn";
 import BlueWhiteBtn from "./BlueWhiteBtn";
+import MobileApparel from "./dropdown/MobileApparel";
+import MobileCharging from "./dropdown/MobileCharging";
+import MobileVehicleAccessories from "./dropdown/MobileVehicleAccessories";
+import MobileLifestyle from "./dropdown/MobileLifestyle";
+import LanguageList from "./LanguageList";
 
 const Header = () => {
   //   /* ------------------------------- Local State ------------------------------ */
@@ -72,7 +61,8 @@ const Header = () => {
       };
     }
   }, [location]);
-  /* ------------------------ Other Page Default Design ----------------------- */
+
+  /* ------------------------ Other Page Default Design && Close The Dropdown Menu----------------------- */
   useEffect(() => {
     if (location.pathname === "/") {
       setIsScrolled(false);
@@ -80,7 +70,11 @@ const Header = () => {
     } else {
       setIsScrolled(true);
     }
+    setMenuIsOpen(false);
+    setDropdownMenuState(null);
+    setCartIsOpen(false);
   }, [location]);
+
   return (
     <header
       className={`header ${
@@ -119,7 +113,7 @@ const Header = () => {
                 onMouseEnter={() => setDropdownMenuState("charging")}
                 onMouseLeave={() => setDropdownMenuState(null)}
               >
-                <Link>Charging</Link>
+                <Link to="/api-shop">Charging</Link>
                 <DropdownCharging dropdownMenuState={dropdownMenuState} />
               </li>
               <li
@@ -127,7 +121,7 @@ const Header = () => {
                 onMouseEnter={() => setDropdownMenuState("vehicleAccessories")}
                 onMouseLeave={() => setDropdownMenuState(null)}
               >
-                <Link to={`/shop/${"Vehicle Accessories"}/${"products"}`}>
+                <Link to={`/shop/${"Vehicle Accessories"}/${"products"}/""`}>
                   Vehicle Accessories
                 </Link>
                 <DropdowVehicleAccessories
@@ -269,28 +263,7 @@ const Header = () => {
             />
           </div>
         </div>
-        <div className="cart-body">
-          <ul className="menu-general-info-list">
-            <h4 className="continent">North America</h4>
-            <li className="select-language menu-items">
-              <h5 className="country">United States</h5>
-              <p className="language">English</p>
-            </li>
-            <li className="select-language menu-items">
-              <h5 className="country">United States</h5>
-              <p className="language">English</p>
-            </li>
-            <li className="select-language menu-items">
-              <h5 className="country">United States</h5>
-              <p className="language">English</p>
-            </li>
-            <h4 className="continent">North America</h4>
-            <li className="select-language menu-items">
-              <h5 className="country">United States</h5>
-              <p className="language">English</p>
-            </li>
-          </ul>
-        </div>
+       <LanguageList/>
       </div>
       {/* ------------------------------End Language Group------------------------------  */}
 
@@ -300,20 +273,9 @@ const Header = () => {
           cartIsOpen ? "cart-box menu-box isOpenMenu" : "cart-box menu-box"
         }
       >
-        <div className="cart-head-dropdown">
-          <span className="navigate" onClick={() => setLanguageBox(false)}>
-            <div className="back-icon">
-              <AiOutlineLeft />
-            </div>
-            Back
-          </span>
+        <div className="cart-head">
           <div className="icon">
-            <AiOutlineClose
-              onClick={() => {
-                setMenuIsOpen(false);
-                setLanguageBox(false);
-              }}
-            />
+            <AiOutlineClose onClick={() => setCartIsOpen(false)} />
           </div>
         </div>
         <div className="cart-body">
@@ -323,7 +285,7 @@ const Header = () => {
             <p className="text">Products</p>
             <li className="product-items">
               <div className="product-image">
-                  <img src={product1Pimary} alt="" />
+                <img src={product1Pimary} alt="" />
               </div>
               <div className="product-info">
                 <div className="general-info">
@@ -355,7 +317,7 @@ const Header = () => {
 
       {/* ------------------------------ Start Mobile Menu------------------------------  */}
 
-      {/* ------------------------------ Charging ------------------------------  */}
+      {/* -------------- Mobile Format Charging  -------------- */}
       <div
         className={`dropdown-details-mobile menu-box ${
           dropdownMenuState === "charging-mobile" && "isOpenMenu"
@@ -377,30 +339,10 @@ const Header = () => {
             />
           </div>
         </div>
-        <div className="cart-body">
-          <h2 className="current-page">Charging</h2>
-          <Link className="card">
-            <div className="top">
-              <img src={charging} alt="charging" />
-            </div>
-            <h4 className="title">Charging</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={onTheRoad} alt="onTheRoad" />
-            </div>
-            <h4 className="title">On The Road</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={parts} alt="parts" />
-            </div>
-            <h4 className="title">Parts</h4>
-          </Link>
-          <WhiteBlackBtn text={"View All"} />
-        </div>
+        <MobileCharging />
       </div>
-      {/* ------------------------------ Vehicle-accessories ------------------------------  */}
+
+      {/* -------------- Mobile Format Vehicle-accessories   -------------- */}
       <div
         className={`dropdown-details-mobile menu-box ${
           dropdownMenuState === "vehicle-accessories" && "isOpenMenu"
@@ -422,42 +364,10 @@ const Header = () => {
             />
           </div>
         </div>
-        <div className="cart-body">
-          <h2 className="current-page">Vehicle Accessories</h2>
-          <Link
-            className="card"
-            to={`/shop/${"Vehicle Accessories"}/${"Model S"}`}
-          >
-            <div className="top">
-              <img src={modelS} alt="teslaCar" className="car-img" />
-            </div>
-            <h4 className="title">Model S</h4>
-          </Link>
-          <Link
-            className="card"
-            to={`/shop/${"Vehicle Accessories"}/${"Model 3"}`}
-          >
-            <div className="top">
-              <img src={model3} alt="teslaCar" className="car-img" />
-            </div>
-            <h4 className="title">Model 3</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={modelY} alt="teslaCar" className="car-img" />
-            </div>
-            <h4 className="title">Model Y</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={modelX} alt="teslaCar" className="car-img" />
-            </div>
-            <h4 className="title">Model X</h4>
-          </Link>
-          <WhiteBlackBtn text={"View All"} />
-        </div>
+        <MobileVehicleAccessories />
       </div>
-      {/* ------------------------------ Apparel ------------------------------  */}
+
+      {/* -------------- Mobile Format Apparel  -------------- */}
       <div
         className={`dropdown-details-mobile menu-box ${
           dropdownMenuState === "apparel-mobile" && "isOpenMenu"
@@ -479,30 +389,10 @@ const Header = () => {
             />
           </div>
         </div>
-        <div className="cart-body">
-          <h2 className="current-page">Apparel</h2>
-          <Link className="card">
-            <div className="top">
-              <img src={men} alt="clothes-category" />
-            </div>
-            <h4 className="title">Men</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={women} alt="clothes-category" />
-            </div>
-            <h4 className="title">Women</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={kids} alt="clothes-category" />
-            </div>
-            <h4 className="title">Kids</h4>
-          </Link>
-          <WhiteBlackBtn text={"View All"} />
-        </div>
+        <MobileApparel />
       </div>
-      {/* ------------------------------ Lifestyle------------------------------  */}
+
+      {/* -------------- Mobile Format Lifestyle  -------------- */}
       <div
         className={`dropdown-details-mobile menu-box ${
           dropdownMenuState === "lifestyle-mobile" && "isOpenMenu"
@@ -524,46 +414,7 @@ const Header = () => {
             />
           </div>
         </div>
-        <div className="cart-body">
-          <h2 className="current-page">LifeStyle</h2>
-          <Link className="card">
-            <div className="top">
-              <img src={bestSellers} alt="bestSellers" />
-            </div>
-            <h4 className="title">Best Sellers</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={bags} alt="bags" />
-            </div>
-            <h4 className="title">Bags</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={drinkWare} alt="drinkWare" />
-            </div>
-            <h4 className="title">DrinkWare</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={miniteslas} alt="miniteslas" />
-            </div>
-            <h4 className="title">Mini Teslas</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={outDoor} alt="outDoor" />
-            </div>
-            <h4 className="title">OutDoor & Tech</h4>
-          </Link>
-          <Link className="card">
-            <div className="top">
-              <img src={giftCart} alt="giftCart" />
-            </div>
-            <h4 className="title">Gift Card</h4>
-          </Link>
-          <WhiteBlackBtn text={"View All"} />
-        </div>
+        <MobileLifestyle />
       </div>
       {/* ------------------------------ End Mobile Menu------------------------------  */}
 

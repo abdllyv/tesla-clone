@@ -13,54 +13,29 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 import ProductSlider from "./section/ProductSlider";
 
-/* -------------------------------- DataBase -------------------------------- */
-import generalDb from "../db/generalDb";
-
 /* ------------------------------- Components ------------------------------- */
 import BlueWhiteBtn from "../components/BlueWhiteBtn";
+import axios from "axios";
 
-const ProductDetail = () => {
+const ApiProductDetail = () => {
   /* ------------------------------- Loacl State ------------------------------ */
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [data, setData] = useState({});
+  const { productId } = useParams();
 
-  /* --------------------------------- Params --------------------------------- */
-  const { categoryName, categoryTitleName, productId } = useParams();
-
+  /* ------------------------------- Get Product ------------------------------ */
   useEffect(() => {
-    const foundCategory = generalDb.find(
-      (item) => item.category === categoryName
-    );
-    if (foundCategory) {
-      const foundItem = foundCategory.items.find(
-        (item) => item.categoryTitle === categoryTitleName
-      );
-      if (foundItem) {
-        const foundProduct = foundItem.products.find(
-          (product) => product.id === Number(productId)
-        );
-        if (foundProduct) {
-          setSelectedProduct(foundProduct);
-        } else {
-          setSelectedProduct(null);
-        }
-      } else {
-        setSelectedProduct(null);
+    const getData = async () => {
+      try {
+        await axios
+          .get(`${process.env.REACT_APP_ALL_PRODUCTS}/${productId}`)
+          .then((res) => setData(res.data));
+      } catch (error) {
+        console.log(error);
       }
-    } else {
-      setSelectedProduct(null);
-    }
-  }, [categoryName, categoryTitleName, productId]);
-
-  // optional chaining
-  // useEffect(() => {
-  //   const foundProduct = generalDb
-  //     .find((item) => item.category === categoryName)
-  //     ?.items.find((item) => item.categoryTitle === categoryTitleName)
-  //     ?.products.find((product) => product.id === Number(productId));
-
-  //   setSelectedProduct(foundProduct || null);
-  // }, [categoryName, categoryTitleName, productId]);
+    };
+    getData();
+  }, [productId]);
   return (
     <main>
       <section className="product-detail">
@@ -78,14 +53,14 @@ const ProductDetail = () => {
                 modules={[FreeMode, Navigation, Thumbs, Pagination]}
                 className="mySwiper2"
               >
-                {selectedProduct?.images.map((item) => (
-                  <SwiperSlide key={item.id}>
+                <SwiperSlide>
+                  {data.productImage && (
                     <img
-                      src={item.productImg}
-                      alt={selectedProduct?.title}
+                      src={`${process.env.REACT_APP_IMAGE}${data.productImage}`}
+                      alt={data.name}
                     />
-                  </SwiperSlide>
-                ))}
+                  )}
+                </SwiperSlide>
               </Swiper>
               <Swiper
                 onSwiper={setThumbsSwiper}
@@ -96,20 +71,20 @@ const ProductDetail = () => {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper"
               >
-                {selectedProduct?.images.map((item) => (
-                  <SwiperSlide key={item.id}>
+                <SwiperSlide>
+                  {data.productImage && (
                     <img
-                      src={item.productImg}
-                      alt={selectedProduct?.title}
+                      src={`${process.env.REACT_APP_IMAGE}${data.productImage}`}
+                      alt={data.name}
                     />
-                  </SwiperSlide>
-                ))}
+                  )}
+                </SwiperSlide>
               </Swiper>
             </div>
             <div className="product-info">
-              <h2 className="product-title">{selectedProduct?.title}</h2>
+              <h2 className="product-title">{data.name}</h2>
               <div className="primary-info">
-                <span className="price">${selectedProduct?.price}</span>
+                <span className="price">${data.price}</span>
                 <p className="login-info">
                   See if this accessory is compatible with a car in your Tesla
                   Account <Link>Sign In</Link>
@@ -122,11 +97,11 @@ const ProductDetail = () => {
                   </div>
                   <button className="btn">+</button>
                 </div>
-                <BlueWhiteBtn text={"Add To Cart"}/>
+                <BlueWhiteBtn text={"Add To Cart"} />
               </div>
               <div className="secondary-info">
                 <h4 className="title">Description</h4>
-                <p className="text">{selectedProduct?.detail}</p>
+                <p className="text">{data.details}</p>
               </div>
             </div>
           </div>
@@ -137,4 +112,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default ApiProductDetail;

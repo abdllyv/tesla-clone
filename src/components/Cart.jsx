@@ -11,8 +11,8 @@ const ShopCart = ({ product,category,categoryTitle }) => {
     <div className="shop-card">
       <div className="card-container">
         <Link to={`/product-detail/${category}/${categoryTitle}/${product.id}`} className="product-images">
-          <img src={dataImg[0]} alt="" className="primary" />
-          <img src={dataImg[1]} alt="" className="secondary" />
+          <img src={dataImg[0]} alt= {product.title} className="primary" />
+          <img src={dataImg[1]} alt= {product.title} className="secondary" />
           <span className="product-detail-link">View Details</span>
         </Link>
         <div className="info">
