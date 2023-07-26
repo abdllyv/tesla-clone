@@ -1,0 +1,140 @@
+.cart-products {
+  padding-top: 60px;
+  width: 100%;
+  .container {
+    max-width: 1200px;
+    padding: 0 48px;
+    margin: 0 auto;
+    .row {
+      justify-content: space-between;
+      .cart-info {
+        width: 48%;
+        padding: 24px 0 0 24px;
+        .product-list {
+          .product-items {
+            border-color: transparent;
+            .product-image {
+              max-width: 114px;
+              width: auto;
+              max-height: 114px;
+            }
+            .product-info {
+              width: 60%;
+              padding: 0 10px;
+              .quantify {
+                display: none;
+              }
+              .select-quantify {
+                width: 100%;
+                display: flex;
+                padding-top: 3px;
+                color: #393c41;
+                .text {
+                  font-size: 14px;
+                  font-weight: 500;
+                }
+                .select-number {
+                  display: flex;
+                  align-items: center;
+                  cursor: pointer;
+                  position: relative;
+                  .number {
+                    font-weight: 600;
+                    padding: 0 3px 0 4px;
+                  }
+                  .dropdown {
+                    position: absolute;
+                    top: 20px;
+                    left: 0;
+                    padding: 16px 0;
+                    background-color: #fff;
+                    border-radius: 4px;
+                    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.12);
+                    z-index: 1;
+                    ul {
+                      li {
+                        --tds-form--indent: 20px;
+                        align-items: center;
+                        background-color: transparent;
+                        cursor: pointer;
+                        display: flex;
+                        inline-size: 100%;
+                        justify-content: space-between;
+                        margin: 0;
+                        max-inline-size: 100%;
+                        min-block-size: var(--tds-size--4x);
+                        outline-offset: -2px;
+                        padding: 4px 20px;
+                        text-align: start;
+                        transition: background-color 0.3s ease;
+                        .check-icon {
+                          visibility: hidden;
+                          padding: 0 3px;
+                          font-size: 14px;
+                          display: flex;
+                          align-items: center;
+                        }
+                        &:hover {
+                          background-color: rgba(0, 0, 0, 0.05);
+                        }
+                        &.active {
+                          background-color: rgba(0, 0, 0, 0.075);
+                          .check-icon {
+                            visibility: visible;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                .delete-btn {
+                  color: #393c41;
+                  font-size: 14px;
+                  margin-left: 10px;
+                  background-color: transparent;
+                  font-weight: 600;
+                  border: 0;
+                  box-shadow: 0 1px 0 0 currentColor;
+                  cursor: pointer;
+                  padding: 0;
+                  transition: 0.33s ease;
+                  &:hover {
+                    box-shadow: 0 2px 0 0 currentColor;
+                    color: #000;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .last-check {
+        width: 50%;
+        padding: 24px 0 0 24px;
+        .check-cart {
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
+          border-radius: 4px;
+          max-width: 432px;
+          margin-left: auto;
+          padding: 32px;
+          height: 280px;
+          h4 {
+            font-size: 20px;
+            font-weight: 600;
+            padding: 8px 0;
+          }
+          p {
+            font-size: 15px;
+            color: #393c41;
+          }
+          .general-info {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+  }
+}

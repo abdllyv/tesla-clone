@@ -9,20 +9,23 @@ import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import ApiShop from "./pages/ApiShop";
 import ApiProductDetail from "./pages/ApiProductDetail";
+import CartProducts from "./pages/CartProducts";
+import { MainContext } from "./utils/ShopContext";
 
 const App = () => {
   return (
-    <>
+    <MainContext>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route  path="/shop/:categoryName/:categoryTitleName/:categoryType" element={<Shop/>} />
         <Route path="/api-shop" element={<ApiShop/>} />
+        <Route path="/cart-products" element={<CartProducts/>} />
         <Route path="/api-product-detail/:productId" element={<ApiProductDetail/>} />
         <Route path="/product-detail/:categoryName/:categoryTitleName/:productId" element={<ProductDetail/>}/>
       </Routes>
       <Footer/>
-    </>
+    </MainContext>
   );
 };
 

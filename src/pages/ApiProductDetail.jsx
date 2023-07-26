@@ -97,7 +97,7 @@ const ApiProductDetail = () => {
                   </div>
                   <button className="btn">+</button>
                 </div>
-                <BlueWhiteBtn text={"Add To Cart"} />
+                <BlueWhiteBtn text={"Add To Cart"} data={data} />
               </div>
               <div className="secondary-info">
                 <h4 className="title">Description</h4>

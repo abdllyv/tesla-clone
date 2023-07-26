@@ -1,8 +1,6 @@
 // /* ------------------------------- Image ------------------------------- */
 import logo from "../assets/img/tesla-9.svg";
 
-import product1Pimary from "../assets/img/shop-products/1669541-00-A_0_2000.avif";
-
 /* --------------------------------- Router --------------------------------- */
 import { Link, useLocation } from "react-router-dom";
 /* ----------------------------------React Hook ---------------------------------- */
@@ -32,6 +30,7 @@ import MobileCharging from "./dropdown/MobileCharging";
 import MobileVehicleAccessories from "./dropdown/MobileVehicleAccessories";
 import MobileLifestyle from "./dropdown/MobileLifestyle";
 import LanguageList from "./LanguageList";
+import Product from "./Product";
 
 const Header = () => {
   //   /* ------------------------------- Local State ------------------------------ */
@@ -263,7 +262,7 @@ const Header = () => {
             />
           </div>
         </div>
-       <LanguageList/>
+        <LanguageList />
       </div>
       {/* ------------------------------End Language Group------------------------------  */}
 
@@ -280,23 +279,10 @@ const Header = () => {
         </div>
         <div className="cart-body">
           <p className="text">Cart Is Empty</p>
+          <p className="text">Products</p>
+
           {/*------------  Products ------------ */}
-          <ul className="product-list">
-            <p className="text">Products</p>
-            <li className="product-items">
-              <div className="product-image">
-                <img src={product1Pimary} alt="" />
-              </div>
-              <div className="product-info">
-                <div className="general-info">
-                  <h2 className="title">Model S All-Weather Interior Liners</h2>
-                  <span className="price">250$</span>
-                </div>
-                <h3 className="categorTitle">Model S</h3>
-                <span className="quantify">Quantify: 1</span>
-              </div>
-            </li>
-          </ul>
+          <Product />
           {/*------------ Cart-footer ------------ */}
           <div className="cart-footer">
             <div className="footer-info">

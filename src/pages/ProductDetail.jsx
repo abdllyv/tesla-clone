@@ -28,39 +28,44 @@ const ProductDetail = () => {
   const { categoryName, categoryTitleName, productId } = useParams();
 
   useEffect(() => {
-    const foundCategory = generalDb.find(
-      (item) => item.category === categoryName
-    );
-    if (foundCategory) {
+    const getProduct =  () => {
+      const foundCategory = generalDb.find(
+        (item) => item.category === categoryName
+      );
       const foundItem = foundCategory.items.find(
         (item) => item.categoryTitle === categoryTitleName
       );
-      if (foundItem) {
-        const foundProduct = foundItem.products.find(
-          (product) => product.id === Number(productId)
-        );
-        if (foundProduct) {
-          setSelectedProduct(foundProduct);
-        } else {
-          setSelectedProduct(null);
-        }
-      } else {
-        setSelectedProduct(null);
-      }
-    } else {
-      setSelectedProduct(null);
-    }
+      const foundProduct = foundItem.products.find(
+        (product) => product.id === Number(productId)
+      );
+      setSelectedProduct({ ...foundProduct, categoryTitleName,quantify:1 });
+    };
+    getProduct();
   }, [categoryName, categoryTitleName, productId]);
 
-  // optional chaining
-  // useEffect(() => {
-  //   const foundProduct = generalDb
-  //     .find((item) => item.category === categoryName)
-  //     ?.items.find((item) => item.categoryTitle === categoryTitleName)
-  //     ?.products.find((product) => product.id === Number(productId));
+  const handleChange = (e) => {
+    const inpValue = e.target.value;
+    if (inpValue.trim() === "") {
+      return false;
+    } else {
+      setSelectedProduct({ ...selectedProduct, quantify: Number(inpValue) });
+    }
+  };
 
-  //   setSelectedProduct(foundProduct || null);
-  // }, [categoryName, categoryTitleName, productId]);
+  const incrimentProduct =()=>{
+    setSelectedProduct({...selectedProduct,quantify: selectedProduct.quantify +1})
+  }
+
+    // decrement produect
+    const decrementProduct = () => {
+      if (selectedProduct.quantify > 1) {
+        setSelectedProduct({
+          ...selectedProduct,
+          quantify: selectedProduct.quantify - 1,
+        });
+    
+      }
+    };
   return (
     <main>
       <section className="product-detail">
@@ -80,10 +85,7 @@ const ProductDetail = () => {
               >
                 {selectedProduct?.images.map((item) => (
                   <SwiperSlide key={item.id}>
-                    <img
-                      src={item.productImg}
-                      alt={selectedProduct?.title}
-                    />
+                    <img src={item.productImg} alt={selectedProduct?.title} />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -98,10 +100,7 @@ const ProductDetail = () => {
               >
                 {selectedProduct?.images.map((item) => (
                   <SwiperSlide key={item.id}>
-                    <img
-                      src={item.productImg}
-                      alt={selectedProduct?.title}
-                    />
+                    <img src={item.productImg} alt={selectedProduct?.title} />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -116,13 +115,20 @@ const ProductDetail = () => {
                 </p>
                 <h6 className="quantify-title">Quantity</h6>
                 <div className="quantify">
-                  <button className="btn">-</button>
+                  <button className="btn" onClick={decrementProduct}>-</button>
                   <div className="form-input ">
-                    <input type="number" max={2} min={1} defaultValue={1} />
+                    <input
+                      type="number"
+                      max={2}
+                      min={1}
+                      // defaultValue={5}
+                      value={selectedProduct?.quantify}
+                      onChange={()=>handleChange}
+                    />
                   </div>
-                  <button className="btn">+</button>
+                  <button className="btn" onClick={incrimentProduct}>+</button>
                 </div>
-                <BlueWhiteBtn text={"Add To Cart"}/>
+                <BlueWhiteBtn text={"Add To Cart"} data={selectedProduct} />
               </div>
               <div className="secondary-info">
                 <h4 className="title">Description</h4>
