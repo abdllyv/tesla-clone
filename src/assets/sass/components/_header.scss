@@ -1,3 +1,4 @@
+@import "../mixin";
 /* --------------------------------- Header --------------------------------- */
 .header {
   width: 100%;
@@ -5,8 +6,7 @@
   position: fixed;
   top: 0;
   z-index: 10;
-  transition: 0.3s ease;
-
+  transition: 0.33s ease;
   &.bg-white {
     background-color: #fff;
     .container {
@@ -162,13 +162,13 @@
             background-color: #3e6ae1;
             border-radius: 50%;
             color: #fff;
-            line-height: 16px;
+            line-height: 19px;
             text-align: center;
             position: absolute;
-            right: -3px;
-            top: -3px;
-            height: 15px;
-            width: 15px;
+            right: -7px;
+            top: -7px;
+            height: 18px;
+            width: 18px;
             margin: 0 auto;
           }
           svg {
@@ -201,7 +201,7 @@
   }
 
   .cart-box,
-  .dropdown-details-mobile {
+  .drop-menu {
     overflow-y: scroll;
     &::-webkit-scrollbar-track {
       background-color: transparent;
@@ -240,7 +240,50 @@
       }
     }
   }
-
+  .country {
+    font-size: 14px;
+  }
+  .language {
+    font-size: 12px;
+    font-weight: 600;
+    color: #909090;
+    display: inline-block;
+    padding: 2px;
+    position: relative;
+    transition: 0.5s ease;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: transparent;
+      transition: 0.4s ease;
+    }
+    &:hover {
+      color: #000;
+      &::after {
+        background-color: #000;
+      }
+    }
+  }
+  .btn-primary {
+    .btn {
+      @include btn(
+        auto,
+        #171a20,
+        #fff,
+        10px 24px,
+        0 auto 24px,
+        #171a20,
+        #fff,
+        #171a20,
+        #171a20
+      );
+      width: 100%;
+    }
+  }
   /* ----------------------------- Toggle  Menu ---------------------------- */
   .menu-box {
     background-color: #fff;
@@ -301,34 +344,6 @@
         }
         .language-select {
           margin-top: 16px;
-          .country {
-            font-size: 14px;
-          }
-          .language {
-            font-size: 12px;
-            font-weight: 600;
-            color: #909090;
-            display: inline-block;
-            padding: 2px;
-            position: relative;
-            transition: 0.5s ease;
-            &::after {
-              content: "";
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 2px;
-              background-color: transparent;
-              transition: 0.4s ease;
-            }
-            &:hover {
-              color: #000;
-              &::after {
-                background-color: #000;
-              }
-            }
-          }
           .info {
             display: flex;
             align-items: center;
@@ -349,27 +364,6 @@
     }
   }
 
-  /* ----------------------------- Language Group ----------------------------- */
-  .language-list {
-    .cart-body {
-      .menu-general-info-list {
-        .continent {
-          margin: 25px 5px 10px;
-          font-size: 22px;
-        }
-        .select-language {
-          cursor: pointer;
-          margin: 8px 12px;
-          padding: 8px 12px;
-          border-radius: 6px;
-          transition: 0.3s ease;
-          &:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-          }
-        }
-      }
-    }
-  }
   /* ----------------------------- Cart Box----------------------------- */
   .cart-box {
     .cart-body {
@@ -405,19 +399,34 @@
             }
           }
         }
-        .white-black-btn {
-          margin-bottom: 20px;
+
+      
+        .btn-secondary {
+          .btn {
+            @include btn(
+              auto,
+              #fff,
+              #3e6ae1,
+              10px 24px,
+              18px auto 0,
+              #3457b1,
+              #fff,
+              #3e6ae1,
+              #3457b1
+            );
+            width: 100%;
+          }
         }
       }
     }
   }
 
   /* ------------------------------- Mobile Menu ------------------------------ */
-  .dropdown-details-mobile {
+  .drop-menu {
     margin-right: 4px;
     padding: 0 28px 0 32px;
-
     .cart-body {
+      // Dropdown Mobile
       .current-page {
         font-size: 28px;
         font-weight: 600;
@@ -430,14 +439,14 @@
           height: 170px;
           border-radius: 6px;
           overflow: hidden;
-          img {
+          .image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-          }
-          .car-img {
-            object-fit: contain;
-            background-color: #eee;
+            &.car-img {
+              object-fit: contain;
+              background-color: #eee;
+            }
           }
         }
         .title {
@@ -448,8 +457,27 @@
           margin-bottom: 10px;
         }
       }
+
+      //  Language
+      .menu-general-info-list {
+        .continent {
+          margin: 25px 5px 10px;
+          font-size: 22px;
+        }
+        .select-language {
+          cursor: pointer;
+          margin: 8px 12px;
+          padding: 8px 12px;
+          border-radius: 6px;
+          transition: 0.3s ease;
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
     }
   }
+
   .overlay {
     position: fixed;
     top: 0;
@@ -509,6 +537,14 @@
     }
   }
 }
+@media (max-width: 600px) {
+  .header {
+    /* ----------------------------- Toggle  Menu ---------------------------- */
+    .menu-box {
+      padding: 0 20px;
+    }
+  }
+}
 @media (max-width: 320px) {
   .header {
     .container {
@@ -539,7 +575,7 @@
     /* ----------------------------- Toggle  Menu ---------------------------- */
     .menu-box {
       width: 100%;
-      padding: 0 18px;
+      padding: 0 10px;
     }
   }
 }

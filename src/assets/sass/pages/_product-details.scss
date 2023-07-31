@@ -111,13 +111,13 @@
             width: 100%;
             display: flex;
             align-items: center;
-            .btn {
+            .btn-quantify {
               background-color: transparent;
               border: none;
               color: #000;
               font-size: 20px;
               font-weight: 500;
-              cursor: pointer;;
+              cursor: pointer;
             }
             .form-input {
               margin: 0 15px;
@@ -145,7 +145,32 @@
               }
             }
           }
-      
+          .error {
+            font-size: 14px;
+            padding: 5px 22px;
+            font-weight: 600;
+            color: #c13232;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.4s ease;
+            &.isShown {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+          .btn {
+            @include btn(
+              289px,
+              #fff,
+              #3e6ae1,
+              10px 24px,
+              18px 0 0,
+              #3457b1,
+              #fff,
+              #3e6ae1,
+              #3457b1
+            );
+          }
         }
         .secondary-info {
           margin: 12px 0 20px;
@@ -272,8 +297,10 @@
               max-width: 100%;
             }
 
-            .add-to-cart-btn {
-              max-width: 100%;
+            .btn {
+              margin: 18px auto 0;
+              min-width: auto;
+              width: 100%;
             }
           }
           .secondary-info {

@@ -8,6 +8,11 @@ const Shop = () => {
   const [data, setData] = useState([]);
   /* --------------------------------- Params --------------------------------- */
   const { categoryName, categoryTitleName, categoryType } = useParams();
+  
+  /* ------------------------------- Scrool TOP ------------------------------- */
+  if(!categoryType){
+    window.scrollTo(0, 0);
+  }
 
 /* ------------------------------ Get Elements ------------------------------ */
   const refs = useRef([]);

@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 /* --------------------------------- Router --------------------------------- */
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
+
+/* ----------------------------- React Hook Form && Yup ---------------------------- */
+import { useForm } from "react-hook-form";
 
 /* --------------------------------- Slider --------------------------------- */
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,7 +12,6 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-// import required modules
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 import ProductSlider from "./section/ProductSlider";
 
@@ -17,18 +19,32 @@ import ProductSlider from "./section/ProductSlider";
 import generalDb from "../db/generalDb";
 
 /* ------------------------------- Components ------------------------------- */
-import BlueWhiteBtn from "../components/BlueWhiteBtn";
+import Btn from "../components/Btn";
+/* --------------------------------- Context -------------------------------- */
+import { ShopContext } from "../utils/ShopContext";
 
 const ProductDetail = () => {
   /* ------------------------------- Loacl State ------------------------------ */
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [error, setError] = useState(false);
+
+  /* --------------------------------- Context -------------------------------- */
+  const { addToCart } = useContext(ShopContext);
 
   /* --------------------------------- Params --------------------------------- */
   const { categoryName, categoryTitleName, productId } = useParams();
 
+  /* --------------------------------- Router --------------------------------- */
+  const { pathname } = useLocation();
+  /* ---------------------- Reset  Scroll Position --------------------- */
   useEffect(() => {
-    const getProduct =  () => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  /* ------------------------------- Get Data Db ------------------------------ */
+  useEffect(() => {
+    const getProduct = () => {
       const foundCategory = generalDb.find(
         (item) => item.category === categoryName
       );
@@ -38,104 +54,136 @@ const ProductDetail = () => {
       const foundProduct = foundItem.products.find(
         (product) => product.id === Number(productId)
       );
-      setSelectedProduct({ ...foundProduct, categoryTitleName,quantify:1 });
+      setSelectedProduct({ ...foundProduct, categoryTitleName, quantify: 1 });
     };
     getProduct();
   }, [categoryName, categoryTitleName, productId]);
 
-  const handleChange = (e) => {
-    const inpValue = e.target.value;
-    if (inpValue.trim() === "") {
-      return false;
+  /* ----------------------------- React Hook Form ---------------------------- */
+  const { register, setValue } = useForm({});
+  useEffect(() => {
+    setValue("quantify", selectedProduct?.quantify || 1);
+  }, [selectedProduct?.quantify, setValue]);
+
+  /* ------------------------- Handle Change Quantify ------------------------- */
+  const handleQuantifyChange = (e) => {
+    const handleQuantify = e.target.value;
+    const regex = /^[0-9]+$/;
+    if (!regex.test(handleQuantify)) {
+      setError(true);
     } else {
-      setSelectedProduct({ ...selectedProduct, quantify: Number(inpValue) });
+      setSelectedProduct({
+        ...selectedProduct,
+        quantify: Number(handleQuantify),
+      });
+      setError(false);
     }
   };
 
-  const incrimentProduct =()=>{
-    setSelectedProduct({...selectedProduct,quantify: selectedProduct.quantify +1})
-  }
+  /* --------------------------- İncriment Produect --------------------------- */
 
-    // decrement produect
-    const decrementProduct = () => {
-      if (selectedProduct.quantify > 1) {
-        setSelectedProduct({
-          ...selectedProduct,
-          quantify: selectedProduct.quantify - 1,
-        });
-    
-      }
-    };
+  const incrimentProduct = () => {
+    setSelectedProduct({
+      ...selectedProduct,
+      quantify: selectedProduct.quantify + 1,
+    });
+  };
+
+  /* --------------------------- Decrement Produect --------------------------- */
+  const decrementProduct = () => {
+    if (selectedProduct.quantify > 1) {
+      setSelectedProduct({
+        ...selectedProduct,
+        quantify: selectedProduct.quantify - 1,
+      });
+    }
+  };
   return (
     <main>
       <section className="product-detail">
         <div className="container">
-          <div className="row">
-            <div className="product-images">
-              <Swiper
-                slidesPerView={1}
-                spaceBetween={10}
-                navigation={true}
-                pagination={{
-                  clickable: true,
-                }}
-                thumbs={{ swiper: thumbsSwiper }}
-                modules={[FreeMode, Navigation, Thumbs, Pagination]}
-                className="mySwiper2"
-              >
-                {selectedProduct?.images.map((item) => (
-                  <SwiperSlide key={item.id}>
-                    <img src={item.productImg} alt={selectedProduct?.title} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-              <Swiper
-                onSwiper={setThumbsSwiper}
-                spaceBetween={15}
-                slidesPerView={5}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
-              >
-                {selectedProduct?.images.map((item) => (
-                  <SwiperSlide key={item.id}>
-                    <img src={item.productImg} alt={selectedProduct?.title} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-            <div className="product-info">
-              <h2 className="product-title">{selectedProduct?.title}</h2>
-              <div className="primary-info">
-                <span className="price">${selectedProduct?.price}</span>
-                <p className="login-info">
-                  See if this accessory is compatible with a car in your Tesla
-                  Account <Link>Sign In</Link>
-                </p>
-                <h6 className="quantify-title">Quantity</h6>
-                <div className="quantify">
-                  <button className="btn" onClick={decrementProduct}>-</button>
-                  <div className="form-input ">
-                    <input
-                      type="number"
-                      max={2}
-                      min={1}
-                      // defaultValue={5}
-                      value={selectedProduct?.quantify}
-                      onChange={()=>handleChange}
-                    />
+          {selectedProduct && (
+            <div className="row">
+              <div className="product-images">
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={10}
+                  navigation={true}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  thumbs={{ swiper: thumbsSwiper }}
+                  modules={[FreeMode, Navigation, Thumbs, Pagination]}
+                  className="mySwiper2"
+                >
+                  {selectedProduct.images.map((item) => (
+                    <SwiperSlide key={item.id}>
+                      <img src={item.productImg} alt={selectedProduct.title} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+                <Swiper
+                  onSwiper={setThumbsSwiper}
+                  spaceBetween={15}
+                  slidesPerView={5}
+                  freeMode={true}
+                  watchSlidesProgress={true}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="mySwiper"
+                >
+                  {selectedProduct.images.map((item) => (
+                    <SwiperSlide key={item.id}>
+                      <img src={item.productImg} alt={selectedProduct.title} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              <div className="product-info">
+                <h2 className="product-title">{selectedProduct.title}</h2>
+                <div className="primary-info">
+                  <span className="price">${selectedProduct.price}</span>
+                  <p className="login-info">
+                    See if this accessory is compatible with a car in your Tesla
+                    Account <Link>Sign In</Link>
+                  </p>
+                  <h6 className="quantify-title">Quantity</h6>
+                  <div className="quantify">
+                    <button className="btn-quantify" onClick={decrementProduct}>
+                      -
+                    </button>
+                    <form
+                      onSubmit={(e) => e.preventDefault()}
+                      className="form-input "
+                    >
+                      <input
+                        defaultValue={selectedProduct.quantify}
+                        {...register("quantify")}
+                        onChange={handleQuantifyChange}
+                        minLength={1}
+                        maxLength={2}
+                      />
+                    </form>
+                    <button className="btn-quantify" onClick={incrimentProduct}>
+                      +
+                    </button>
                   </div>
-                  <button className="btn" onClick={incrimentProduct}>+</button>
+                  <p className={error ? "error  isShown" : "error"}>
+                    Only Number
+                  </p>
+                  <Btn
+                    text={"Add To Cart"}
+                    link={"#"}
+                    onClick={() => addToCart(selectedProduct)}
+                    disabled={error}
+                  />
                 </div>
-                <BlueWhiteBtn text={"Add To Cart"} data={selectedProduct} />
-              </div>
-              <div className="secondary-info">
-                <h4 className="title">Description</h4>
-                <p className="text">{selectedProduct?.detail}</p>
+                <div className="secondary-info">
+                  <h4 className="title">Description</h4>
+                  <p className="text">{selectedProduct.detail}</p>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
       <ProductSlider title={"Recommended Products"} />

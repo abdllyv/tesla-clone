@@ -1,9 +1,8 @@
 import { useState } from "react";
-/* -------------------------------- Component ------------------------------- */
-import StaticBtn from "../../components/StaticBtn";
-import WhiteBlackBtn from "../../components/WhiteBlackBtn";
+
 /* -------------------------------- DataBase -------------------------------- */
 import modelDb from "../../db/modelDb";
+import Btn from "../../components/Btn";
 
 const CarModels = () => {
   /* ------------------------------- Local State ------------------------------ */
@@ -28,7 +27,7 @@ const CarModels = () => {
           />
           <div className="info">
             <h4 className={"title"}>{item.title}</h4>
-            <StaticBtn />
+            <Btn text={"Shop Now"} link={item.url}/>
           </div>
         </div>
       ))}
@@ -47,7 +46,7 @@ const CarModels = () => {
             />
             <div className="info">
               <h4 className={"title"}>{item.title}</h4>
-              <WhiteBlackBtn text={"Shop Now"} />
+              <Btn text={"Shop Now"} link={item.url}/>
             </div>
           </div>
         ))}
@@ -62,7 +61,7 @@ const CarModels = () => {
           />
           <div className="info">
             <h4 className="title">{item.title}</h4>
-            <WhiteBlackBtn text={"Shop Now"} />
+            <Btn text={"Shop Now"} link={item.url}/>
           </div>
         </div>
       ))}

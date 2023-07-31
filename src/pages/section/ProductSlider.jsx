@@ -1,26 +1,24 @@
 /* --------------------------------- Slider --------------------------------- */
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-// import required modules
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import generalDb from "../../db/generalDb";
+
+// import required modules
+
 const ProductSlider = ({ title }) => {
   const [data, setData] = useState(null);
-  const [selectCategory, setSelectCategory] = useState(null);
 
   useEffect(() => {
-    generalDb.filter((item) => item.category === "MoreOver" && setData(item));
-  }, []);
-  useEffect(() => {
-    data?.items.map(
-      (product) =>
-        product.categoryTitle === title && setSelectCategory(product.products)
-    );
-  }, [data?.items, title]);
+    const products = generalDb.find((item) => item.category === "MoreOver");
+    setData(products.items.find((item) => item.categoryTitle === title));
+  }, [title]);
 
   return (
     <section className="product-slider">
@@ -32,6 +30,10 @@ const ProductSlider = ({ title }) => {
             spaceBetween={0}
             navigation={true}
             loop={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
             breakpoints={{
               600: {
                 slidesPerView: 2,
@@ -42,15 +44,15 @@ const ProductSlider = ({ title }) => {
                 spaceBetween: 30,
               },
             }}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             className="mySwiper"
           >
-            {selectCategory?.map((item) => (
+            {data?.products.map((item) => (
               <SwiperSlide key={item.id}>
-                <Link className="card" to="/product-detail">
+                <Link className="card" to={`/product-detail/MoreOver/${title}/${item.id}`}>
                   <div className="cart-container">
                     <div className="top">
-                      <img src={item.productIMg} alt={item.title} />
+                      <img src={item.images[0].productImg} alt={item.title} />
                     </div>
                     <h4 className="card-title">{item.title}</h4>
                   </div>

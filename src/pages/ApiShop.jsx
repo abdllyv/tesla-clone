@@ -2,12 +2,13 @@
 import { useEffect, useState } from "react";
 import ApiCart from "../components/ApiCart";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const ApiShop = () => {
   /* ------------------------------- Local State ------------------------------ */
   const [data, setData] = useState([]);
 
-/* ------------------------------- Get AllData ------------------------------ */
+  /* ------------------------------- Get AllData ------------------------------ */
   useEffect(() => {
     const getData = async () => {
       try {
@@ -20,6 +21,14 @@ const ApiShop = () => {
     };
     getData();
   }, []);
+
+  /* --------------------------------- Router --------------------------------- */
+  const { pathname } = useLocation();
+  /* ---------------------- Reset keeping Scroll Position --------------------- */
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
   return (
     <main>
       <section className="shop">
@@ -31,8 +40,9 @@ const ApiShop = () => {
             <div className="category-container">
               <h2 className="category-title">On The Road</h2>
               <div className="products">
-                {data.map(item=>(  <ApiCart product={item} key={item.id} /> ))}
-              
+                {data.map((item) => (
+                  <ApiCart product={item} key={item.id} />
+                ))}
               </div>
             </div>
           </div>

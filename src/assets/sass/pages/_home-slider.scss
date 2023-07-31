@@ -1,3 +1,4 @@
+@import "../mixin";
 /* ------------------------------ Home Section ------------------------------ */
 .home {
   width: 100%;
@@ -36,8 +37,18 @@
             .text {
               font-size: 22px;
             }
-            .static-btn {
-              margin: 32px 24px 0;
+            .btn {
+              @include btn(
+                283px,
+                #171a20,
+                #fff,
+                10px 24px,
+                24px 24px 0,
+                #00000075,
+                #fff,
+                #fff,
+                #fff
+              );
             }
           }
         }
@@ -74,8 +85,9 @@
               .text {
                 font-size: 15px;
               }
-              .static-btn {
-                min-width: 90%;
+              .btn {
+                min-width: auto;
+                width: 90%;
               }
             }
           }

@@ -1,3 +1,5 @@
+@import "../mixin";
+
 /* ----------------------------- Models Section ----------------------------- */
 .models {
   width: 100%;
@@ -29,12 +31,18 @@
         font-size: 34px;
         margin-bottom: 12px;
       }
-      .white-black-btn {
-        min-width: 283px;
-      }
-
-      .static-btn {
-        margin: 24px 24px 0;
+      .btn {
+        @include btn(
+          283px,
+          #171a20,
+          #fff,
+          10px 24px,
+          24px 24px 0,
+          #00000075,
+          #fff,
+          #fff,
+          #171a20
+        );
       }
     }
   }
@@ -50,8 +58,18 @@
           color: #000;
           font-size: 22px;
         }
-        .white-black-btn {
-          min-width: auto;
+        .btn {
+          @include btn(
+            auto,
+            #171a20,
+            #fff,
+            10px 24px,
+            24px 24px ,
+            #171a20,
+            #fff,
+            #171a20,
+            #171a20
+          );
         }
       }
     }
@@ -74,9 +92,9 @@
           font-size: 24px;
           margin-bottom: 8px;
         }
-        .static-btn,
-        .white-black-btn {
-          min-width: 90%;
+        .btn {
+          min-width: auto;
+          width: 90%;
         }
       }
     }

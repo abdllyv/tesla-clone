@@ -4,13 +4,7 @@ import logo from "../assets/img/tesla-9.svg";
 /* --------------------------------- Router --------------------------------- */
 import { Link, useLocation } from "react-router-dom";
 /* ----------------------------------React Hook ---------------------------------- */
-import { useEffect, useState } from "react";
-
-/* -------------------------------- Dropdown -------------------------------- */
-import DropdownCharging from "./dropdown/DropdownCharging";
-import DropdowVehicleAccessories from "./dropdown/DropdowVehicleAccessories";
-import DropdownApparel from "./dropdown/DropdownApparel";
-import DropdownLifestyle from "./dropdown/DropdownLifestyle";
+import { useContext, useEffect, useState } from "react";
 
 /* ---------------------------------- Icon ---------------------------------- */
 import {
@@ -23,23 +17,24 @@ import {
 import { MdOutlineLanguage } from "react-icons/md";
 
 /* ------------------------------- Components ------------------------------- */
-import WhiteBlackBtn from "./WhiteBlackBtn";
-import BlueWhiteBtn from "./BlueWhiteBtn";
-import MobileApparel from "./dropdown/MobileApparel";
-import MobileCharging from "./dropdown/MobileCharging";
-import MobileVehicleAccessories from "./dropdown/MobileVehicleAccessories";
-import MobileLifestyle from "./dropdown/MobileLifestyle";
-import LanguageList from "./LanguageList";
 import Product from "./Product";
+import { ShopContext } from "../utils/ShopContext";
+import DropMenu from "./DropMenu";
+import Dropdown from "./Dropdown";
+import dropDownDb from "../db/dropDownDb";
+import Btn from "./Btn";
 
 const Header = () => {
   //   /* ------------------------------- Local State ------------------------------ */
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [inpIsOpen, setInpIsOpen] = useState(false);
+
+  /* ------------------------------ Global State ------------------------------ */
+  const { cart, cartSum, total, removeAllData } = useContext(ShopContext);
   /* --------------------------- DropDown open-close -------------------------- */
   const [dropdownMenuState, setDropdownMenuState] = useState(null);
-  /* --------------------------- Language open-close -------------------------- */
-  const [languageBox, setLanguageBox] = useState(false);
+  /* --------------------------- DropMenu Open-Close -------------------------- */
+  const [mobileDropmenu, setMobileDropmenu] = useState(null);
   /* --------------------------- Cart open-close -------------------------- */
   const [cartIsOpen, setCartIsOpen] = useState(false);
 
@@ -72,6 +67,7 @@ const Header = () => {
     setMenuIsOpen(false);
     setDropdownMenuState(null);
     setCartIsOpen(false);
+    setMobileDropmenu(null);
   }, [location]);
 
   return (
@@ -106,43 +102,21 @@ const Header = () => {
           </div>
           {/* ------------------------------NavBar------------------------------  */}
           <nav className="nav-bar">
-            <ul className="nav-list">
-              <li
-                className="nav-items"
-                onMouseEnter={() => setDropdownMenuState("charging")}
-                onMouseLeave={() => setDropdownMenuState(null)}
-              >
-                <Link to="/api-shop">Charging</Link>
-                <DropdownCharging dropdownMenuState={dropdownMenuState} />
-              </li>
-              <li
-                className="nav-items"
-                onMouseEnter={() => setDropdownMenuState("vehicleAccessories")}
-                onMouseLeave={() => setDropdownMenuState(null)}
-              >
-                <Link to={`/shop/${"Vehicle Accessories"}/${"products"}/""`}>
-                  Vehicle Accessories
-                </Link>
-                <DropdowVehicleAccessories
-                  dropdownMenuState={dropdownMenuState}
-                />
-              </li>
-              <li
-                className="nav-items"
-                onMouseEnter={() => setDropdownMenuState("apparel")}
-                onMouseLeave={() => setDropdownMenuState(null)}
-              >
-                <Link>Apparel</Link>
-                <DropdownApparel dropdownMenuState={dropdownMenuState} />
-              </li>
-              <li
-                className="nav-items"
-                onMouseEnter={() => setDropdownMenuState("lifestyle")}
-                onMouseLeave={() => setDropdownMenuState(null)}
-              >
-                <Link>Lifestyle</Link>
-                <DropdownLifestyle dropdownMenuState={dropdownMenuState} />
-              </li>
+            <ul
+              className="nav-list"
+              onMouseLeave={() => setDropdownMenuState(null)}
+            >
+              {dropDownDb.map((item) => (
+                <li
+                  className="nav-items"
+                  onMouseEnter={() => setDropdownMenuState(item.category)}
+                  key={item.id}
+                >
+                  <Link to={item.allProductUrl}>{item.category}</Link>
+                  <Dropdown dropdownMenuState={dropdownMenuState} />
+                </li>
+              ))}
+              <Dropdown dropdownMenuState={dropdownMenuState} />
             </ul>
           </nav>
           {/* ------------------------------UserArea------------------------------  */}
@@ -158,7 +132,7 @@ const Header = () => {
               </div>
             </form>
             <div className="cart" onClick={() => setCartIsOpen(true)}>
-              <div className="count">0</div>
+              <div className="count">{cartSum}</div>
               <AiOutlineShoppingCart />
             </div>
             <span className="menu-text" onClick={() => setMenuIsOpen(true)}>
@@ -178,42 +152,19 @@ const Header = () => {
         <div className="cart-body">
           <form className="seacrh-form-mobile"></form>
           <ul className="nav-list-mobile">
-            <li
-              className="nav-items"
-              onClick={() => setDropdownMenuState("charging-mobile")}
-            >
-              <span className="text">Charging </span>
-              <span className="icon">
-                <AiOutlineRight />
-              </span>
-            </li>
-            <li
-              className="nav-items"
-              onClick={() => setDropdownMenuState("vehicle-accessories")}
-            >
-              <span className="text">Vehicle Accessories</span>
-              <span className="icon">
-                <AiOutlineRight />
-              </span>
-            </li>
-            <li
-              className="nav-items"
-              onClick={() => setDropdownMenuState("apparel-mobile")}
-            >
-              <span className="text">Apparel</span>
-              <span className="icon">
-                <AiOutlineRight />
-              </span>
-            </li>
-            <li
-              className="nav-items"
-              onClick={() => setDropdownMenuState("lifestyle-mobile")}
-            >
-              <span className="text">Lifestyle</span>
-              <span className="icon">
-                <AiOutlineRight />
-              </span>
-            </li>
+            {dropDownDb.map((item) => (
+              <li
+                className="nav-items"
+                onClick={() => setMobileDropmenu(item.category)}
+                key={item.id}
+              >
+                <span className="text">{item.category} </span>
+                <span className="icon">
+                  <AiOutlineRight />
+                </span>
+              </li>
+            ))}
+          
           </ul>
           <ul className="menu-general-info-list">
             <li className="menu-items">
@@ -223,7 +174,10 @@ const Header = () => {
               <Link>Sign In</Link>
             </li>
             <li className="language-select menu-items">
-              <div className="info" onClick={() => setLanguageBox(true)}>
+              <div
+                className="info"
+                onClick={() => setMobileDropmenu("Language")}
+              >
                 <div className="left-side">
                   <MdOutlineLanguage />
                 </div>
@@ -238,34 +192,6 @@ const Header = () => {
       </div>
       {/* ------------------------------End  Toggle  Menu------------------------------  */}
 
-      {/* ------------------------------Start Language Group------------------------------  */}
-      <div
-        className={
-          languageBox
-            ? "language-list menu-box isOpenMenu"
-            : "language-list menu-box"
-        }
-      >
-        <div className="cart-head-dropdown">
-          <span className="navigate" onClick={() => setLanguageBox(false)}>
-            <div className="back-icon">
-              <AiOutlineLeft />
-            </div>
-            Back
-          </span>
-          <div className="icon">
-            <AiOutlineClose
-              onClick={() => {
-                setMenuIsOpen(false);
-                setLanguageBox(false);
-              }}
-            />
-          </div>
-        </div>
-        <LanguageList />
-      </div>
-      {/* ------------------------------End Language Group------------------------------  */}
-
       {/* ------------------------------Start Cart-Box ------------------------------  */}
       <div
         className={
@@ -278,39 +204,49 @@ const Header = () => {
           </div>
         </div>
         <div className="cart-body">
-          <p className="text">Cart Is Empty</p>
-          <p className="text">Products</p>
+          {cart.length === 0 && <p className="text">Cart Is Empty</p>}
+          {cart.length !== 0 && <p className="text">Products</p>}
 
           {/*------------  Products ------------ */}
-          <Product />
+          {cart.map((item) => (
+            <Product key={item.id} data={item} />
+          ))}
           {/*------------ Cart-footer ------------ */}
-          <div className="cart-footer">
-            <div className="footer-info">
-              <div className="left-side">
-                <h6 className="cart-footer-title">Subtotal</h6>
-                <span className="cart-footer-text">Excludes Sales tax</span>
+          {cart.length !== 0 && (
+            <div className="cart-footer">
+              <div className="footer-info">
+                <div className="left-side">
+                  <h6 className="cart-footer-title">Subtotal</h6>
+                  <span className="cart-footer-text">Excludes Sales tax</span>
+                </div>
+                <div className="right-side">
+                  <span className="cart-footer-price">${total}</span>
+                </div>
               </div>
-              <div className="right-side">
-                <span className="cart-footer-price">$250.00</span>
+              <div className="btn-primary">
+                <Btn text={"View Cart"} link={"/cart-products"} />
+              </div>
+              <div className="btn-secondary">
+                <Btn
+                  text={"Remove All Data"}
+                  link={"#"}
+                  onClick={removeAllData}
+                />
               </div>
             </div>
-            <WhiteBlackBtn text={"View Cart"} />
-            <BlueWhiteBtn text={"Checkout"} />
-          </div>
+          )}
         </div>
       </div>
       {/* ------------------------------End Cart-Box ------------------------------  */}
 
       {/* ------------------------------ Start Mobile Menu------------------------------  */}
-
-      {/* -------------- Mobile Format Charging  -------------- */}
       <div
-        className={`dropdown-details-mobile menu-box ${
-          dropdownMenuState === "charging-mobile" && "isOpenMenu"
+        className={`drop-menu menu-box ${
+          mobileDropmenu !== null && "isOpenMenu"
         } `}
       >
         <div className="cart-head-dropdown">
-          <span className="navigate" onClick={() => setDropdownMenuState(null)}>
+          <span className="navigate" onClick={() => setMobileDropmenu(null)}>
             <div className="back-icon">
               <AiOutlineLeft />
             </div>
@@ -320,87 +256,12 @@ const Header = () => {
             <AiOutlineClose
               onClick={() => {
                 setMenuIsOpen(false);
-                setDropdownMenuState(null);
+                setMobileDropmenu(null);
               }}
             />
           </div>
         </div>
-        <MobileCharging />
-      </div>
-
-      {/* -------------- Mobile Format Vehicle-accessories   -------------- */}
-      <div
-        className={`dropdown-details-mobile menu-box ${
-          dropdownMenuState === "vehicle-accessories" && "isOpenMenu"
-        } `}
-      >
-        <div className="cart-head-dropdown">
-          <span className="navigate" onClick={() => setDropdownMenuState(null)}>
-            <div className="back-icon">
-              <AiOutlineLeft />
-            </div>
-            Back
-          </span>
-          <div className="icon">
-            <AiOutlineClose
-              onClick={() => {
-                setMenuIsOpen(false);
-                setDropdownMenuState(null);
-              }}
-            />
-          </div>
-        </div>
-        <MobileVehicleAccessories />
-      </div>
-
-      {/* -------------- Mobile Format Apparel  -------------- */}
-      <div
-        className={`dropdown-details-mobile menu-box ${
-          dropdownMenuState === "apparel-mobile" && "isOpenMenu"
-        } `}
-      >
-        <div className="cart-head-dropdown">
-          <span className="navigate" onClick={() => setDropdownMenuState(null)}>
-            <div className="back-icon">
-              <AiOutlineLeft />
-            </div>
-            Back
-          </span>
-          <div className="icon">
-            <AiOutlineClose
-              onClick={() => {
-                setMenuIsOpen(false);
-                setDropdownMenuState(null);
-              }}
-            />
-          </div>
-        </div>
-        <MobileApparel />
-      </div>
-
-      {/* -------------- Mobile Format Lifestyle  -------------- */}
-      <div
-        className={`dropdown-details-mobile menu-box ${
-          dropdownMenuState === "lifestyle-mobile" && "isOpenMenu"
-        } `}
-      >
-        <div className="cart-head-dropdown">
-          <span className="navigate" onClick={() => setDropdownMenuState(null)}>
-            <div className="back-icon">
-              <AiOutlineLeft />
-            </div>
-            Back
-          </span>
-          <div className="icon">
-            <AiOutlineClose
-              onClick={() => {
-                setMenuIsOpen(false);
-                setDropdownMenuState(null);
-              }}
-            />
-          </div>
-        </div>
-        <MobileLifestyle />
+        <DropMenu dropMenuData={mobileDropmenu} />
       </div>
       {/* ------------------------------ End Mobile Menu------------------------------  */}
 
@@ -408,8 +269,8 @@ const Header = () => {
         className={`overlay  ${menuIsOpen || cartIsOpen ? "isOpen" : ""} `}
         onClick={() => {
           setMenuIsOpen(false);
-          setLanguageBox(false);
           setDropdownMenuState(null);
+          setMobileDropmenu(null);
           setCartIsOpen(false);
         }}
       ></div>

@@ -1,17 +1,37 @@
-import BlueWhiteBtn from "../components/BlueWhiteBtn";
-import ProductCart from "../components/Product";
+import { useContext, useEffect } from "react";
+import Product from "../components/Product";
+import { ShopContext } from "../utils/ShopContext";
+import { useLocation } from "react-router-dom";
+import Btn from "../components/Btn";
 
 const CartProducts = () => {
+  /* ------------------------------ Global State ------------------------------ */
+  const { cart, total, removeAllData } = useContext(ShopContext);
+
+  /* --------------------------------- Router --------------------------------- */
+  const { pathname } = useLocation();
+  /* ---------------------- Reset keeping Scroll Position --------------------- */
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <main>
       <section className="cart-products">
         <div className="container">
           <div className="row">
             <div className="cart-info">
-              <div className="h5">Cart</div>
-              <ProductCart />
-              <ProductCart />
-              <ProductCart />
+              <div className="cart-title">Cart</div>
+              {cart.map((item) => (
+                <Product key={item.id} data={item} />
+              ))}
+              {cart.length !== 0 && (
+                <Btn
+                  text={"Remove All Data"}
+                  link={"#"}
+                  onClick={removeAllData}
+                />
+              )}
             </div>
             <div className="last-check">
               <div className="check-cart">
@@ -28,9 +48,11 @@ const CartProducts = () => {
                 </div>
                 <div className="general-info">
                   <h4 className="total-title">Subtotal</h4>
-                  <h4 className="total-price">250$</h4>
+                  <h4 className="total-price">{total}$</h4>
                 </div>
-                <BlueWhiteBtn />
+                <div className="primary-btn">
+                  <Btn text={"Checkout"} link={"#"} />
+                </div>
               </div>
             </div>
           </div>

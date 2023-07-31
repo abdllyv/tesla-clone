@@ -1,11 +1,3 @@
-/* ---------------------------------- Image --------------------------------- */
-import sliderFirstBg from "../../assets/img/home-slider-bg/Wall_Connector_banner_web.avif";
-import sliderSecondBg from "../../assets/img/home-slider-bg/Chill_banner_web.avif";
-import sliderThirdBg from "../../assets/img/home-slider-bg/MY_Floormats_banner_web.avif";
-import sliderFirstBgMobile from "../../assets/img/home-slider-bg/Wall_Connector_banner_mobile.avif";
-import sliderSecondBgMobile from "../../assets/img/home-slider-bg/Chill_banner_mobile.avif";
-import sliderThirdBgMobile from "../../assets/img/home-slider-bg/MY_Floormats_banner_mobile.avif";
-
 /* --------------------------------- Slider --------------------------------- */
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -14,8 +6,8 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
 /* -------------------------------- Component ------------------------------- */
-import StaticBtn from "../../components/StaticBtn";
-
+import Btn from "../../components/Btn";
+import sliderDb from "../../db/homeSliderDb";
 const HomeSlider = () => {
   return (
     <section className="home">
@@ -34,47 +26,25 @@ const HomeSlider = () => {
           modules={[Autoplay, Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <img src={sliderFirstBg} className="deskop-img" alt="charging" />
-            <img
-              src={sliderFirstBgMobile}
-              className="mobile-img"
-              alt="charging"
-            />
-            <div className="info">
-              <h2 className="title">Wall Connector</h2>
-              <div className="text">
-                The most convenient way to charge at home
+          {sliderDb.map((item) => (
+            <SwiperSlide key={item.id}>
+              <img
+                src={item.imgDeskop}
+                className="deskop-img"
+                alt={item.title}
+              />
+              <img
+                src={item.imgMobile}
+                className="mobile-img"
+                alt={item.title}
+              />
+              <div className="info">
+                <h2 className="title">{item.title}</h2>
+                <p className="text">{item.text}</p>
+                <Btn text={"Shop Now"} link={item.url} />
               </div>
-              <StaticBtn />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={sliderSecondBg} className="deskop-img" alt="charging" />
-            <img
-              src={sliderSecondBgMobile}
-              className="mobile-img"
-              alt="charging"
-            />
-            <div className="info">
-              <h2 className="title">Chill Collection</h2>
-              <div className="text">Premium comfort for any season</div>
-              <StaticBtn />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={sliderThirdBg} className="deskop-img" alt="charging" />
-            <img
-              src={sliderThirdBgMobile}
-              className="mobile-img"
-              alt="charging"
-            />
-            <div className="info">
-              <h2 className="title">Model Y All-Weather Interior Liners</h2>
-              <div className="text">For maximum protection and durability</div>
-              <StaticBtn />
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>
