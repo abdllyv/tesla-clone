@@ -1,20 +1,23 @@
+/* ---------------------------------- React --------------------------------- */
+import { useEffect, useState } from "react";
+
 /* --------------------------------- Slider --------------------------------- */
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+/* --------------------------------- Router --------------------------------- */
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+
+/* -------------------------------- DataBAse -------------------------------- */
 import generalDb from "../../db/generalDb";
 
-// import required modules
-
 const ProductSlider = ({ title }) => {
+  /* ------------------------------- Local State ------------------------------ */
   const [data, setData] = useState(null);
 
+ /* --------------------------------- GetData -------------------------------- */
   useEffect(() => {
     const products = generalDb.find((item) => item.category === "MoreOver");
     setData(products.items.find((item) => item.categoryTitle === title));
@@ -49,7 +52,10 @@ const ProductSlider = ({ title }) => {
           >
             {data?.products.map((item) => (
               <SwiperSlide key={item.id}>
-                <Link className="card" to={`/product-detail/MoreOver/${title}/${item.id}`}>
+                <Link
+                  className="card"
+                  to={`/product-detail/MoreOver/${title}/${item.id}`}
+                >
                   <div className="cart-container">
                     <div className="top">
                       <img src={item.images[0].productImg} alt={item.title} />

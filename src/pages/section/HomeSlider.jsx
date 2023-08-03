@@ -2,12 +2,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-// import required modules
 import { Pagination, Autoplay } from "swiper/modules";
 
 /* -------------------------------- Component ------------------------------- */
 import Btn from "../../components/Btn";
+
+/* -------------------------------- DataBAse -------------------------------- */
 import sliderDb from "../../db/homeSliderDb";
+
 const HomeSlider = () => {
   return (
     <section className="home">

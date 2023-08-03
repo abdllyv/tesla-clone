@@ -7,81 +7,79 @@ import { AiOutlineDown, AiOutlineCheck } from "react-icons/ai";
 /* --------------------------------- Context -------------------------------- */
 import { ShopContext } from "../utils/ShopContext";
 
-
-
-const Product = ({ data }) => {
+const Product = () => {
   /* ------------------------------- Local State ------------------------------ */
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [selectedItem, setSelectedItem] = useState(null);
 
-  /* ------------------------------ Global State ------------------------------ */
-  const { cart, setCart,removeData } = useContext(ShopContext);
+  /* ------------------------------ Gloabl State ------------------------------ */
+  const { cart, changeQuantity, removeData } = useContext(ShopContext);
 
-  const quantities = [1, 2, 3, 4]; // Add more quantities if needed
-
-  const handleQuantitySelect = (quantity) => {
-    setSelectedQuantity(quantity);
-    setIsOpen(false);
+  /* --------------------------- Dropdown open-close -------------------------- */
+  const toggleDropdown = (index) => {
+    setSelectedItem(selectedItem === index ? null : index);
   };
-
 
   return (
     <ul className="product-list">
-      <li className="product-items">
-        <div className="product-image">
-          {/* local Db */}
-          {data.images && (
-            <img src={data.images[0].productImg} alt={data.title} />
-          )}
-          {/* Api Db */}
-          {data.productImage && (
-            <img
-              src={`${process.env.REACT_APP_IMAGE}${data.productImage}`}
-              alt={data.title || data.name}
-            />
-          )}
-        </div>
-        <div className="product-info">
-          <h2 className="title">{data.title || data.name}</h2>
-          {data.categoryTitleName && (
-            <h3 className="categorTitle">{data.categoryTitleName}</h3>
-          )}
-          <div className="quantify-group">
-            <span className="quantify-text">Quantify:</span>
-            <span className="quantify" onClick={() => setIsOpen(true)}>
-              {data.quantify} <AiOutlineDown />
-              {isOpen && (
-                <div className="dropdown">
-                  <ul>
-                    {quantities.map((quantity) => (
-                      <li
-                        key={quantity}
-                        className={
-                          selectedQuantity === quantity ? "active" : ""
-                        }
-                        onClick={() => handleQuantitySelect(quantity)}
-                      >
-                        {quantity}
-                        {selectedQuantity === quantity && (
-                          <div className="check-icon">
-                            <AiOutlineCheck />
-                          </div>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </span>
+      {cart.map((data, index) => (
+        <li
+          className={`product-items ${selectedItem === index ? "isOpen" : ""}`}
+          key={data.id}
+        >
+          <div className="product-image">
+            {data.productImage ? (
+              <img
+                src={`${process.env.REACT_APP_IMAGE}${data.productImage}`}
+                alt={data.title || data.name}
+              />
+            ) : (
+              <img src={data.images[0].productImg} alt={data.title} />
+            )}
           </div>
-          <button className="delete-btn" onClick={() => removeData(data.id)}>
-            Remove
-          </button>
-        </div>
-        <div className="price">
-          <span>{data.price}$</span>
-        </div>
-      </li>
+          <div className="product-info">
+            <h2 className="title">{data.title || data.name}</h2>
+            {data.categoryTitleName && (
+              <h3 className="categorTitle">{data.categoryTitleName}</h3>
+            )}
+            <div className="quantify-group">
+              <span className="quantify-text">Quantify:</span>
+              <span className="quantify" onClick={() => toggleDropdown(index)}>
+                {data.quantify} <AiOutlineDown />
+                {selectedItem === index &&    (
+                  <div className="dropdown">
+                    <ul>
+                      {[...Array(10)].map((_, quantity) => (
+                        <li
+                          key={quantity + 1}
+                          className={
+                            data.quantify === quantity + 1 ? "active" : ""
+                          }
+                          onClick={() =>
+                            changeQuantity({ data, quantity: quantity + 1 })
+                          }
+                        >
+                          {quantity + 1}
+                          {data.quantify === quantity + 1 && (
+                            <div className="check-icon">
+                              <AiOutlineCheck />
+                            </div>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </span>
+            </div>
+            <button className="delete-btn" onClick={() => removeData(data.id)}>
+              Remove
+            </button>
+          </div>
+          <div className="price">
+            <span>{data.price}$</span>
+          </div>
+        </li>
+      ))}
     </ul>
   );
 };

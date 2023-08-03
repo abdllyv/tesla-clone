@@ -1,37 +1,75 @@
-/* ------------------------------- Components ------------------------------- */
+/* ---------------------------------- React --------------------------------- */
 import { useEffect, useState } from "react";
+/* ------------------------------- Components ------------------------------- */
 import ApiCart from "../components/ApiCart";
+import Loader from "../components/Loader";
+
+/* ---------------------------------- Axios --------------------------------- */
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+
+/* --------------------------------- Router --------------------------------- */
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ApiShop = () => {
   /* ------------------------------- Local State ------------------------------ */
   const [data, setData] = useState([]);
+  const [loader, setLoader] = useState(false);
+
+  /* -------------------------------- Navigate -------------------------------- */
+  const navigate = useNavigate();
 
   /* ------------------------------- Get AllData ------------------------------ */
   useEffect(() => {
     const getData = async () => {
+      setLoader(true);
       try {
-        await axios
-          .get(process.env.REACT_APP_ALL_PRODUCTS)
-          .then((res) => setData(res.data));
+        await axios.get(process.env.REACT_APP_ALL_PRODUCTS).then((res) => {
+          if (res.status === 200) {
+            setData(res.data);
+            setLoader(false);
+          }
+        });
       } catch (error) {
-        console.log(error);
+        setLoader(false)
+        navigate("/error")
       }
     };
     getData();
-  }, []);
+  }, [navigate]);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     setLoader(true);
+
+  //     await axios
+  //       .get(process.env.REACT_APP_ALL_PRODUCTS)
+  //       .then((res) => {
+  //         if (res.status === 200) {
+  //           setData(res.data);
+  //           setLoader(false);
+  //         }
+  //       })
+  //       .catch((err) => {
+  //         if (err) {
+  //           setLoader(false);
+  //           navigate("/error");
+  //         }
+  //       });
+  //   };
+  //   getData();
+  // }, [navigate]);
 
   /* --------------------------------- Router --------------------------------- */
   const { pathname } = useLocation();
+
   /* ---------------------- Reset keeping Scroll Position --------------------- */
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  
+
   return (
     <main>
       <section className="shop">
+        {loader && <Loader />}
         <div className="container">
           <div className="product-category">
             <div className="category-head">

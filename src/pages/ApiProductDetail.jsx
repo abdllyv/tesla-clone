@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 /* --------------------------------- Router --------------------------------- */
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 /* ----------------------------- React Hook Form && Yup ---------------------------- */
 import { useForm } from "react-hook-form";
@@ -12,13 +12,14 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-// import required modules
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 import ProductSlider from "./section/ProductSlider";
 
 /* ------------------------------- Components ------------------------------- */
 import axios from "axios";
 import Btn from "../components/Btn";
+import Loader from "../components/Loader";
+
 /* --------------------------------- Context -------------------------------- */
 import { ShopContext } from "../utils/ShopContext";
 
@@ -27,6 +28,7 @@ const ApiProductDetail = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [data, setData] = useState({});
   const [error, setError] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   /* ------------------------------ Global State ------------------------------ */
   const { addToCart } = useContext(ShopContext);
@@ -36,23 +38,32 @@ const ApiProductDetail = () => {
 
   /* --------------------------------- Router --------------------------------- */
   const { pathname } = useLocation();
+
+  /* -------------------------------- Navigate -------------------------------- */
+  const navigate = useNavigate();
+
   /* ---------------------- Reset keeping Scroll Position --------------------- */
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
   /* ------------------------------- Get Product ------------------------------ */
   useEffect(() => {
+    setLoader(true);
     const getData = async () => {
       try {
         await axios
           .get(`${process.env.REACT_APP_ALL_PRODUCTS}/${productId}`)
-          .then((res) => setData({ ...res.data, quantify: 1 }));
+          .then((res) => {
+            if (res.status === 200) setData({ ...res.data, quantify: 1 });
+            setLoader(false);
+          });
       } catch (error) {
-        console.log(error);
+        navigate("/error");
+        setLoader(false);
       }
     };
     getData();
-  }, [productId]);
+  }, [navigate, productId]);
 
   /* ----------------------------- React Hook Form ---------------------------- */
   const { register, setValue } = useForm({});
@@ -60,18 +71,8 @@ const ApiProductDetail = () => {
   useEffect(() => {
     setValue("quantify", data.quantify || 1);
   }, [data.quantify, setValue]);
-  // /* ------------------------- Handle Change Quantify ------------------------- */
-  // const handleQuantifyChange = (e) => {
-  //   const handleQuantify = e.target.value;
-  //   if (handleQuantify.trim() === "") {
-  //     return false;
-  //   } else {
-  //     setData({
-  //       ...data,
-  //       quantify: Number(handleQuantify),
-  //     });
-  //   }
-  // };
+
+  /* -------------------------- Handle Quantify Change -------------------------- */
   const handleQuantifyChange = (e) => {
     const handleQuantify = e.target.value;
     const regex = /^[0-9]+$/;
@@ -106,6 +107,7 @@ const ApiProductDetail = () => {
   return (
     <main>
       <section className="product-detail">
+        {loader && <Loader/>}
         <div className="container">
           <div className="row">
             <div className="product-images">

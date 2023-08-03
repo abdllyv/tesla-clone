@@ -89,6 +89,17 @@ export const MainContext = ({ children }) => {
     );
   };
 
+  const changeQuantity = ({ data, quantity }) => {
+
+    let updatedCart = cart.map((item) => {
+      if (item.id === data.id) {
+        return { ...item, quantify: quantity };
+      } else {
+        return item;
+      }
+    });
+    setCart(updatedCart);
+  };
   const globalStates = {
     // Local State
     cart,
@@ -101,6 +112,7 @@ export const MainContext = ({ children }) => {
     addToCart,
     removeData,
     removeAllData,
+    changeQuantity,
   };
   return (
     <ShopContext.Provider value={globalStates}>{children}</ShopContext.Provider>

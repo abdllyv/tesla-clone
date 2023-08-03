@@ -1,0 +1,49 @@
+.loader {
+  z-index: 9999;
+  background-color: hsla(0, 0%, 100%, 0.7);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: opacity 0.5s ease;
+  .tds-icon {
+    background: transparent;
+    width: 48px;
+  }
+  .tds-icon-loader {
+    animation: rotate 1.5s infinite linear;
+    opacity: 0.7;
+    position: absolute;
+  }
+  .tds-icon-logo {
+    animation: logo-opacity 1.5s infinite ease-in-out;
+    display: block;
+    padding: 15px 0 0 12px;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes logo-opacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

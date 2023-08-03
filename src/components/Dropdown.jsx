@@ -1,10 +1,18 @@
+/* ---------------------------------- React --------------------------------- */
 import { Link } from "react-router-dom";
+
+/* --------------------------------- Router --------------------------------- */
 import { useEffect, useState } from "react";
+
+/* -------------------------------- Database -------------------------------- */
 import dropDownDb from "../db/dropDownDb";
 
 const Dropdown = ({ dropdownMenuState }) => {
+  
+  /* ------------------------------- Local State ------------------------------ */
   const [data, setData] = useState(null);
 
+/* ---------------------------- Select Data Type ---------------------------- */
   useEffect(() => {
     dropDownDb.map(
       (item) => item.category === dropdownMenuState && setData(item)

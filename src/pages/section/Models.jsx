@@ -1,3 +1,4 @@
+/* ---------------------------------- React --------------------------------- */
 import { useState } from "react";
 
 /* -------------------------------- DataBase -------------------------------- */
@@ -9,6 +10,8 @@ const CarModels = () => {
   const [clothesProduct, setClothesProduct] = useState([]);
   const [product, setProduct] = useState([]);
   const [lastProduct, setLastProduct] = useState([]);
+
+  /* ------------------------------- Data FIlter ------------------------------ */
   useState(() => {
     setProduct(modelDb.filter((item) => item.id < 6));
     setClothesProduct(modelDb.filter((item) => item.id > 5 && item.id < 9));

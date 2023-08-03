@@ -1,3 +1,4 @@
+/* ------------------------------- Sweet Alert ------------------------------ */
 import Swal from "sweetalert2";
 
 export const createRemoveAlert = (

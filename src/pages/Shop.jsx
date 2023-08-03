@@ -1,7 +1,14 @@
+/* ---------------------------------- React --------------------------------- */
 import { useEffect, useRef, useState } from "react";
-import Cart from "../components/Cart";
+
+/* -------------------------------- DataBase -------------------------------- */
 import generalDb from "../db/generalDb";
+
+/* --------------------------------- Router --------------------------------- */
 import { useParams } from "react-router-dom";
+
+/* -------------------------------- Component ------------------------------- */
+import ShopCart from "../components/ShopCart";
 
 const Shop = () => {
   /* ------------------------------- Local State ------------------------------ */
@@ -86,7 +93,7 @@ const Shop = () => {
                     {item.products.map(
                       (product) =>
                         product.categoryType === categoryType && (
-                          <Cart
+                          <ShopCart
                             key={product.id}
                             product={product}
                             category={categoryName}

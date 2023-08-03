@@ -2,7 +2,7 @@
 .cart-products {
   padding-top: 60px;
   width: 100%;
-  min-height: 86vh;
+  max-height: 100%;
   .container {
     max-width: 1200px;
     padding: 0 48px;
@@ -50,52 +50,52 @@
           );
         }
       }
-    }
-  }
-  .last-check {
-    width: 50%;
-    padding: 24px 0 0 24px;
-    .check-cart {
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
-      border-radius: 4px;
-      max-width: 432px;
-      margin-left: auto;
-      padding: 32px;
-      height: 280px;
-      h4 {
-        font-size: 20px;
-        font-weight: 600;
-        padding: 8px 0;
-      }
-      p {
-        font-size: 15px;
-        color: #393c41;
-      }
-      .general-info {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        margin: 10px 0;
-      }
-      .primary-btn {
-        .btn {
-          @include btn(
-            auto,
-            #fff,
-            #3e6ae1,
-            10px 24px,
-            18px auto 0,
-            #3457b1,
-            #fff,
-            #3e6ae1,
-            #3457b1
-          );
-          width: 90%;
+      .last-check {
+        width: 50%;
+        padding: 24px 0 0 24px;
+        .check-cart {
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
+          border-radius: 4px;
+          max-width: 432px;
+          margin-left: auto;
+          padding: 32px;
+          height: 280px;
+          h4 {
+            font-size: 20px;
+            font-weight: 600;
+            padding: 8px 0;
+          }
+          p {
+            font-size: 15px;
+            color: #393c41;
+          }
+          .general-info {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+          }
+          .primary-btn {
+            .btn {
+              @include btn(
+                auto,
+                #fff,
+                #3e6ae1,
+                10px 24px,
+                18px auto 0,
+                #3457b1,
+                #fff,
+                #3e6ae1,
+                #3457b1
+              );
+              width: 90%;
+            }
+          }
         }
       }
-
     }
   }
+
 }
 
 /* ------------------------------- RESPONSIVE ------------------------------- */

@@ -164,7 +164,6 @@ const Header = () => {
                 </span>
               </li>
             ))}
-          
           </ul>
           <ul className="menu-general-info-list">
             <li className="menu-items">
@@ -208,9 +207,7 @@ const Header = () => {
           {cart.length !== 0 && <p className="text">Products</p>}
 
           {/*------------  Products ------------ */}
-          {cart.map((item) => (
-            <Product key={item.id} data={item} />
-          ))}
+          <Product />
           {/*------------ Cart-footer ------------ */}
           {cart.length !== 0 && (
             <div className="cart-footer">
@@ -266,17 +263,16 @@ const Header = () => {
       {/* ------------------------------ End Mobile Menu------------------------------  */}
 
       <div
-        className={`overlay  ${menuIsOpen || cartIsOpen ? "isOpen" : ""} `}
+        className={`overlay  ${
+          menuIsOpen || cartIsOpen ? "isOpen coloredBg" : ""
+        }   ${inpIsOpen && "isOpen"}  `}
         onClick={() => {
           setMenuIsOpen(false);
           setDropdownMenuState(null);
           setMobileDropmenu(null);
           setCartIsOpen(false);
+          setInpIsOpen(false);
         }}
-      ></div>
-      <div
-        className={`overlay-inp  ${inpIsOpen && "isOpen"} `}
-        onClick={() => setInpIsOpen(false)}
       ></div>
     </header>
   );

@@ -1,10 +1,20 @@
-import { Link } from "react-router-dom";
+/* ---------------------------------- React --------------------------------- */
 import { useEffect, useState } from "react";
+
+/* ---------------------------------- Router --------------------------------- */
+import { Link } from "react-router-dom";
+
+/* -------------------------------- DataBAse -------------------------------- */
 import dropMobileMenuDb from "../db/dropMobileMenuDb";
+
+/* -------------------------------- Component ------------------------------- */
 import Btn from "./Btn";
 
 const DropMenu = ({ dropMenuData }) => {
+  /* ------------------------------- Local State ------------------------------ */
   const [data, setData] = useState([]);
+
+  /* -------------------------------- Get Data -------------------------------- */
   useEffect(() => {
     dropMobileMenuDb.map(
       (item) => item.category === dropMenuData && setData([item])

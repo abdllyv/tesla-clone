@@ -400,7 +400,6 @@
           }
         }
 
-      
         .btn-secondary {
           .btn {
             @include btn(
@@ -488,26 +487,13 @@
     background-color: transparent;
     visibility: hidden;
     opacity: 0;
-    backdrop-filter: blur(4px);
     &.isOpen {
-      background-color: rgba(0, 0, 0, 0.304);
       visibility: visible;
       opacity: 1;
     }
-  }
-  .overlay-inp {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 1;
-    background-color: transparent;
-    visibility: hidden;
-    opacity: 0;
-    &.isOpen {
-      visibility: visible;
-      opacity: 1;
+    &.coloredBg {
+      backdrop-filter: blur(4px);
+      background-color: rgba(0, 0, 0, 0.304);
     }
   }
 }
