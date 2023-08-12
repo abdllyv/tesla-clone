@@ -9,9 +9,16 @@ import ProductSlider from "./section/ProductSlider";
 /* --------------------------------- Router --------------------------------- */
 import { useLocation } from "react-router-dom";
 
+/* -------------------------------- Language -------------------------------- */
+import { useTranslation } from "react-i18next";
+
 const Home = () => {
   /* --------------------------------- Router --------------------------------- */
   const { pathname } = useLocation();
+
+  /* -------------------------------- Language -------------------------------- */
+  const { t } = useTranslation();
+  
   /* ---------------------- Reset keeping Scroll Position --------------------- */
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -19,8 +26,8 @@ const Home = () => {
   return (
     <main>
       <HomeSlider />
-      <ProductSlider title={"Best Seller"}/>
-      <Models/>
+      <ProductSlider title={t("product-slider.best")} />
+      <Models />
     </main>
   );
 };

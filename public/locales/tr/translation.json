@@ -1,0 +1,93 @@
+{
+    "header": {
+      "shop-faq": "Mağaza SSS",
+      "login": "Giriş Yap",
+      "logout": "Çıkış Yap",
+      "cart-box-empty": "Sepet Boş",
+      "cart-box-head-title": "Ürünler",
+      "cart-footer-title": "Ara Toplam",
+      "cart-footer-text": "Satış vergisi hariç",
+      "cart-box-back": "Geri",
+      "menu": "Menü",
+      "lng": "Dil"
+    },
+    "footer": {
+      "item-first": "Tesla © 2023",
+      "item-second": "Gizlilik ve Hukuk",
+      "item-third": "Konumlar",
+      "item-four": "Geri Çağırmalar"
+    },
+    "product": {
+      "quantify": "Miktar"
+    },
+    "shopCart": {
+      "product-detail-link": "Detayları Görüntüle"
+    },
+    "api-shop": {
+      "product-detail-link": "Şarj",
+      "category-title": "Yolda"
+    },
+    "thankShop": {
+      "title": "Alışveriş İçin Teşekkürler"
+    },
+    "form": {
+      "register-title": "Hesap Oluştur",
+      "login-title": "Giriş Yap",
+      "step": "adım",
+      "change": "Değiştir",
+      "name": "Ad",
+      "surname": "Soyad",
+      "email": "E-posta",
+      "login-email": "E-posta Adresi",
+      "password": "Parola",
+      "repassword": "Parolayı Onayla",
+      "same-pass-err": "Parola aynı değil",
+      "login-err": "Parola veya e-posta yanlış",
+      "privacy-first-text": "'İleri'ye tıklayarak, Tesla'nın",
+      "privacy-second-text": "ve Tesla'nın hesap yönetimi amaçları için sağladığım iletişim bilgileri üzerinden benimle iletişim kurmasına izin veriyorum. Anlaşmaların otomatik veya bilgisayar destekli arama veya önceden kaydedilmiş mesajlar kullanabileceğini anlıyorum. Normal mesaj ve veri ücretleri geçerlidir.",
+      "privacy-first-link": "Gizlilik Bildirimi",
+      "privacy-second-link": "Kullanım Koşulları",
+      "and": "ve",
+      "fotget-password": "Parolayı Unuttum"
+    },
+    "product-detail": {
+      "login-text": "Bu aksesuarın Tesla Hesabınızdaki bir araçla uyumlu olup olmadığını görün",
+      "inp-err": "Sadece Sayı",
+      "description": "Açıklama"
+    },
+    "not-found": {
+      "error-code": "404",
+      "title": "Ups! Bunun için özür dileriz.",
+      "text": "Starman'e Ana Sayfa'da katılın",
+      "text-link": "Ana Sayfa"
+    },
+    "cart-products": {
+      "cart-title":"Sebet",
+      "last-check-title": "Sipariş Özeti",
+      "text-first": "Gönderim",
+      "text-second": "Ücretsiz",
+      "total-title": "Ara Toplam"
+    },
+    "btn": {
+      "view-all": "Hepsini Gör",
+      "remove-all-data": "Tüm Verileri Kaldır",
+      "add-to-cart": "Sepete Ekle",
+      "remove": "Kaldır",
+      "shop-now": "Şimdi Alışveriş Yap",
+      "checkout": "Satın Al",
+      "create-account": "Hesap Oluştur",
+      "continue": "Devam Et",
+      "sign-in": "Giriş Yap",
+      "home-page": "Ana Sayfa"
+    },
+    "alert": {
+      "confirm": "Evet, Kaldır",
+      "text": "Öğeyi Kaldır",
+      "info": "Sepetinizden Tüm Ürünleri kaldırmak istediğinizden emin misiniz?"
+    },
+    "product-slider": {
+      "recomend": "Önerilen Ürünler",
+      "best": "En Çok Satanlar"
+    }
+  }
+  

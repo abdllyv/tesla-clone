@@ -1,7 +1,13 @@
 /* --------------------------------- Router --------------------------------- */
 import { Link } from "react-router-dom";
 
+/* -------------------------------- Language -------------------------------- */
+import { useTranslation } from "react-i18next";
+
 const ApiCart = ({ product }) => {
+  /* -------------------------------- Language -------------------------------- */
+  const { t } = useTranslation();
+
   return (
     <div className="shop-card">
       <div className="card-container">
@@ -17,7 +23,9 @@ const ApiCart = ({ product }) => {
             />
           )}
 
-          <span className="product-detail-link">View Details</span>
+          <span className="product-detail-link">
+            {t("shopCart.product-detail-link")}
+          </span>
         </Link>
         <div className="info">
           <Link className="card-title" to={`/api-product-detail/${product.id}`}>

@@ -7,6 +7,9 @@ import { AiOutlineDown, AiOutlineCheck } from "react-icons/ai";
 /* --------------------------------- Context -------------------------------- */
 import { ShopContext } from "../utils/ShopContext";
 
+/* -------------------------------- Language -------------------------------- */
+import { useTranslation } from "react-i18next";
+
 const Product = () => {
   /* ------------------------------- Local State ------------------------------ */
   const [selectedItem, setSelectedItem] = useState(null);
@@ -19,6 +22,8 @@ const Product = () => {
     setSelectedItem(selectedItem === index ? null : index);
   };
 
+  /* -------------------------------- Language -------------------------------- */
+  const { t,i18n } = useTranslation();
   return (
     <ul className="product-list">
       {cart.map((data, index) => (
@@ -37,15 +42,15 @@ const Product = () => {
             )}
           </div>
           <div className="product-info">
-            <h2 className="title">{data.title || data.name}</h2>
+            <h2 className="title">{data.title || data.name || data[`titlE${i18n.language}`] }</h2>
             {data.categoryTitleName && (
               <h3 className="categorTitle">{data.categoryTitleName}</h3>
             )}
             <div className="quantify-group">
-              <span className="quantify-text">Quantify:</span>
+              <span className="quantify-text">{t("product.quantify")}:</span>
               <span className="quantify" onClick={() => toggleDropdown(index)}>
                 {data.quantify} <AiOutlineDown />
-                {selectedItem === index &&    (
+                {selectedItem === index && (
                   <div className="dropdown">
                     <ul>
                       {[...Array(10)].map((_, quantity) => (
@@ -72,7 +77,7 @@ const Product = () => {
               </span>
             </div>
             <button className="delete-btn" onClick={() => removeData(data.id)}>
-              Remove
+              {t("btn.remove")}
             </button>
           </div>
           <div className="price">

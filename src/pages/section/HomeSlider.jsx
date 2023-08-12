@@ -10,7 +10,12 @@ import Btn from "../../components/Btn";
 /* -------------------------------- DataBAse -------------------------------- */
 import sliderDb from "../../db/homeSliderDb";
 
+/* -------------------------------- Language -------------------------------- */
+import { useTranslation } from "react-i18next";
+
 const HomeSlider = () => {
+  /* -------------------------------- Language -------------------------------- */
+  const { t, i18n } = useTranslation();
   return (
     <section className="home">
       <div className="home-slider">
@@ -33,17 +38,17 @@ const HomeSlider = () => {
               <img
                 src={item.imgDeskop}
                 className="deskop-img"
-                alt={item.title}
+                alt={item[`titlE${i18n.language}`]}
               />
               <img
                 src={item.imgMobile}
                 className="mobile-img"
-                alt={item.title}
+                alt={item[`titlE${i18n.language}`]}
               />
               <div className="info">
-                <h2 className="title">{item.title}</h2>
-                <p className="text">{item.text}</p>
-                <Btn text={"Shop Now"} link={item.url} />
+                <h2 className="title">{item[`titlE${i18n.language}`]}</h2>
+                <p className="text">{item[`text${i18n.language}`]}</p>
+                <Btn text={t("btn.shop-now")} link={item.url} />
               </div>
             </SwiperSlide>
           ))}

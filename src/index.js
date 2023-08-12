@@ -6,6 +6,8 @@ import "./assets/sass/main.scss"
 // Router
 import { BrowserRouter } from 'react-router-dom';
 
+// Language
+import  './utils/i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

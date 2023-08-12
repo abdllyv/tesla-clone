@@ -1,30 +1,36 @@
-@mixin btn($width,$clr, $bg-clr, $pd, $mg, $hv-bg, $hv-clr, $brd-clr,$hv-brd-clr) {
+@mixin btn(
+  $width,
+  $clr,
+  $bg-clr,
+  $pd,
+  $mg,
+  $hv-bg,
+  $hv-clr,
+  $brd-clr,
+  $hv-brd-clr
+) {
   margin: $mg;
-
   min-width: $width;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  // width: auto;
-  // margin-bottom: 32px;
   z-index: 1;
-  border: 3px solid  $brd-clr;
+  border: 3px solid $brd-clr;
   background-color: $bg-clr;
-  &:hover {
-    background-color: $hv-bg;
-    border-color: $hv-brd-clr;
-    a {
-      color: $hv-clr;
-    }
-  }
   a {
     width: 100%;
     height: 100%;
     color: $clr;
     padding: $pd;
     font-size: 14px;
-    font-weight: 600;
     transition: 0.3s ease;
+  }
+  &:hover {
+    background-color: $hv-bg;
+    border-color: $hv-brd-clr;
+    a {
+      color: $hv-clr;
+    }
   }
 }

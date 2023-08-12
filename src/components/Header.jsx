@@ -1,6 +1,3 @@
-// /* ------------------------------- Image ------------------------------- */
-import logo from "../assets/img/tesla-9.svg";
-
 /* --------------------------------- Router --------------------------------- */
 import { Link, useLocation } from "react-router-dom";
 /* ----------------------------------React Hook ---------------------------------- */
@@ -16,13 +13,22 @@ import {
 } from "react-icons/ai";
 import { MdOutlineLanguage } from "react-icons/md";
 
-/* ------------------------------- Components ------------------------------- */
+/* ------------------------------- Components ------------.------------------- */
 import Product from "./Product";
-import { ShopContext } from "../utils/ShopContext";
 import DropMenu from "./DropMenu";
 import Dropdown from "./Dropdown";
-import dropDownDb from "../db/dropDownDb";
 import Btn from "./Btn";
+
+/* -------------------------------- DataBase -------------------------------- */
+import dropDownDb from "../db/dropDownDb";
+import dropMobileMenuDb from "../db/dropMobileMenuDb";
+
+/* --------------------------------- Context -------------------------------- */
+import { ShopContext } from "../utils/ShopContext";
+import { Auth } from "../utils/Auth";
+
+/* -------------------------------- Language -------------------------------- */
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   //   /* ------------------------------- Local State ------------------------------ */
@@ -31,10 +37,18 @@ const Header = () => {
 
   /* ------------------------------ Global State ------------------------------ */
   const { cart, cartSum, total, removeAllData } = useContext(ShopContext);
+  const { token, logOut } = useContext(Auth);
+
   /* --------------------------- DropDown open-close -------------------------- */
   const [dropdownMenuState, setDropdownMenuState] = useState(null);
+
   /* --------------------------- DropMenu Open-Close -------------------------- */
   const [mobileDropmenu, setMobileDropmenu] = useState(null);
+
+  /* -------------------------------- Language -------------------------------- */
+  const { t, i18n } = useTranslation();
+  const [activeLng, setActiveLng] = useState({});
+
   /* --------------------------- Cart open-close -------------------------- */
   const [cartIsOpen, setCartIsOpen] = useState(false);
 
@@ -70,6 +84,21 @@ const Header = () => {
     setMobileDropmenu(null);
   }, [location]);
 
+  /* ------------------------- Find Active Language ------------------------- */
+  useEffect(() => {
+    const selectLanguage = dropMobileMenuDb.find((item) => item.id === 5);
+    selectLanguage.items.map(
+      (item) => item.lng === i18n.language && setActiveLng(item)
+    );
+  }, [i18n.language]);
+
+  /* --------------------------- Close Language Area -------------------------- */
+  useEffect(() => {
+    if (i18n.language) {
+      setMobileDropmenu(null);
+    }
+  }, [i18n.language]);
+
   return (
     <header
       className={`header ${
@@ -91,15 +120,28 @@ const Header = () => {
       <div className="container">
         <div className="row">
           {/* ------------------------------Logo------------------------------  */}
-          <div className="logo">
-            <Link className="logo-img">
-              <img src={logo} alt="logo" />
-            </Link>
-            <span className="stick">|</span>
-            <Link className="current-page" to="/">
-              Shop
-            </Link>
-          </div>
+          <Link to="/" className="logo">
+            <svg
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 278.7 36.3"
+              width="2500"
+              height="326"
+            >
+              <g id="TESLA">
+                <path
+                  className="st0"
+                  d="M238.1 14.4v21.9h7V21.7h25.6v14.6h7V14.4h-39.6M244.3 7.3h27c3.8-.7 6.5-4.1 7.3-7.3H237c.8 3.2 3.6 6.5 7.3 7.3M216.8 36.3c3.5-1.5 5.4-4.1 6.2-7.1h-31.5V.1h-7.1v36.2h32.4M131.9 7.2h25c3.8-1.1 6.9-4 7.7-7.1H125v21.4h32.4V29H132c-4 1.1-7.4 3.8-9.1 7.3h41.5V14.4H132l-.1-7.2M70.3 7.3h27c3.8-.7 6.6-4.1 7.3-7.3H62.9c.8 3.2 3.6 6.5 7.4 7.3M70.3 21.6h27c3.8-.7 6.6-4.1 7.3-7.3H62.9c.8 3.2 3.6 6.5 7.4 7.3M70.3 36.3h27c3.8-.7 6.6-4.1 7.3-7.3H62.9c.8 3.2 3.6 6.6 7.4 7.3"
+                />
+                <g>
+                  <path
+                    className="st0"
+                    d="M0 .1c.8 3.2 3.6 6.4 7.3 7.2h11.4l.6.2v28.7h7.1V7.5l.6-.2h11.4c3.8-1 6.5-4 7.3-7.2V0L0 .1"
+                  />
+                </g>
+              </g>
+            </svg>
+          </Link>
           {/* ------------------------------NavBar------------------------------  */}
           <nav className="nav-bar">
             <ul
@@ -109,11 +151,14 @@ const Header = () => {
               {dropDownDb.map((item) => (
                 <li
                   className="nav-items"
-                  onMouseEnter={() => setDropdownMenuState(item.category)}
+                  onMouseEnter={() =>
+                    setDropdownMenuState(item[`categorY${i18n.language}`])
+                  }
                   key={item.id}
                 >
-                  <Link to={item.allProductUrl}>{item.category}</Link>
-                  <Dropdown dropdownMenuState={dropdownMenuState} />
+                  <Link to={item.allProductUrl}>
+                    {item[`categorY${i18n.language}`]}
+                  </Link>
                 </li>
               ))}
               <Dropdown dropdownMenuState={dropdownMenuState} />
@@ -136,13 +181,13 @@ const Header = () => {
               <AiOutlineShoppingCart />
             </div>
             <span className="menu-text" onClick={() => setMenuIsOpen(true)}>
-              Menu
+              {t("header.menu")}
             </span>
           </div>
         </div>
       </div>
 
-      {/* ------------------------------Start Toggle Menu------------------------------  */}
+      {/* ------------------------------Start SideBar Menu------------------------------  */}
       <div className={menuIsOpen ? "menu-box isOpenMenu " : "menu-box"}>
         <div className="cart-head">
           <div className="icon">
@@ -150,15 +195,26 @@ const Header = () => {
           </div>
         </div>
         <div className="cart-body">
-          <form className="seacrh-form-mobile"></form>
+          <form className="seacrh-form-mobile" noValidate>
+            <div className="form-group ">
+              <div className="search-icon">
+                <AiOutlineSearch />
+              </div>
+              <input type="text" />
+            </div>
+          </form>
           <ul className="nav-list-mobile">
             {dropDownDb.map((item) => (
               <li
                 className="nav-items"
-                onClick={() => setMobileDropmenu(item.category)}
+                onClick={() =>
+                  setMobileDropmenu(item[`categorY${i18n.language}`])
+                }
                 key={item.id}
               >
-                <span className="text">{item.category} </span>
+                <span className="text">
+                  {item[`categorY${i18n.language}`]}{" "}
+                </span>
                 <span className="icon">
                   <AiOutlineRight />
                 </span>
@@ -167,29 +223,43 @@ const Header = () => {
           </ul>
           <ul className="menu-general-info-list">
             <li className="menu-items">
-              <Link>Shop FAQ</Link>
+              <Link>{t("header.shop-faq")}</Link>
             </li>
-            <li className="menu-items">
-              <Link>Sign In</Link>
-            </li>
+
+            {!token ? (
+              <li className="menu-items">
+                <Link to="/login">{t("header.login")}</Link>
+              </li>
+            ) : (
+              <ul className="menu-general-info-list">
+                <li className="menu-items">
+                  <Link to="/profile">Profile</Link>
+                </li>
+
+                <li className="menu-items" onClick={logOut}>
+                  <Link to="/">{t("header.logout")}</Link>
+                </li>
+              </ul>
+            )}
+
             <li className="language-select menu-items">
               <div
                 className="info"
-                onClick={() => setMobileDropmenu("Language")}
+                onClick={() => setMobileDropmenu(t("header.lng"))}
               >
                 <div className="left-side">
                   <MdOutlineLanguage />
                 </div>
                 <div className="right-side">
-                  <h5 className="country">United States</h5>
-                  <p className="language">English</p>
+                  <h5 className="country">{activeLng.country}</h5>
+                  <p className="language"> {activeLng.language}</p>
                 </div>
               </div>
             </li>
           </ul>
         </div>
       </div>
-      {/* ------------------------------End  Toggle  Menu------------------------------  */}
+      {/* ------------------------------End  SideBar  Menu------------------------------  */}
 
       {/* ------------------------------Start Cart-Box ------------------------------  */}
       <div
@@ -203,8 +273,12 @@ const Header = () => {
           </div>
         </div>
         <div className="cart-body">
-          {cart.length === 0 && <p className="text">Cart Is Empty</p>}
-          {cart.length !== 0 && <p className="text">Products</p>}
+          {cart.length === 0 && (
+            <p className="text">{t("header.cart-box-empty")}</p>
+          )}
+          {cart.length !== 0 && (
+            <p className="text">{t("header.cart-box-head-title")}</p>
+          )}
 
           {/*------------  Products ------------ */}
           <Product />
@@ -213,19 +287,23 @@ const Header = () => {
             <div className="cart-footer">
               <div className="footer-info">
                 <div className="left-side">
-                  <h6 className="cart-footer-title">Subtotal</h6>
-                  <span className="cart-footer-text">Excludes Sales tax</span>
+                  <h6 className="cart-footer-title">
+                    {t("header.cart-footer-title")}
+                  </h6>
+                  <span className="cart-footer-text">
+                    {t("header.cart-footer-text")}
+                  </span>
                 </div>
                 <div className="right-side">
                   <span className="cart-footer-price">${total}</span>
                 </div>
               </div>
               <div className="btn-primary">
-                <Btn text={"View Cart"} link={"/cart-products"} />
+                <Btn text={t("btn.view-all")} link={"/cart-products"} />
               </div>
               <div className="btn-secondary">
                 <Btn
-                  text={"Remove All Data"}
+                  text={t("btn.remove-all-data")}
                   link={"#"}
                   onClick={removeAllData}
                 />
@@ -247,7 +325,7 @@ const Header = () => {
             <div className="back-icon">
               <AiOutlineLeft />
             </div>
-            Back
+            {t("header.cart-box-back")}
           </span>
           <div className="icon">
             <AiOutlineClose

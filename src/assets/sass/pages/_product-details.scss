@@ -81,7 +81,6 @@
         .product-title {
           font-size: 32px;
           line-height: 40px;
-          font-weight: 600;
         }
         .primary-info {
           max-width: 320px;
@@ -98,13 +97,11 @@
             color: #606060;
             a {
               color: #3e6ae1;
-              font-weight: 600;
             }
           }
           .quantify-title {
             margin-top: 24px;
             font-size: 14px;
-            font-weight: 600;
           }
           .quantify {
             margin-top: 8px;
@@ -137,7 +134,6 @@
                 border-radius: 1px;
                 color: #000;
                 text-align: center;
-                font-weight: 600;
                 outline: none;
                 &[type="number"]::-webkit-inner-spin-button {
                   -webkit-appearance: none;
@@ -148,7 +144,6 @@
           .error {
             font-size: 14px;
             padding: 5px 22px;
-            font-weight: 600;
             color: #c13232;
             visibility: hidden;
             opacity: 0;

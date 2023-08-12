@@ -13,16 +13,26 @@ import { Link } from "react-router-dom";
 /* -------------------------------- DataBAse -------------------------------- */
 import generalDb from "../../db/generalDb";
 
+/* -------------------------------- Language -------------------------------- */
+import { useTranslation } from "react-i18next";
+
 const ProductSlider = ({ title }) => {
   /* ------------------------------- Local State ------------------------------ */
   const [data, setData] = useState(null);
 
- /* --------------------------------- GetData -------------------------------- */
+  /* -------------------------------- Language -------------------------------- */
+  const { i18n } = useTranslation();
+
+  /* --------------------------------- GetData -------------------------------- */
   useEffect(() => {
     const products = generalDb.find((item) => item.category === "MoreOver");
-    setData(products.items.find((item) => item.categoryTitle === title));
-  }, [title]);
-
+    setData(
+      products.items.find(
+        (item) => item[`categoryTitlE${i18n.language}`] === title
+      )
+    );
+    
+  }, [i18n.language, title]);
   return (
     <section className="product-slider">
       <div className="container">
@@ -58,9 +68,11 @@ const ProductSlider = ({ title }) => {
                 >
                   <div className="cart-container">
                     <div className="top">
-                      <img src={item.images[0].productImg} alt={item.title} />
+                      <img src={item.images[0].productImg} alt={item[`titlE${i18n.language}`]} />
                     </div>
-                    <h4 className="card-title">{item.title}</h4>
+                    <h4 className="card-title">
+                      {item[`titlE${i18n.language}`]}
+                    </h4>
                   </div>
                 </Link>
               </SwiperSlide>

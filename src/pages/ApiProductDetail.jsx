@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 /* --------------------------------- Router --------------------------------- */
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import {  useLocation, useNavigate, useParams } from "react-router-dom";
 
 /* ----------------------------- React Hook Form && Yup ---------------------------- */
 import { useForm } from "react-hook-form";
@@ -23,6 +23,9 @@ import Loader from "../components/Loader";
 /* --------------------------------- Context -------------------------------- */
 import { ShopContext } from "../utils/ShopContext";
 
+/* -------------------------------- Language -------------------------------- */
+import { useTranslation } from "react-i18next";
+
 const ApiProductDetail = () => {
   /* ------------------------------- Loacl State ------------------------------ */
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -42,29 +45,30 @@ const ApiProductDetail = () => {
   /* -------------------------------- Navigate -------------------------------- */
   const navigate = useNavigate();
 
+  /* -------------------------------- Language -------------------------------- */
+  const { t } = useTranslation();
+
   /* ---------------------- Reset keeping Scroll Position --------------------- */
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
   /* ------------------------------- Get Product ------------------------------ */
   useEffect(() => {
-    setLoader(true);
     const getData = async () => {
-      try {
-        await axios
-          .get(`${process.env.REACT_APP_ALL_PRODUCTS}/${productId}`)
-          .then((res) => {
-            if (res.status === 200) setData({ ...res.data, quantify: 1 });
-            setLoader(false);
-          });
-      } catch (error) {
-        navigate("/error");
-        setLoader(false);
-      }
+      setLoader(true);
+      await axios
+        .get(`${process.env.REACT_APP_ALL_PRODUCTS}/${productId}`)
+        .then((res) => {
+          if (res.status === 200) setData({ ...res.data, quantify: 1 });
+          setLoader(false);
+        })
+        .catch((error) => {
+          setLoader(false);
+          navigate("/error");
+        });
     };
     getData();
   }, [navigate, productId]);
-
   /* ----------------------------- React Hook Form ---------------------------- */
   const { register, setValue } = useForm({});
 
@@ -107,7 +111,7 @@ const ApiProductDetail = () => {
   return (
     <main>
       <section className="product-detail">
-        {loader && <Loader/>}
+        {loader && <Loader />}
         <div className="container">
           <div className="row">
             <div className="product-images">
@@ -154,11 +158,7 @@ const ApiProductDetail = () => {
               <h2 className="product-title">{data.name}</h2>
               <div className="primary-info">
                 <span className="price">${data.price}</span>
-                <p className="login-info">
-                  See if this accessory is compatible with a car in your Tesla
-                  Account <Link>Sign In</Link>
-                </p>
-                <h6 className="quantify-title">Quantity</h6>
+                <h6 className="quantify-title">{t("product.quantify")}</h6>
 
                 <div className="quantify">
                   <button className="btn-quantify" onClick={decrementProduct}>
@@ -181,24 +181,24 @@ const ApiProductDetail = () => {
                   </button>
                 </div>
                 <p className={error ? "error  isShown" : "error"}>
-                  Only Number
+                  {t("product-detail.inp-err")}
                 </p>
                 <Btn
-                  text={"Add To Cart"}
+                  text={t("btn.add-to-cart")}
                   link={"#"}
                   onClick={() => addToCart(data)}
                   disabled={error}
                 />
               </div>
               <div className="secondary-info">
-                <h4 className="title">Description</h4>
+                <h4 className="title">{t("product-detail.description")}</h4>
                 <p className="text">{data.details}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <ProductSlider title={"Recommended Products"} />
+      <ProductSlider title={t("product-slider.recomend")} />
     </main>
   );
 };

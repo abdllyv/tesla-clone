@@ -1,0 +1,101 @@
+.profile {
+  padding: 93px 0 10px;
+  a {
+    display: inline-block;
+    font-size: 14px;
+    box-shadow: 0 1px 0 0 currentColor;
+    color: #393c41;
+    font-weight: 500;
+    transition: box-shadow 0.33s cubic-bezier(0.5, 0, 0, 0.75), color 0.33s ease;
+    &:hover {
+      box-shadow: 0 2px 0 0 currentColor;
+      color: #171a20;
+    }
+  }
+}
+.profile-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 24px;
+  .general-info,
+  .specific-info {
+    font-size: 14px;
+
+    .title {
+      font-size: 34px;
+      color: #171a20;
+    }
+    .card-box {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 24px;
+      .card {
+        width: 33%;
+        .name {
+          color: #5c5e62;
+        }
+        .full-name {
+          color: #171a20;
+          margin: 4px 0 8px;
+          word-break: break-word;
+        }
+        .password{
+          letter-spacing: 2px;
+        }
+      }
+    }
+  }
+  .specific-info {
+    .title {
+      font-size: 24px;
+      padding: 32px 0 8px;
+    }
+    .card-box {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 24px;
+      .card {
+        width: 30%;
+      }
+    }
+  }
+  .content-block {
+    margin-top: 50px;
+  }
+}
+
+/* ------------------------------- Responsive ------------------------------- */
+@media (max-width: 600px) {
+  .profile {
+    padding: 60px 0 10px;
+  }
+  .profile-container {
+    .general-info,
+    .specific-info {
+      font-size: 14px;
+      .title {
+        font-size: 28px;
+      }
+      .card-box {
+        flex-wrap: wrap;
+        .card {
+          width: 100%;
+          margin-bottom: 32px;
+          .name {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .specific-info {
+      .title {
+        font-size: 20px;
+      }
+    }
+    .content-block {
+      margin-top: 30px;
+    }
+  }
+}

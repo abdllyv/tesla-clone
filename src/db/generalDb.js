@@ -34,11 +34,14 @@ const generalDb = [
         products: [
           {
             id: 1,
-            title: "Model S All-Weather Interior Liners",
+            titlEen: "Model S All-Weather Interior Liners",
+            titlEtr: "Model S Tüm Hava Koşullarına Uygun İç Astarlar",
             categoryType: "Best Sellers",
             price: "250",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 100,
@@ -52,11 +55,14 @@ const generalDb = [
           },
           {
             id: 2,
-            title: "Model S Plaid Track Package",
+            titlEen: "Model S Plaid Track Package",
+            titlEtr: "Model S Ekose Pist Paketi",
             categoryType: "Best Sellers",
             price: "15,000",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 103,
@@ -70,11 +76,14 @@ const generalDb = [
           },
           {
             id: 3,
-            title: `Model S Plaid 20" Zero-G Wheel and Tire Package`,
+            titlEen: `Model S Plaid 20" Zero-G Wheel and Tire Package`,
+            titlEtr: `Model S Ekose 20" Sıfır-G Jant ve Lastik Paketi`,
             categoryType: "Best Sellers",
             price: "6,000",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 105,
@@ -88,11 +97,14 @@ const generalDb = [
           },
           {
             id: 4,
-            title: "Model S/3/Y Pet Liner",
+            titlEen: "Model S/3/Y Pet Liner",
+            titlEtr: "Model S/3/Y Evcil Hayvan Astarı",
             categoryType: "Interior",
             price: "9,500",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 107,
@@ -106,11 +118,14 @@ const generalDb = [
           },
           {
             id: 5,
-            title: "Model S/X Steering Wheel Retrofit",
+            titlEen: "Model S/X Steering Wheel Retrofit",
+            titlEtr: "Model S/X Direksiyon Simidi Güçlendirme",
             categoryType: "Interior",
             price: "9,500",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 109,
@@ -124,11 +139,14 @@ const generalDb = [
           },
           {
             id: 6,
-            title: "Model S Glass Roof Sunshade",
+            titlEen: "Model S Glass Roof Sunshade",
+            titlEtr: "Model S Cam Tavan Güneşliği",
             categoryType: "Interior",
             price: "9,500",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 111,
@@ -142,11 +160,14 @@ const generalDb = [
           },
           {
             id: 7,
-            title: "2012-2020 | Model S Illuminated Door Sills",
+            titlEen: "2012-2020 | Model S Illuminated Door Sills",
+            titlEtr: "2012-2020 | Model S Aydınlatmalı Kapı Eşikleri",
             categoryType: "Interior",
             price: "9,500",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 113,
@@ -165,12 +186,15 @@ const generalDb = [
         categoryTitle: "Model 3",
         products: [
           {
-            id: 1,
-            title: "Model S All-Weather Interior Liners",
+            id: 8,
+            titlEen: "Model S All-Weather Interior Liners",
+            titlEtr: "Model S Tüm Hava Koşullarına Uygun İç Astarlar",
             categoryType: "Best Sellers",
             price: "250",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 100,
@@ -183,12 +207,15 @@ const generalDb = [
             ],
           },
           {
-            id: 2,
-            title: "Model S Plaid Track Package",
+            id: 9,
+            titlEen: "Model S Plaid Track Package",
+            titlEtr: "Model S Ekose Pist Paketi",
             categoryType: "Best Sellers",
             price: "15,000 ",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 103,
@@ -201,12 +228,15 @@ const generalDb = [
             ],
           },
           {
-            id: 3,
-            title: `Model S Plaid 20" Zero-G Wheel and Tire Package`,
+            id: 10,
+            titlEen: `Model S Plaid 20" Zero-G Wheel and Tire Package`,
+            titlEtr: `Model S Ekose 20" Sıfır-G Jant ve Lastik Paketi`,
             categoryType: "Best Sellers",
             price: "6,000",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 105,
@@ -219,12 +249,15 @@ const generalDb = [
             ],
           },
           {
-            id: 4,
-            title: "Model S/3/Y Pet Liner",
+            id: 11,
+            titlEen: "Model S/3/Y Pet Liner",
+            titlEtr: "Model S/3/Y Evcil Hayvan Astarı",
             categoryType: "Interior",
             price: "9,500",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 107,
@@ -237,12 +270,15 @@ const generalDb = [
             ],
           },
           {
-            id: 5,
-            title: "Model S/X Steering Wheel Retrofit",
+            id: 12,
+            titlEen: "Model S/X Steering Wheel Retrofit",
+            titlEtr: "Model S/X Direksiyon Güçlendirme",
             categoryType: "Interior",
             price: "9,500",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather Interior Liners, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 109,
@@ -255,12 +291,15 @@ const generalDb = [
             ],
           },
           {
-            id: 6,
-            title: "Model S Glass Roof Sunshade",
+            id: 13,
+            titlEen: "Model S Glass Roof Sunshade",
+            titlEtr: "Model S Cam Tavan Güneşliği",
             categoryType: "Interior",
             price: "9,500",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather Interior Liners, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 111,
@@ -273,12 +312,15 @@ const generalDb = [
             ],
           },
           {
-            id: 7,
-            title: "2012-2020 | Model S Illuminated Door Sills",
+            id: 14,
+            titlEen: "2012-2020 | Model S Illuminated Door Sills",
+            titlEtr: "2012-2020 | Model S Aydınlatmalı Kapı Eşikleri",
             categoryType: "Interior",
             price: "9,500",
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather Interior Liners, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             images: [
               {
                 id: 113,
@@ -300,13 +342,17 @@ const generalDb = [
     items: [
       {
         id: 1,
-        categoryTitle: "Best Seller",
+        categoryTitlEen: "Best Seller",
+        categoryTitlEtr: "En Çok Satanlar",
         products: [
           {
-            id: 1,
-            title: "SAE J1772 Charging Adapter",
-            detail:
+            id: 15,
+            titlEen: "SAE J1772 Charging Adapter",
+            titlEtr: "SAE J1772 Şarj Adaptörü",
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -317,11 +363,14 @@ const generalDb = [
           },
 
           {
-            id: 2,
-            title: "Model 3/Y Air Filter",
+            id: 16,
+            titlEen: "Model 3/Y Air Filter",
+            titlEtr: "Model 3/Y Hava Filtresi",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -331,11 +380,14 @@ const generalDb = [
             ],
           },
           {
-            id: 3,
-            title: "Model 3 All-Weather Interior Liners",
+            id: 17,
+            titlEen: "Model 3 All-Weather Interior Liners",
+            titlEtr: "Model 3 Tüm Hava Koşullarına Uygun İç Astarlar",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -345,11 +397,14 @@ const generalDb = [
             ],
           },
           {
-            id: 4,
-            title: "Model S/3/Y Pet Liner",
+            id: 18,
+            titlEen: "Model S/3/Y Pet Liner",
+            titlEtr: "Model S/3/Y Evcil Hayvan Astarı",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -359,11 +414,14 @@ const generalDb = [
             ],
           },
           {
-            id: 5,
-            title: "Model 3 All-Weather Interior Liners",
+            id: 19,
+            titlEen: "Model 3 All-Weather Interior Liners",
+            titlEtr: "Model 3 Tüm Hava Koşullarına Uygun İç Astarlar",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -373,11 +431,14 @@ const generalDb = [
             ],
           },
           {
-            id: 6,
-            title: "Model 3/Y Center Console Trays",
+            id: 20,
+            titlEen: "Model 3/Y Center Console Trays",
+            titlEtr: "Model 3/Y Orta Konsol Tepsileri",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather Interior Liners, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -387,11 +448,14 @@ const generalDb = [
             ],
           },
           {
-            id: 7,
-            title: "Model Y Mud Flaps",
+            id: 21,
+            titlEen: "Model Y Mud Flaps",
+            titlEtr: "Model Y Çamurluklar",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -401,30 +465,37 @@ const generalDb = [
             ],
           },
           {
-            id: 8,
-            title: "Model Y All-Weather Rear Cargo Liner Set",
+            id: 22,
+            titlEen: "Model Y All-Weather Rear Cargo Liner Set",
+            titlEtr: "Model Y All-Weather Arka Kargo Astarı Seti",
 
-            detail:
-            "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
-          price: "250",
-          images: [
-            {
-              id: 1,
-              productImg: product8,
-            },
-          ],
+            detailen:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
+            price: "250",
+            images: [
+              {
+                id: 1,
+                productImg: product8,
+              },
+            ],
           },
         ],
       },
       {
-        id: 1,
-        categoryTitle: "Recommended Products",
+        id: 2,
+        categoryTitlEen: "Recommended Products",
+        categoryTitlEtr: "Önerilen Ürünler",
         products: [
           {
-            id: 1,
-            title: "SAE J1772 Charging Adapter",
-            detail:
+            id: 23,
+            titlEen: "SAE J1772 Charging Adapter",
+            titlEtr: "SAE J1772 Şarj Adaptörü",
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -435,11 +506,14 @@ const generalDb = [
           },
 
           {
-            id: 2,
-            title: "Model 3/Y Air Filter",
+            id: 24,
+            titlEen: "Model 3/Y Air Filter",
+            titlEtr: "Model 3/Y Hava Filtresi",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -449,11 +523,14 @@ const generalDb = [
             ],
           },
           {
-            id: 3,
-            title: "Model 3 All-Weather Interior Liners",
+            id: 25,
+            titlEen: "Model 3 All-Weather Interior Liners",
+            titlEtr: "Model 3 Tüm Hava Koşullarına Uygun İç Astarlar",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -463,11 +540,14 @@ const generalDb = [
             ],
           },
           {
-            id: 4,
-            title: "Model S/3/Y Pet Liner",
+            id: 26,
+            titlEen: "Model S/3/Y Pet Liner",
+            titlEtr: "Model S/3/Y Evcil Hayvan Astarı",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -477,11 +557,14 @@ const generalDb = [
             ],
           },
           {
-            id: 5,
-            title: "Model 3 All-Weather Interior Liners",
+            id: 27,
+            titlEen: "Model 3 All-Weather Interior Liners",
+            titlEtr: "Model 3 Tüm Hava Koşullarına Uygun İç Astarlar",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -491,11 +574,14 @@ const generalDb = [
             ],
           },
           {
-            id: 6,
-            title: "Model 3/Y Center Console Trays",
+            id: 28,
+            titlEen: "Model 3/Y Center Console Trays",
+            titlEtr: "Model 3/Y Orta Konsol Tepsileri",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -505,11 +591,14 @@ const generalDb = [
             ],
           },
           {
-            id: 7,
-            title: "Model Y Mud Flaps",
+            id: 29,
+            titlEen: "Model Y Mud Flaps",
+            titlEtr: "Model Y Çamurluklar",
 
-            detail:
+            detailen:
               "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
             price: "250",
             images: [
               {
@@ -519,18 +608,20 @@ const generalDb = [
             ],
           },
           {
-            id: 8,
-            title: "Model Y All-Weather Rear Cargo Liner Set",
-
-            detail:
-            "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
-          price: "250",
-          images: [
-            {
-              id: 1,
-              productImg: product8,
-            },
-          ],
+            id: 30,
+            titlEen: "Model Y All-Weather Rear Cargo Liner Set",
+            titlEtr: "Model Y All-Weather Arka Kargo Astarı Seti",
+            detailen:
+              "Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.",
+            detailtr:
+              "Model S All-Weather İç Döşemeler, aşırı görev koruması ve uzamsal kapsama alanı için güçlü bir sert çekirdeğe sahip termoplastik elastomer malzemeden yapılmıştır. Geleneksel paspasların aksine Model S All-Weather İç Gömlekler, ayak bölmesi halısına maksimum koruma ve kolay temizlik sağlayan dikey duvarlardan oluşur. Tesla Design Studio tarafından özel bir desenle oluşturulan bu astarlar, Model S için en son dijital ölçümler kullanılarak özel olarak üretilmiştir.",
+            price: "250",
+            images: [
+              {
+                id: 1,
+                productImg: product8,
+              },
+            ],
           },
         ],
       },

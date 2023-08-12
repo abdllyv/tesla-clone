@@ -10,6 +10,9 @@ import axios from "axios";
 /* --------------------------------- Router --------------------------------- */
 import { useLocation, useNavigate } from "react-router-dom";
 
+/* -------------------------------- Language -------------------------------- */
+import { useTranslation } from "react-i18next";
+
 const ApiShop = () => {
   /* ------------------------------- Local State ------------------------------ */
   const [data, setData] = useState([]);
@@ -18,45 +21,31 @@ const ApiShop = () => {
   /* -------------------------------- Navigate -------------------------------- */
   const navigate = useNavigate();
 
+  /* -------------------------------- Language -------------------------------- */
+  const { t } = useTranslation();
+
   /* ------------------------------- Get AllData ------------------------------ */
   useEffect(() => {
     const getData = async () => {
       setLoader(true);
-      try {
-        await axios.get(process.env.REACT_APP_ALL_PRODUCTS).then((res) => {
+
+      await axios
+        .get(process.env.REACT_APP_ALL_PRODUCTS)
+        .then((res) => {
           if (res.status === 200) {
             setData(res.data);
             setLoader(false);
           }
+        })
+        .catch((err) => {
+          if (err) {
+            setLoader(false);
+            navigate("/error");
+          }
         });
-      } catch (error) {
-        setLoader(false)
-        navigate("/error")
-      }
     };
     getData();
   }, [navigate]);
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     setLoader(true);
-
-  //     await axios
-  //       .get(process.env.REACT_APP_ALL_PRODUCTS)
-  //       .then((res) => {
-  //         if (res.status === 200) {
-  //           setData(res.data);
-  //           setLoader(false);
-  //         }
-  //       })
-  //       .catch((err) => {
-  //         if (err) {
-  //           setLoader(false);
-  //           navigate("/error");
-  //         }
-  //       });
-  //   };
-  //   getData();
-  // }, [navigate]);
 
   /* --------------------------------- Router --------------------------------- */
   const { pathname } = useLocation();
@@ -73,10 +62,10 @@ const ApiShop = () => {
         <div className="container">
           <div className="product-category">
             <div className="category-head">
-              <h1 className="title">Charging</h1>
+              <h1 className="title">{t("api-shop.product-detail-link")}</h1>
             </div>
             <div className="category-container">
-              <h2 className="category-title">On The Road</h2>
+              <h2 className="category-title">{t("api-shop.category-title")}</h2>
               <div className="products">
                 {data.map((item) => (
                   <ApiCart product={item} key={item.id} />

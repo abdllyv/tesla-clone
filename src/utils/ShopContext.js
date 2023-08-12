@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
+import { createRemoveAlert } from "./SweetAlert";
+import { useTranslation } from "react-i18next";
 
 /* ------------------------------- SweetAlert ------------------------------- */
-import { createRemoveAlert } from "../components/SweetAlert";
 
 export const ShopContext = createContext();
 
@@ -9,6 +10,7 @@ export const MainContext = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [cartSum, setCartSum] = useState(0);
   const [total, setTotal] = useState(0);
+  const { t } = useTranslation();
 
   /* --------------------------- Start Local Storage -------------------------- */
   /* ------------------- Get Data -------------------*/
@@ -68,9 +70,9 @@ export const MainContext = ({ children }) => {
 
   const removeData = (dataId) => {
     createRemoveAlert(
-      "Remove Item",
-      "Are you sure you want to remove this item from your cart?",
-      "Yes, Remove",
+      t("alert.text"),
+      t("alert.info"),
+      t("alert.confirm"),
       () => {
         const updatedCart = cart.filter((item) => item.id !== dataId);
         setCart(updatedCart);
@@ -80,9 +82,9 @@ export const MainContext = ({ children }) => {
 
   const removeAllData = () => {
     createRemoveAlert(
-      "Remove Item",
-      "Are you sure you want to remove All Product from your cart?",
-      "Yes, Remove",
+      t("alert.text"),
+      t("alert.info"),
+      t("alert.confirm"),
       () => {
         setCart([]);
       }
@@ -90,7 +92,6 @@ export const MainContext = ({ children }) => {
   };
 
   const changeQuantity = ({ data, quantity }) => {
-
     let updatedCart = cart.map((item) => {
       if (item.id === data.id) {
         return { ...item, quantify: quantity };

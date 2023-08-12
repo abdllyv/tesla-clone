@@ -2,7 +2,7 @@
 .cart-products {
   padding-top: 60px;
   width: 100%;
-  max-height: 100%;
+  min-height: 87vh;
   .container {
     max-width: 1200px;
     padding: 0 48px;
@@ -14,7 +14,6 @@
         padding: 24px 0 0 24px;
         .cart-title {
           font-size: 28px;
-          font-weight: 600;
         }
         .product-list {
           .product-items {
@@ -62,7 +61,6 @@
           height: 280px;
           h4 {
             font-size: 20px;
-            font-weight: 600;
             padding: 8px 0;
           }
           p {
@@ -74,6 +72,7 @@
             display: flex;
             justify-content: space-between;
             margin: 10px 0;
+            font-weight: 500;
           }
           .primary-btn {
             .btn {

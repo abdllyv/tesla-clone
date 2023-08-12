@@ -21,24 +21,28 @@ import giftCart from "../assets/img/lifestyle/Tesla_giftcard.avif";
 const dropMobileMenuDb = [
   {
     id: 1,
-    category: "Charging",
+    categorYen: "Charging",
+    categorYtr: "Şarj etme",
     produstsUrl: "/api-shop",
     items: [
       {
         id: 1,
-        categoryTitle: "Charging",
+        categoryTitlEen: "Charging",
+        categoryTitlEtr: "Şarj etme",
         image: charging,
         url: "/api-shop",
       },
       {
         id: 2,
-        categoryTitle: "On The Road",
+        categoryTitlEen: "On The Road",
+        categoryTitlEtr: "Yolda ",
         image: onTheRoad,
         url: "/api-shop",
       },
       {
         id: 3,
-        categoryTitle: "Parts",
+        categoryTitlEen: "Parts",
+        categoryTitlEtr: "Parçalar",
         image: parts,
         url: "/api-shop",
       },
@@ -46,30 +50,35 @@ const dropMobileMenuDb = [
   },
   {
     id: 2,
-    category: "Vehicle Accessories",
+    categorYen: "Vehicle Accessories",
+    categorYtr: "Araç Aksesuarları",
     produstsUrl: "/shop/Vehicle Accessories/products",
     items: [
       {
         id: 1,
-        categoryTitle: "Model S",
+        categoryTitlEen: "Model S",
+        categoryTitlEtr: "Model S",
         image: modelS,
         url: "/shop/Vehicle Accessories/Model S",
       },
       {
         id: 2,
-        categoryTitle: "Model 3",
+        categoryTitlEen: "Model 3",
+        categoryTitlEtr: "Model 3",
         image: model3,
         url: "/shop/Vehicle Accessories/Model 3",
       },
       {
         id: 3,
-        categoryTitle: "Model X",
+        categoryTitlEen: "Model X",
+        categoryTitlEtr: "Model X",
         image: modelX,
         url: "/shop/Vehicle Accessories/Model X",
       },
       {
         id: 4,
-        categoryTitle: "Model Y",
+        categoryTitlEen: "Model Y",
+        categoryTitlEtr: "Model Y",
         image: modelY,
         url: "/shop/Vehicle Accessories/Model Y",
       },
@@ -77,8 +86,9 @@ const dropMobileMenuDb = [
   },
   {
     id: 3,
-    category: "Apparel",
-    produstsUrl: "",
+    categorYen: "Apparel",
+    categorYtr: "Giyim",
+    produstsUrl: "/shop/Vehicle Accessories/products",
     items: [
       {
         id: 1,
@@ -102,42 +112,49 @@ const dropMobileMenuDb = [
   },
   {
     id: 4,
-    category: "LifeStyle",
-    produstsUrl: "",
+    categorYen: "Lifestyle",
+    categorYtr: "Yaşam Tarzı",
+    produstsUrl: "/shop/Vehicle Accessories/products",
     items: [
       {
         id: 1,
-        categoryTitle: "Best Sellers",
+        categoryTitlEen: "Best Sellers",
+        categoryTitlEtr: "En Çok Satanlar",
         image: bestSellers,
         url: "",
       },
       {
         id: 2,
-        categoryTitle: "Bags",
+        categoryTitlEen: "Bags",
+        categoryTitlEtr: "Çantalar",
         image: bags,
         url: "",
       },
       {
         id: 3,
-        categoryTitle: "DrinkWare",
+        categoryTitlEen: "DrinkWare",
+        categoryTitlEtr: "İçki Ürünleri",
         image: drinkWare,
         url: "",
       },
       {
         id: 4,
-        categoryTitle: "Mini Teslas",
+        categoryTitlEen: "Mini Teslas",
+        categoryTitlEtr: "Mini Teslas",
         image: miniteslas,
         url: "",
       },
       {
         id: 5,
-        categoryTitle: "OutDoor & Tech",
+        categoryTitlEen: "Tech",
+        categoryTitlEtr: "Teknoloji",
         image: outDoor,
         url: "",
       },
       {
         id: 6,
-        categoryTitle: "Gift Card",
+        categoryTitlEen: "Gift Card",
+        categoryTitlEtr: "Hediye Kartı",
         image: giftCart,
         url: "",
       },
@@ -145,29 +162,21 @@ const dropMobileMenuDb = [
   },
   {
     id: 5,
-    category: "Language",
+    categorYen: "Language",
+    categorYtr: "Dil",
     items: [
       {
         id: 1,
         country: "United States",
         language: "English",
+        lng: "en",
       },
       {
         id: 2,
-        country: "United States",
-        language: "English",
+        country: "Turkey",
+        language: "Turkey",
+        lng: "tr",
       },
-      {
-        id: 3,
-        country: "United States",
-        language: "English",
-      },
-      {
-        id: 4,
-        country: "United States",
-        language: "English",
-      },
-  
     ],
   },
 ];

@@ -1,0 +1,47 @@
+.thanks {
+  .row {
+    min-height: 87vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .info {
+      .title {
+        font-size: 50px;
+      }
+      .btn {
+        @include btn(
+          283px,
+          #171a20,
+          #fff,
+          10px 24px,
+          24px auto,
+          #171a20,
+          #fff,
+          #171a20,
+          #171a20
+        );
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .thanks {
+    .row {
+      min-height: 87vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      .info {
+        padding: 0 10px;
+        .title {
+          font-size: 35px;
+        }
+        .btn {
+          min-width: auto;
+          width: 90%;
+        }
+      }
+    }
+  }
+}

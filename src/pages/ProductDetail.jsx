@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 /* --------------------------------- Router --------------------------------- */
-import { Link, useLocation, useParams } from "react-router-dom";
+import {  useLocation, useParams } from "react-router-dom";
 
 /* ----------------------------- React Hook Form && Yup ---------------------------- */
 import { useForm } from "react-hook-form";
@@ -20,8 +20,12 @@ import generalDb from "../db/generalDb";
 
 /* ------------------------------- Components ------------------------------- */
 import Btn from "../components/Btn";
+
 /* --------------------------------- Context -------------------------------- */
 import { ShopContext } from "../utils/ShopContext";
+
+/* -------------------------------- Language -------------------------------- */
+import { useTranslation } from "react-i18next";
 
 const ProductDetail = () => {
   /* ------------------------------- Loacl State ------------------------------ */
@@ -37,6 +41,10 @@ const ProductDetail = () => {
 
   /* --------------------------------- Router --------------------------------- */
   const { pathname } = useLocation();
+
+  /* -------------------------------- Language -------------------------------- */
+  const { t, i18n } = useTranslation();
+
   /* ---------------------- Reset  Scroll Position --------------------- */
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,16 +56,27 @@ const ProductDetail = () => {
       const foundCategory = generalDb.find(
         (item) => item.category === categoryName
       );
-      const foundItem = foundCategory.items.find(
-        (item) => item.categoryTitle === categoryTitleName
-      );
+      const foundItem = foundCategory.items.find((item) => {
+        if (item.categoryTitle) {
+          return item.categoryTitle === categoryTitleName;
+        } else {
+          if (
+            categoryTitleName === "Best Seller" ||
+            categoryTitleName === "Recommended Products"
+          ) {
+            return item.categoryTitlEen === categoryTitleName;
+          } else {
+            return item.categoryTitlEtr === categoryTitleName;
+          }
+        }
+      });
       const foundProduct = foundItem.products.find(
         (product) => product.id === Number(productId)
       );
       setSelectedProduct({ ...foundProduct, categoryTitleName, quantify: 1 });
     };
     getProduct();
-  }, [categoryName, categoryTitleName, productId]);
+  }, [categoryName, categoryTitleName, i18n.language, productId]);
 
   /* ----------------------------- React Hook Form ---------------------------- */
   const { register, setValue } = useForm({});
@@ -118,7 +137,10 @@ const ProductDetail = () => {
                 >
                   {selectedProduct.images.map((item) => (
                     <SwiperSlide key={item.id}>
-                      <img src={item.productImg} alt={selectedProduct.title} />
+                      <img
+                        src={item.productImg}
+                        alt={selectedProduct[`titlE${i18n.language}`]}
+                      />
                     </SwiperSlide>
                   ))}
                 </Swiper>
@@ -133,20 +155,21 @@ const ProductDetail = () => {
                 >
                   {selectedProduct.images.map((item) => (
                     <SwiperSlide key={item.id}>
-                      <img src={item.productImg} alt={selectedProduct.title} />
+                      <img
+                        src={item.productImg}
+                        alt={selectedProduct[`titlE${i18n.language}`]}
+                      />
                     </SwiperSlide>
                   ))}
                 </Swiper>
               </div>
               <div className="product-info">
-                <h2 className="product-title">{selectedProduct.title}</h2>
+                <h2 className="product-title">
+                  {selectedProduct[`titlE${i18n.language}`]}
+                </h2>
                 <div className="primary-info">
                   <span className="price">${selectedProduct.price}</span>
-                  <p className="login-info">
-                    See if this accessory is compatible with a car in your Tesla
-                    Account <Link>Sign In</Link>
-                  </p>
-                  <h6 className="quantify-title">Quantity</h6>
+                  <h6 className="quantify-title">{t("product.quantify")}</h6>
                   <div className="quantify">
                     <button className="btn-quantify" onClick={decrementProduct}>
                       -
@@ -168,25 +191,27 @@ const ProductDetail = () => {
                     </button>
                   </div>
                   <p className={error ? "error  isShown" : "error"}>
-                    Only Number
+                    {t("product-detail.inp-err")}
                   </p>
                   <Btn
-                    text={"Add To Cart"}
+                    text={t("btn.add-to-cart")}
                     link={"#"}
                     onClick={() => addToCart(selectedProduct)}
                     disabled={error}
                   />
                 </div>
                 <div className="secondary-info">
-                  <h4 className="title">Description</h4>
-                  <p className="text">{selectedProduct.detail}</p>
+                  <h4 className="title"> {t("product-detail.description")}</h4>
+                  <p className="text">
+                    {selectedProduct[`detail${i18n.language}`]}
+                  </p>
                 </div>
               </div>
             </div>
           )}
         </div>
       </section>
-      <ProductSlider title={"Recommended Products"} />
+      <ProductSlider title={t("product-slider.recomend")} />
     </main>
   );
 };

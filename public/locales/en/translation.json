@@ -1,0 +1,92 @@
+{
+  "header": {
+    "shop-faq": "Shop FAQ",
+    "login": "Sign In",
+    "logout": "Sing out",
+    "cart-box-empty": "Cart Is Empty",
+    "cart-box-head-title": "Products",
+    "cart-footer-title": "Subtotal",
+    "cart-footer-text": "Excludes Sales tax",
+    "cart-box-back": "Back",
+    "menu": "Menu",
+    "lng": "Language"
+  },
+  "footer": {
+    "item-first": "Tesla © 2023",
+    "item-second": "Privacy & Legal",
+    "item-third": "Locations",
+    "item-four": "Recalls"
+  },
+  "product": {
+    "quantify": "Quantify"
+  },
+  "shopCart": {
+    "product-detail-link": "View Details"
+  },
+  "api-shop": {
+    "product-detail-link": "Charging",
+    "category-title": "On The Road"
+  },
+  "thankShop": {
+    "title": "Thanks For Shopping"
+  },
+  "form": {
+    "register-title": "Create Account",
+    "login-title": "Sign In",
+    "step": "step",
+    "change": "Change",
+    "name": "Name",
+    "surname": "Surname",
+    "email": "Email",
+    "login-email": "Email Address ",
+    "password": "Password",
+    "repassword": "Confirm Password",
+    "same-pass-err": "Password is not same",
+    "login-err": " The password or email is incorrect",
+    "privacy-first-text": " By clicking 'Next', I understand and agree to Tesla's",
+    "privacy-second-text": " for creating a Tesla Account and I authorize Tesla to contact me for account management purposes via the contact information I provide. I understand calls or texts may use automatic or computer-assisted dialing or pre-recorded messages. Normal message and data rates apply.",
+    "privacy-first-link": "Privacy Notice",
+    "privacy-second-link": "Terms of Use",
+    "and": "and",
+    "fotget-password": "Forgot password"
+  },
+  "product-detail": {
+    "login-text": "See if this accessory is compatible with a car in your Tesla Account",
+    "inp-err": " Only Number",
+    "description": "Description"
+  },
+  "not-found": {
+    "error-code": "404",
+    "title": " Whoops! Sorry about that.",
+    "text": "  Join Starman back at the",
+    "text-link": "Home Page"
+  },
+  "cart-products": {
+    "cart-title":"Cart",
+    "last-check-title": "Order Summary",
+    "text-first": "Shipping",
+    "text-second": "Free",
+    "total-title": "Subtotal"
+  },
+  "btn": {
+    "view-all": "View All",
+    "remove-all-data": "Remove All Data",
+    "add-to-cart": "Add To Cart",
+    "remove": "Remove",
+    "shop-now": "Shop Now",
+    "checkout": "Checkout",
+    "create-account": "Create Account",
+    "continue": "Continue",
+    "sign-in": "Sign in",
+    "home-page": "Home Page"
+  },
+  "alert": {
+    "confirm": "Yes, Remove",
+    "text": "Remove Item",
+    "info": "Are you sure you want to remove All Product from your cart?"
+  },
+  "product-slider": {
+    "recomend": "Recommended Products",
+    "best": "Best Seller"
+  }
+}
